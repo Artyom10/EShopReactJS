@@ -1,0 +1,150 @@
+body {
+   /* background-color: #151320; */
+}
+
+
+.logo {
+    font-family: 'Trispace', sans-serif;
+    font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  /*color: aquamarine;*/
+  color: black;
+}
+
+.logo span {
+    /*color: blueviolet;*/
+    color: rebeccapurple;
+}
+
+.action-button_log {
+    font-family: 'Trispace', sans-serif;
+    background-color: slategrey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.action-button_sign {
+    font-family: 'Trispace', sans-serif;
+    background-color: powderblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.action-button_log:hover {
+    background-color: turquoise;
+}
+
+.action-button_sign:hover {
+    background-color: turquoise;
+}
+
+
+.nav-btn {
+    font-family: 'Trispace', sans-serif;
+  margin-right: 3px;
+  border-radius: 30px;
+ background-color: #D4F5FF;
+}
+
+
+/*CARUSEL*/
+
+.slider {
+    margin-top: 0px;
+}
+
+.carusel-description {
+    font-family: 'Trispace', sans-serif;
+
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+/*Brand introduction */
+
+.show-brands-modal {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    align-items: right;
+}
+
+.brand-introduction {
+    text-align: center;
+    font-family: 'Trispace', sans-serif;
+}
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 3s ease;
+}
+
+.inner:hover img {
+    transform: scale(1.2);
+}
+
+
+
+/*Modal Login / Sign up*/
+.login-container {
+  height: 420px;
+  width: 340px;
+}
+
+.login-form {
+    max-width: 100%;
+    width: 370px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-control {
+    font-size: 15px;
+    min-height: 48px;
+    font-weight: 500;
+}
+
+.form-control:focus {
+    border-color: gold;
+    /*box-shadow: 0 0 0 0 0.2rem rgba(114,61,190,.25);*/
+}
+
+.emergency {
+    font-size: 13px;
+}
+
+.emergency label {
+    margin-bottom: 0;
+}
+
+.login-form a {
+   text-decoration: none;
+   color:gray;
+}
+
+.login-form a:hover {
+    color: gold;
+}
