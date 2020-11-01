@@ -1,5 +1,6 @@
 body {
    /* background-color: #151320; */
+  /* font-family: 'Trispace', sans-serif; */
 }
 
 
@@ -77,6 +78,54 @@ body {
 
 /*Brand introduction */
 
+/* appear */
+.container-brand-card .card{
+    margin-top: 10%;
+}
+
+.container-brand-card .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.container-brand-card .card::before{
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 220%;
+    background: rgba(235,53,131,0.7);
+    top: -50%;
+    left: -100%;
+    z-index: 1;
+    transform: rotate(25deg);
+    transform-origin: center top 0;
+    transition: .5s;
+}
+
+.container-brand-card .card:hover::before {
+    left: 10%;
+}
+
+.container-brand-card .card img {
+    width: 100%;
+    height: auto;
+}
+
+.container-brand-card .card .card-title {
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: -100%;
+    color: white;
+    left: 0;
+    z-index: 2;
+    transition: 1.1s ;
+}
+
+.container-brand-card .card:hover .card-title {
+    top: 80px;
+}
+/*appear end*/
 .show-brands-modal {
     background-color: blue;
     border: none;
@@ -103,7 +152,7 @@ body {
 }
 
 .inner:hover img {
-    transform: scale(1.2);
+    transform: scale(1.5);
 }
 
 
@@ -147,4 +196,43 @@ body {
 
 .login-form a:hover {
     color: gold;
+}
+
+/*For grid card system, show all*/
+
+
+.container-all-product .col {
+    flex:0 0 25%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+}
+
+.container-all-product .btn {
+    display: block;
+}
+
+.product-identificator {
+    color: gray;
+}
+
+.price-card {
+    font-family: 'Trispace', sans-serif;
+}
+
+.available-sizes {
+    width: 100%;
+}
+
+
+
+.available-sizes span {
+    font-size:  12px;
+    position: relative;
+   opacity: 0;
+    transition: all .25s;
+}
+
+.product-card:hover .available-sizes span {
+    opacity: 1;
 }
