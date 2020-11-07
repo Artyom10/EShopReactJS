@@ -1,269 +1,276 @@
 body {
-   /* background-color: #151320; */
   /* font-family: 'Trispace', sans-serif; */
 }
 
-
 .logo {
-    font-family: 'Trispace', sans-serif;
-    font-size: 40px;
+  font-family: "Trispace", sans-serif;
+  font-size: 40px;
   font-weight: 900;
   line-height: 1;
-  /*color: aquamarine;*/
   color: black;
 }
 
 .logo span {
-    /*color: blueviolet;*/
-    color: rebeccapurple;
+  color: rebeccapurple;
 }
 
 .action-button_log {
-    font-family: 'Trispace', sans-serif;
-    background-color: slategrey;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 3px;
+  font-family: "Trispace", sans-serif;
+  background-color: slategrey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3px;
 }
 
 .action-button_sign {
-    font-family: 'Trispace', sans-serif;
-    background-color: powderblue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 3px;
-    margin-left: 5px;
+  font-family: "Trispace", sans-serif;
+  background-color: powderblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.add-bag-button {
+  font-size: 16px;
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 5px;
 }
 
 .action-button_log:hover {
-    background-color: turquoise;
+  background-color: turquoise;
 }
 
 .action-button_sign:hover {
-    background-color: turquoise;
+  background-color: turquoise;
 }
-
 
 .nav-btn {
-    font-family: 'Trispace', sans-serif;
+  font-family: "Trispace", sans-serif;
   margin-right: 3px;
   border-radius: 30px;
- background-color: #D4F5FF;
+  background-color: #d4f5ff;
 }
-
 
 /*CARUSEL*/
 
 .slider {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .carusel-description {
-    font-family: 'Trispace', sans-serif;
+  font-family: "Trispace", sans-serif;
 
-    font-weight: bold;
-    font-size: 22px;
+  font-weight: bold;
+  font-size: 22px;
 }
 
-
 /*Brand introduction */
-
 /* appear */
-.container-brand-card .card{
-    margin-top: 10%;
+.container-brand-card .card {
+  margin-top: 10%;
 }
 
 .container-brand-card .card {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
-.container-brand-card .card::before{
-    position: absolute;
-    content: '';
-    width: 80%;
-    height: 220%;
-    background: rgba(235,53,131,0.7);
-    top: -50%;
-    left: -100%;
-    z-index: 1;
-    transform: rotate(25deg);
-    transform-origin: center top 0;
-    transition: .5s;
+.container-brand-card .card::before {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 220%;
+  background: rgba(235, 53, 131, 0.7);
+  top: -50%;
+  left: -100%;
+  z-index: 1;
+  transform: rotate(25deg);
+  transform-origin: center top 0;
+  transition: 0.5s;
 }
 
 .container-brand-card .card:hover::before {
-    left: 10%;
+  left: 10%;
 }
 
 .container-brand-card .card img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .container-brand-card .card .card-title {
-    width: 100%;
-    padding: 0 20px;
-    position: absolute;
-    top: -100%;
-    color: white;
-    left: 0;
-    z-index: 2;
-    transition: 1.1s ;
+  width: 100%;
+  padding: 0 20px;
+  position: absolute;
+  top: -100%;
+  color: white;
+  left: 0;
+  z-index: 2;
+  transition: 1.1s;
 }
 
 .container-brand-card .card:hover .card-title {
-    top: 80px;
+  top: 80px;
 }
 /*appear end*/
 .show-brands-modal {
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    align-items: right;
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  align-items: right;
 }
 
 .brand-introduction {
-    text-align: center;
-    font-family: 'Trispace', sans-serif;
+  text-align: center;
+  font-family: "Trispace", sans-serif;
 }
 
-.inner {
-    overflow: hidden;
+.login-container .container-signup {
+  height: 520px;
+  width: 340px;
 }
 
-.inner img {
-    transition: all 3s ease;
-}
-
-.inner:hover img {
-    transform: scale(1.5);
-}
-
-
-
-/*Modal Login / Sign up*/
-.login-container {
+.login-container .container-login {
   height: 420px;
   width: 340px;
 }
 
 .login-form {
-    max-width: 100%;
-    width: 370px;
-    padding: 15px;
-    margin: auto;
+  max-width: 100%;
+  width: 370px;
+  padding: 15px;
+  margin: auto;
 }
 
 .form-control {
-    font-size: 15px;
-    min-height: 48px;
-    font-weight: 500;
+  font-size: 15px;
+  min-height: 48px;
+  font-weight: 500;
 }
 
 .form-control:focus {
-    border-color: gold;
-    /*box-shadow: 0 0 0 0 0.2rem rgba(114,61,190,.25);*/
+  border-color: gold;
 }
 
 .emergency {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .emergency label {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .login-form a {
-   text-decoration: none;
-   color:gray;
+  text-decoration: none;
+  color: gray;
 }
 
 .login-form a:hover {
-    color: gold;
+  color: gold;
+}
+
+/* guid style*/
+.show-picture {
+  display: flex;
+}
+
+.choose-style-introduction {
+  text-align: center;
+  font-family: "Trispace", sans-serif;
+  margin-top: 20px;
+}
+
+.choose-style-description {
+  font-family: "Trispace", sans-serif;
+  text-align: center;
 }
 
 /*For grid card system, show all*/
 
-
 .container-all-product .col {
-    flex:0 0 25%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-
+  flex: 0 0 25%;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .container-all-product .btn {
-    display: block;
+  display: block;
 }
 
 .product-identificator {
-    color: gray;
+  color: gray;
 }
 
 .price-card {
-    font-family: 'Trispace', sans-serif;
+  font-family: "Trispace", sans-serif;
 }
 
 .available-sizes {
-    width: 100%;
+  width: 100%;
 }
 
-
-
 .available-sizes span {
-    font-size:  12px;
-    position: relative;
-   opacity: 0;
-    transition: all .25s;
+  font-size: 12px;
+  position: relative;
+  opacity: 0;
+  transition: all 0.25s;
 }
 
 .product-card:hover .available-sizes span {
-    opacity: 1;
+  opacity: 1;
 }
 
+.inner {
+  overflow: hidden;
+}
 
+.inner img {
+  transition: all 3s ease;
+}
 
+.inner:hover img {
+  transform: scale(1.5);
+}
 
 /* footer*/
 
 .footer {
-    width: 100%;
-    height: 114px;
-    background-color: #232323;
-    color: #ffffff;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    font-size: 16px;
-    line-height: 2;
-    font-weight: 500;
-  
-  }
-  
-  .footer::before {
-      content: '';
-      display: table;
-  
-  }
-  .footer a {
-    color: #fada5a ;
-    text-decoration: none;
-  }
+  width: 100%;
+  height: 114px;
+  background-color: #232323;
+  color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 500;
+}
+
+.footer::before {
+  content: "";
+  display: table;
+}
+.footer a {
+  color: #fada5a;
+  text-decoration: none;
+}
