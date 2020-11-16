@@ -1,57 +1,56 @@
 body {
-    font-family: 'Trispace', sans-serif;
+  font-family: "Trispace", sans-serif;
 }
 
 .container .col {
-    flex: 1 0 50%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
+  flex: 1 0 50%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 
 .general-button {
-    color: #fff !important;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-    margin-bottom: 15px;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  margin-bottom: 15px;
 }
 
 .edit-button {
-    background: #2796FF;
+  background: #2796ff;
 }
 
 .delete-button {
-    background: #ed3330;
+  background: #ed3330;
 }
 
 .add-button {
- background: purple;
- margin-bottom: 0;
- padding: 10px;
+  background: purple;
+  margin-bottom: 0;
+  padding: 10px;
 }
 
 .add-button-modal {
-    background: purple;
-    padding: 5px;
-    margin-bottom: 0;
+  background: purple;
+  padding: 5px;
+  margin-bottom: 0;
 }
 
-.delete-button:hover, .edit-button:hover, .add-button:hover, .add-button-modal:hover {
-    background: #434343;
-    letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.4s ease 0s;
+.delete-button:hover,
+.edit-button:hover,
+.add-button:hover,
+.add-button-modal:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
 }
-
 
 .card-img {
-    padding-top: 5px;
+  padding-top: 5px;
 }
-
-

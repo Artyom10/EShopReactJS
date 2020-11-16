@@ -95,7 +95,7 @@
       <div class="row justify-content-center">
           <div class="col-md-6">
             <button class="btn update-button btn-block">Update</button>
-            <button class="btn delete-button btn-block" data-toggle="modal" data-target="#notice">Delete request</button>
+            <button class="btn  general-button delete-button btn-block" data-toggle="modal" data-target="#notice">Delete request</button>
           </div>
       </div>
     </div>
@@ -105,16 +105,11 @@
     <div class="modal fade" id="notice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
             <h5 class="modal-title">Are you sure you want to delete your account?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
           <small>After your request administrator should check your status and delete account</small>
           <div class="modal-footer">
-            <button type="button" class="btn btn-info btn-block" data-dismiss="modal">No</button>
-            <button type="button" class="btn delete-button btn-block">Delete</button>
+            <button type="button" class="btn general-button cancel-button" data-dismiss="modal">No</button>
+            <button type="button" class="btn general-button delete-button">Delete</button>
           </div>
         </div>
       </div>

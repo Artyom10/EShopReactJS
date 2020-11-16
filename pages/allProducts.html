@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Trispace&display=swap"
       rel="stylesheet"
     />
-    <title>Hello, world!</title>
+    <title>Products</title>
   </head>
   <body>
     <nav
@@ -75,34 +75,44 @@
   </div>
     <div class="container">
       <div class="row">
+        
         <div class="col d-md-flex">
-          <div class="card mb-3 " style="max-width: 540px">
+          <div class="card mb-3" style="max-width: 540px">
             <div class="row no-gutters justify-content-center">
               <div class="col-md-6">
                 <div class="container-for-img"></div>
-                <img src="/img/fs2.jpg" class="card-img" alt="..." />
+                <img src="/img/fs1.jpg" class="card-img" alt="..." />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">Main information</h5>
                   <ul class="list-group">
-                    <li class="list-group-item">Price: 100$</li>
-                    <li class="list-group-item">
-                      Producer/type:Carhartt : jacket
-                    </li>
-                    <li class="list-group-item">Sizes:XS,S,M,L</li>
-                    <li class="list-group-item">Description:</li>
-                    <li class="list-group-item">Tags: #carhartt, #jacket</li>
-                    <li class="list-group-item">
-                      <div class="row justify-content-center">
-                        <div class="col">
-                          <button class="btn general-button edit-button">Edit product</button>
-                        </div>
-                        <div class="col">
-                          <button class="btn general-button delete-button">Delete product</button>
-                        </div>
+                    <form>
+                      <div class="form-group">
+                        <label for="price">Price</label>
+                        <input class="form-control" type="text" id="price" value="50$">
+                        <label for="producer">Producer</label>
+                        <input type="text" class="form-control" id="producer" value="Mango">
+                        <label for="type">Type</label>
+                        <input type="text" class="form-control" id="type" value="Jacket">
+                        <label for="sizes">Sizes</label>
+                        <input class="form-control" type="text" id="sizes" value="XS,S,M,L">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" value="#mango, #jacket, #streetware">
                       </div>
-                      </li>
+                    <li class="list-group-item">
+                    <div class="row justify-content-center">
+                      <div class="col">
+                        <button class="btn general-button edit-button">Edit product</button>
+                      </div>
+                      <div class="col">
+                        <button class="btn general-button delete-button">Delete product</button>
+                      </div>
+                    </div>
+                  </li>
+                </form>
                   </ul>
                 </div>
               </div>
@@ -130,7 +140,51 @@
                         <label for="type">Type</label>
                         <input type="text" class="form-control" id="type" value="Jacket">
                         <label for="sizes">Sizes</label>
-                        <input class="form-control" type="text" id="sizes" value="Enter sizes(use ',')">
+                        <input class="form-control" type="text" id="sizes" value="XS,S,M,L">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                        <label for="tags">Tags</label>
+                        <input type="text" class="form-control" id="tags" value="#mango, #jacket, #streetware">
+                      </div>
+                  </form>
+                    <li class="list-group-item">
+                    <div class="row justify-content-center">
+                      <div class="col">
+                        <button class="btn general-button edit-button">Edit product</button>
+                      </div>
+                      <div class="col">
+                        <button class="btn general-button delete-button">Delete product</button>
+                      </div>
+                    </div>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col d-md-flex">
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row no-gutters justify-content-center">
+              <div class="col-md-6">
+                <div class="container-for-img"></div>
+                <img src="/img/fs1.jpg" class="card-img" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Main information</h5>
+                  <ul class="list-group">
+                    <form>
+                      <div class="form-group">
+                        <label for="price">Price</label>
+                        <input class="form-control" type="text" id="price" value="50$">
+                        <label for="producer">Producer</label>
+                        <input type="text" class="form-control" id="producer" value="Mango">
+                        <label for="type">Type</label>
+                        <input type="text" class="form-control" id="type" value="Jacket">
+                        <label for="sizes">Sizes</label>
+                        <input class="form-control" type="text" id="sizes" value="XS,S,M,L">
                         <label for="description">Description</label>
                         <textarea class="form-control" id="description" rows="3"></textarea>
                         <label for="tags">Tags</label>

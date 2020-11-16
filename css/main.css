@@ -1,11 +1,10 @@
-body {
-  /* font-family: 'Trispace', sans-serif; */
+.my-navbar {
+  font-family: "Trispace", sans-serif;
 }
 
-
 .logo {
-  font-family: "Trispace", sans-serif;
-  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 50px;
   font-weight: 900;
   line-height: 1;
   color: black;
@@ -43,10 +42,12 @@ body {
 }
 
 .add-bag-button {
-  font-size: 16px;
-  background-color: lightseagreen;
-  color: white;
-  border-radius: 5px;
+  background-color: #2796ff;
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
+  letter-spacing: 0.2px;
+  color: #fff;
+  padding: 10px;
 }
 
 .action-button_log:hover {
@@ -274,4 +275,30 @@ body {
 .footer a {
   color: #fada5a;
   text-decoration: none;
+}
+
+/*Modal for all information about Product*/
+
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.rating-item {
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.rating-item:hover,
+.rating-item:hover ~ .rating-item {
+  color: #2796ff;
+}
+
+.rating[data-total-value="1"] .rating-item:nth-child(n + 5),
+.rating[data-total-value="2"] .rating-item:nth-child(n + 4),
+.rating[data-total-value="3"] .rating-item:nth-child(n + 3),
+.rating[data-total-value="4"] .rating-item:nth-child(n + 2),
+.rating[data-total-value="5"] .rating-item:nth-child(n + 1) {
+  color: #2796ff;
 }
