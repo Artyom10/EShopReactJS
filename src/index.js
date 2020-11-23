@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import AdminProducts from './AdminProducts';
-import AdminClients from './AdminClients';
-import ClientBag from './ClientBag';
-import ClientProfile from './ClientProfile';
+import AdminProducts from './Pages/AdminProducts';
+import AdminClients from './Pages/AdminClients';
+import ClientBag from './Pages/ClientBag';
+import ClientProfile from './Pages/ClientProfile'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
