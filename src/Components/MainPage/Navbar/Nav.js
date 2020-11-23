@@ -1,7 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
+import NavAdminPanel from './NavAdminPanel/NavAdminPanel';
+import NavClientPanel from './NavClientPanel/NavClientPanel';
+import NavStartPanel from './NavStartPanel/NavStartPanel'
+//const panel = this.state.isClient && <NavClientPanel /> || <NavAdminPanel />
 
-function Nav() {
-  return (
+function ChoosePanel(props){
+  const isPanel = props.who;
+
+  if(isPanel === 'guest'){
+    return <NavStartPanel />
+  }
+  else if(isPanel === 'client'){
+    return <NavClientPanel />
+  }
+  else if(isPanel === 'admin'){
+    return <NavAdminPanel />
+  }
+}
+
+
+class Nav extends Component {
+    constructor(props){
+      super(props)
+
+      this.state = {
+        isWho: 'client'
+      }
+    }
+
+
+  render() {
+     
+       return (
     <nav className="navbar my-navbar navbar-expand-lg navbar-light">
        <div className="container">
           <a className="navbar-brand" href="#"><div className="logo"><span>E</span>Shop</div></a>
@@ -14,15 +44,14 @@ function Nav() {
             <a className="nav-link" href="/pages/index.html">Main page</a>
           </li>
         </ul>
-        
-        <form className="form-inline my-2 my-lg-0">
-          <button className="btn action-button_log" type="button" data-toggle="modal" data-target="#logIn">Log In</button>
-          <button className="btn action-button_sign" type="button" data-toggle="modal" data-target="#signUp">Sign Up</button>
-        </form>
+         <ChoosePanel who={this.state.isWho} />
       </div>
        </div>
     </nav>
-  );
+       )
+  }
 }
+
+
 
 export default Nav;
