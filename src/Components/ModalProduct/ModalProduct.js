@@ -14,7 +14,6 @@ function ModalProduct(props) {
   return ( 
     <div className="modal fade" id="seeMore" tabindex="-1"  style={modalStyleProduct.modalStyle} aria-hidden="true">
   <div className="modal-dialog modal-xl">
-    <div className="modal-content">
       <div className="modal-body">
         <div className="card mb-3 ">
           <div className="row no-gutters justify-content-center">
@@ -60,7 +59,6 @@ function ModalProduct(props) {
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
   );

@@ -6,6 +6,7 @@ import StyleCard from './StyleCard/StyleCard';
 function StyleExamples(props) {
     return (
         <div className="container">
+               <h3 className="choose-style-introduction">Choose your style</h3>
             <div className="row">
                 {props.guidStyle.map(style => {
                     return <StyleCard styleType={style} />
