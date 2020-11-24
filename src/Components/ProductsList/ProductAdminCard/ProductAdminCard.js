@@ -14,12 +14,13 @@ const stylesForAdminCard = {
 
 function ProductAdminCard(props) {
     const {product} = props; 
+    const {urlPhoto, price, producer, type, sizes, description, tags} = product;
   return (
     <div className="col d-md-flex" style={stylesForAdminCard.colInContainer}>
     <div className="card mb-3" style={stylesForAdminCard.cardStyle}>
       <div className="row no-gutters justify-content-center">
         <div className="col-md-6">
-          <img src={product.urlPhoto} className="card-img" alt={product.type} />
+          <img src={urlPhoto} className="card-img" alt={type} />
         </div>
         <div className="col-md-8">
           <div className="card-body">
@@ -28,17 +29,17 @@ function ProductAdminCard(props) {
               <form>
                 <div className="form-group">
                   <label for="price">Price</label>
-                  <input className="form-control" type="text" id="price" value={product.price} />
+                  <input className="form-control" type="text" id="price" value={price} />
                   <label for="producer">Producer</label>
-                  <input type="text" className="form-control" id="producer" value={product.producer} />
+                  <input type="text" className="form-control" id="producer" value={producer} />
                   <label for="type">Type</label>
-                  <input type="text" className="form-control" id="type" value={product.type} />
+                  <input type="text" className="form-control" id="type" value={type} />
                   <label for="sizes">Sizes</label>
-                  <input className="form-control" type="text" id="sizes" value={product.sizes} />
+                  <input className="form-control" type="text" id="sizes" value={sizes} />
                   <label for="description">Description</label>
-                  <textarea className="form-control" id="description" rows="3">{product.description}</textarea>
+                  <textarea className="form-control" id="description" rows="3">{description}</textarea>
                   <label for="tags">Tags</label>
-                  <input type="text" className="form-control" id="tags" value={product.tags} />
+                  <input type="text" className="form-control" id="tags" value={tags} />
                 </div>
             </form>
               <li className="list-group-item">

@@ -6,12 +6,14 @@ import ProductsList from '../Components/ProductsList/ProductsList';
 import Footer from '../Components/Footer/Footer';
 import '../StylesForPages/AdminProducts.css';
 
+import products from '../Components/Products/ProductsData';
+
 function App() {
   return (
     <div>
         <Nav></Nav>
         <AddProductButton></AddProductButton>
-        <ProductsList></ProductsList>
+        <ProductsList products={products}></ProductsList>
         <Footer></Footer>
     </div>
   );
