@@ -8,6 +8,8 @@ import StyleExamples from './Components/StyleExamples/StyleExamples';
 import Footer from './Components/Footer/Footer';
 import './App.css';
 
+import products from './Components/Products/ProductsData';
+
 const  App = () => {
   return (
     <div>
@@ -18,7 +20,7 @@ const  App = () => {
    <BrandIntroduction></BrandIntroduction>
    <h3 className="choose-style-introduction">Choose your style</h3>
    <StyleExamples></StyleExamples>
-   <ShowProducts></ShowProducts>
+   <ShowProducts products={products}></ShowProducts>
    <Footer />
    </div>
   );
