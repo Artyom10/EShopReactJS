@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import NavAdminPanel from './NavAdminPanel/NavAdminPanel';
 import NavClientPanel from './NavClientPanel/NavClientPanel';
-import NavStartPanel from './NavStartPanel/NavStartPanel'
+import NavStartPanel from './NavStartPanel/NavStartPanel';
+import ModalSign from './ModalSign/ModalSign';
+import ModalLog from './ModalLog/ModalLog';
 //const panel = this.state.isClient && <NavClientPanel /> || <NavAdminPanel />
 
 function ChoosePanel(props){
@@ -47,6 +49,8 @@ class Nav extends Component {
          <ChoosePanel who={this.state.isWho} />
       </div>
        </div>
+       <ModalLog />
+       <ModalSign />
     </nav>
        )
   }

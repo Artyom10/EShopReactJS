@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductRating from '../ProductRating/ProductRating';
+import ProductRating from './ProductRating/ProductRating';
 
 
 function ProductCard(props) {
