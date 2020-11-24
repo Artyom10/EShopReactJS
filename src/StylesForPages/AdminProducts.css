@@ -2,11 +2,6 @@ body {
     font-family: "Trispace", sans-serif;
   }
   
-  .container .col {
-    flex: 1 0 50%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
   
   .general-button {
     color: #fff !important;

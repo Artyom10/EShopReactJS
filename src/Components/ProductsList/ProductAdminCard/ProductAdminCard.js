@@ -3,13 +3,19 @@ import React from 'react';
 const stylesForAdminCard = {
     cardStyle: {
         maxWidth: '540px'
+    },
+
+    colInContainer: {
+        flex: '1 0 50%',
+        paddingTop: '12px',
+        paddingBottom: '12px'
     }
 }
 
 function ProductAdminCard(props) {
     const {product} = props; 
   return (
-    <div className="col d-md-flex">
+    <div className="col d-md-flex" style={stylesForAdminCard.colInContainer}>
     <div className="card mb-3" style={stylesForAdminCard.cardStyle}>
       <div className="row no-gutters justify-content-center">
         <div className="col-md-6">

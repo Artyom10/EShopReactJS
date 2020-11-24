@@ -1,8 +1,8 @@
 import logo from '../logo.svg';
 import React from 'react';
-import Nav from '../Components/MainPage/Navbar/Nav';
-import Bag from '../Components/MainPage/Bag/Bag';
-import Footer from '../Components/MainPage/Footer/Footer';
+import Nav from '../Components/Navbar/Nav';
+import Bag from '../Components/Bag/Bag';
+import Footer from '../Components/Footer/Footer';
 import '../StylesForPages/ClientBag.css';
 
 function ClientBag() {

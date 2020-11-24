@@ -1,11 +1,11 @@
 import logo from '../logo.svg';
 import React from 'react';
-import Nav from '../Components/MainPage/Navbar/Nav';
-import Profile from '../Components/MainPage/Profile/Profile';
-import Footer from '../Components/MainPage/Footer/Footer';
+import Nav from '../Components/Navbar/Nav';
+import Profile from '../Components/Profile/Profile';
+import Footer from '../Components/Footer/Footer';
 import '../StylesForPages/ClientProfile.css';
 
-import clients from '../Components/MainPage/Clients/ClientsData';
+import clients from '../Components/Clients/ClientsData';
 
 function ClientProfile() {
   return (

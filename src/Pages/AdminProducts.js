@@ -1,9 +1,9 @@
 import logo from '../logo.svg';
 import React from 'react';
-import Nav from '../Components/MainPage/Navbar/Nav';
-import AddProductButton from '../Components/MainPage/ProductsList/AddPoductButton/AddProductButton';
-import ProductsList from '../Components/MainPage/ProductsList/ProductsList';
-import Footer from '../Components/MainPage/Footer/Footer';
+import Nav from '../Components/Navbar/Nav';
+import AddProductButton from '../Components/ProductsList/AddPoductButton/AddProductButton';
+import ProductsList from '../Components/ProductsList/ProductsList';
+import Footer from '../Components/Footer/Footer';
 import '../StylesForPages/AdminProducts.css';
 
 function App() {

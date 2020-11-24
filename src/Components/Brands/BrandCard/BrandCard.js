@@ -8,7 +8,7 @@ function BrandCard(props) {
              
              <div className="card-body">
                <h5 className="card-title">{brand.title}</h5>
-               <p class="card-text"><button class="btn btn-dark btn-sm">See now</button></p>
+               <p className="card-text"><button className="btn btn-dark btn-sm">See now</button></p>
              </div>
            </div></div>
   );
