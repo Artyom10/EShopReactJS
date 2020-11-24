@@ -5,12 +5,14 @@ import Clients from '../Components/Clients/Clients';
 import Footer from '../Components/Footer/Footer';
 import '../StylesForPages/AdminClients.css';
 
+import clients from '../Components/Clients/ClientsData';
+
 function App() {
   return (
     <div>
-        <Nav></Nav>
-        <Clients></Clients>
-        <Footer></Footer>
+        <Nav />
+        <Clients  clients={clients}/>
+        <Footer />
     </div>
   );
 }

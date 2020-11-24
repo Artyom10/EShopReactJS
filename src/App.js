@@ -9,6 +9,7 @@ import Footer from './Components/Footer/Footer';
 import './App.css';
 
 import products from './Components/Products/ProductsData';
+import brands from './Components/Brands/BrandsData';
 
 const  App = () => {
   return (
@@ -17,13 +18,15 @@ const  App = () => {
    <Slider></Slider>
    <hr />
    <h1 className="brand-introduction">Most popular brands</h1>
-   <BrandIntroduction></BrandIntroduction>
+   <BrandIntroduction brands={brands} />
    <h3 className="choose-style-introduction">Choose your style</h3>
-   <StyleExamples></StyleExamples>
-   <ShowProducts products={products}></ShowProducts>
+   <StyleExamples />
+   <ShowProducts products={products} />
    <Footer />
    </div>
   );
 }
+
+
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductCard from "./ProductCard/ProductCard";
 //import products from "./ProductsData";
 /*
@@ -26,5 +27,10 @@ function ShowProducts(props) {
         </div>
     );
 }
+
+ShowProducts.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object)
+}
+
 
 export default ShowProducts;

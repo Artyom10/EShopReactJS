@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Person(props) {
   const {client} = props;
@@ -14,6 +15,15 @@ function Person(props) {
     <td><button className="btn delete-client-button">Delete</button></td>
   </tr>
   );
+}
+
+Person.propTypes = {
+  client: PropTypes.object.isRequired,
+  firstName: PropTypes.string,
+  secondName: PropTypes.string,
+  username: PropTypes.string,
+  mail: PropTypes.string,
+  request: PropTypes.string,
 }
 
 export default Person;

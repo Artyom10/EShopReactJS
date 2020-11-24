@@ -2,6 +2,13 @@ import React from 'react';
 import BagCard from './BagCard/BagCard';
 import BagPayment from './BagPayment/BagPayment';
 import BagBill from './BagBill/BagBill';
+
+/*
+ {props.arrOfProductsInBag.map(product => {
+            return <BagCard product={product}/>
+          })}
+*/
+
 import products from '../Products/ProductsData';
 
 

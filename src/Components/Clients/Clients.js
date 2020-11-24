@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
-import clients from './ClientsData';
 
-function Clients() {
+function Clients(props) {
     return (
      <div className="container">
          <table className="table client-table">
@@ -18,9 +18,9 @@ function Clients() {
           </tr>
          </thead>
          <tbody>
-             <Person client={clients[0]}></Person>
-             <Person client={clients[1]}></Person>
-             <Person client={clients[2]}></Person>
+             {props.clients.map(client => {
+               return <Person client={client} />
+             })}
          </tbody>
     </table>
     <div className="row justify-content-center">
@@ -30,6 +30,10 @@ function Clients() {
       </div>
      </div>
     );
+}
+
+Clients.propTypes = {
+  client: PropTypes.arrayOf(object).isRequired
 }
 
 export default Clients;

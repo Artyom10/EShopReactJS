@@ -3,7 +3,6 @@ import React from 'react';
 
 
 function BagBill(props) {
-
   return (
     <div className="container order-bag">
       <div className="row justify-content-center align-items-center">
