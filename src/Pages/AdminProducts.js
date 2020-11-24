@@ -11,10 +11,10 @@ import products from '../Components/Products/ProductsData';
 function App() {
   return (
     <div>
-        <Nav></Nav>
-        <AddProductButton></AddProductButton>
-        <ProductsList products={products}></ProductsList>
-        <Footer></Footer>
+        <Nav />
+        <AddProductButton />
+        <ProductsList products={products} />
+        <Footer />
     </div>
   );
 }

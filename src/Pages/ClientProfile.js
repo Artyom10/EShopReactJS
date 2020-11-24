@@ -10,9 +10,9 @@ import clients from '../Components/Clients/ClientsData';
 function ClientProfile() {
   return (
     <div>
-        <Nav></Nav>
+        <Nav />
         <Profile client={clients[2]}></Profile>
-        <Footer></Footer>
+        <Footer />
     </div>
   );
 }

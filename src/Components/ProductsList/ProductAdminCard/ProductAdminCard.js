@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const stylesForAdminCard = {
     cardStyle: {
@@ -59,6 +60,17 @@ function ProductAdminCard(props) {
     </div>
   </div>
   );
+}
+
+ProductAdminCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  urlPhoto: PropTypes.string,
+  price: PropTypes.string,
+  producer: PropTypes.string,
+  type: PropTypes.string,
+  sizes: PropTypes.string,
+  description: PropTypes.string,
+  tags: PropTypes.string
 }
 
 export default ProductAdminCard;

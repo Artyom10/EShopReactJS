@@ -10,6 +10,7 @@ import './App.css';
 
 import products from './Components/Products/ProductsData';
 import brands from './Components/Brands/BrandsData';
+import guidStyle from './Components/StyleExamples/StyleExampleData';
 
 const  App = () => {
   return (
@@ -20,7 +21,7 @@ const  App = () => {
    <h1 className="brand-introduction">Most popular brands</h1>
    <BrandIntroduction brands={brands} />
    <h3 className="choose-style-introduction">Choose your style</h3>
-   <StyleExamples />
+   <StyleExamples guidStyle={guidStyle} />
    <ShowProducts products={products} />
    <Footer />
    </div>

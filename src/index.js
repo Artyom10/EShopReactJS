@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AdminClients />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

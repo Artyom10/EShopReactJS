@@ -33,7 +33,7 @@ function Clients(props) {
 }
 
 Clients.propTypes = {
-  client: PropTypes.arrayOf(object).isRequired
+  client: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default Clients;

@@ -17,7 +17,7 @@ function BrandIntroduction(props) {
 }
 
 BrandIntroduction.propTypes = {
-  brands: PropTypes.arrayOf(object).isRequired
+  brands: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default BrandIntroduction;

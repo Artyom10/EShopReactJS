@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Profile(props) {
     const {client} = props;
@@ -55,6 +56,17 @@ function Profile(props) {
 
 function handleUpdateProfile(){
   console.log('click');
+}
+
+Profile.propTypes = {
+  client: PropTypes.object.isRequired,
+  id: PropTypes.number,
+  firstName: PropTypes.string,
+  secondName: PropTypes.string,
+  username: PropTypes.string,
+  mail: PropTypes.string,
+  urlPhoto: PropTypes.string,
+  password: PropTypes.string
 }
 
 export default Profile;

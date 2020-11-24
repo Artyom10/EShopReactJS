@@ -1,16 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductAdminCard from './ProductAdminCard/ProductAdminCard';
-//import products from '../Products/ProductsData';
-/*
-<ProductAdminCard product={products[0]}></ProductAdminCard>
-              <ProductAdminCard product={products[1]}></ProductAdminCard>
-              <ProductAdminCard product={products[2]}></ProductAdminCard>
-              <ProductAdminCard product={products[3]}></ProductAdminCard>
-              <ProductAdminCard product={products[4]}></ProductAdminCard>
-              <ProductAdminCard product={products[5]}></ProductAdminCard>
-              <ProductAdminCard product={products[6]}></ProductAdminCard>
-              <ProductAdminCard product={products[7]}></ProductAdminCard>
-*/
+
 
 
 function ProductList(props) {
@@ -23,6 +14,10 @@ function ProductList(props) {
           </div>
        </div>
     );
+}
+
+ProductList.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default ProductList;

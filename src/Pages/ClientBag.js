@@ -10,8 +10,8 @@ import '../StylesForPages/ClientBag.css';
 function ClientBag() {
   return (
     <div>
-        <Nav></Nav>
-        <Bag></Bag>
+        <Nav />
+        <Bag />
         <Footer />
     </div>
   );
