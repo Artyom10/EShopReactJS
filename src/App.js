@@ -9,8 +9,7 @@ import AdminClients from './Pages/AdminClients';
 import AdminProducts from './Pages/AdminProducts'; 
 
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
-
+import { BrowserRouter, Route, Router } from 'react-router-dom';
 
 
 const  App = (props) => {
@@ -18,11 +17,16 @@ const  App = (props) => {
     <BrowserRouter>
      <div>
        <Nav></Nav>
-       <Route path="/main" component={MainPage}/>
-       <Route path="/profile" component={ClientProfile}/>
-       <Route path="/bag" component={ClientBag}/>
-       <Route path="/clients" component={AdminClients}/>
-       <Route path="/products" component={AdminProducts}/>
+       <Route path="/main" 
+       render={ () => <MainPage products={props.state.mainPage.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />} />
+       <Route path="/profile" 
+       render={ () => <ClientProfile />} />
+       <Route path="/bag" 
+       render={ () => <ClientBag bags={props.state.bagPage.bags} />} />
+       <Route path="/clients" 
+       render={ () => <AdminClients clients={props.state.clientsPage.clients}/>} />
+       <Route path="/products" 
+       render={ () => <AdminProducts products={props.state.mainPage.products} />} />
        <Footer></Footer>
      </div>
     </BrowserRouter>

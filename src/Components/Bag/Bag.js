@@ -3,21 +3,14 @@ import BagCard from './BagCard/BagCard';
 import BagPayment from './BagPayment/BagPayment';
 import BagBill from './BagBill/BagBill';
 
-/*
- {props.arrOfProductsInBag.map(product => {
-            return <BagCard product={product}/>
-          })}
-*/
 
-import products from '../Products/ProductsData';
-
-
-function Bag() {
+function Bag(props) {
     return (
     <div>
       <div className="container">
-           <BagCard product={products[0]}></BagCard>
-           <BagCard product={products[3]}></BagCard>
+           {props.bags.map( bag => {
+             return <BagCard  bagItem={bag}/>
+           })}
       </div>
       <BagPayment />
       <BagBill />

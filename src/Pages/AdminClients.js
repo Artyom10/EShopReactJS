@@ -3,13 +3,12 @@ import React from 'react';
 import Clients from '../Components/Clients/Clients';
 import '../StylesForPages/AdminClients.css';
 
-import clients from '../Components/Clients/ClientsData';
 
-function App() {
+function App(props) {
   return (
     <div>
         
-        <Clients  clients={clients}/>
+        <Clients  clients={props.clients}/>
        
     </div>
   );

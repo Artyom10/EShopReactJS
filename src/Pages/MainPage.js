@@ -6,20 +6,16 @@ import ShowProducts from '../Components/Products/ShowPoducts';
 import StyleExamples from '../Components/StyleExamples/StyleExamples';
 import '../App.css';
 
-import products from '../Components/Products/ProductsData';
-import brands from '../Components/Brands/BrandsData';
-import guidStyle from '../Components/StyleExamples/StyleExamplesData';
-import SliderData from '../Components/Slider/SliderData';
 
 
-const  MainPage = () => {
+const  MainPage = (props) => {
   return (
     <div>
    
-   <Slider sliderData={SliderData}></Slider>
-   <BrandIntroduction brands={brands} />
-   <StyleExamples guidStyle={guidStyle} />
-   <ShowProducts products={products} />
+   <Slider sliders={props.sliders}></Slider>
+   <BrandIntroduction brands={props.brands} />
+   <StyleExamples stylesExample={props.stylesExample} />
+   <ShowProducts products={props.products} />
    
    </div>
   );

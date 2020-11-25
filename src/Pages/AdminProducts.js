@@ -3,13 +3,12 @@ import React from 'react';
 import ProductsList from '../Components/ProductsList/ProductsList';
 import '../StylesForPages/AdminProducts.css';
 
-import products from '../Components/Products/ProductsData';
 
-function App() {
+function App(props) {
   return (
     <div>
         
-        <ProductsList products={products} />
+        <ProductsList products={props.products} />
        
     </div>
   );

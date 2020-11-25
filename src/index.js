@@ -2,12 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-
 import reportWebVitals from './reportWebVitals';
+/*
+import clients from './Components/Clients/ClientsData';
+import products from './Components/Products/ProductsData';
+import brands from './Components/Brands/BrandsData';
+import sliders from './Components/Slider/SliderData';
+import stylesExample from './Components/StyleExamples/StyleExamplesData';
+import bags from './Components/Bag/BagData';
+*/
+import state from './redux/state';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App state={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

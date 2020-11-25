@@ -16,7 +16,7 @@ function Slider(props) {
         </ol>
           <div className="carousel-inner">
           
-            {props.sliderData.map(slider => {
+            {props.sliders.map(slider => {
               return <SliderItem info={slider}/>
             })}
             

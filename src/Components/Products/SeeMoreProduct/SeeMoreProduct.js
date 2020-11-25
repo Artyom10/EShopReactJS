@@ -12,9 +12,7 @@ function ModalProduct(props) {
     const {product} = props;
     const {urlPhoto, price, producer, type, sizes, description, tags} = product;
   return ( 
-    <div className="modal fade" id="seeMore" tabindex="-1"  style={modalStyleProduct.modalStyle} aria-hidden="true">
-  <div className="modal-dialog modal-xl">
-      <div className="modal-body">
+    <div className="container">
         <div className="card mb-3 ">
           <div className="row no-gutters justify-content-center">
             <div className="col-md-4">
@@ -38,7 +36,7 @@ function ModalProduct(props) {
                       <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Choose size
                       </button>
-                      <div className="dropdown-menu">
+                      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item" href="#">XS</a>
                         <a className="dropdown-item" href="#">S</a>
                         <a className="dropdown-item" href="#">M</a>
@@ -59,8 +57,6 @@ function ModalProduct(props) {
           </div>
         </div>
       </div>
-  </div>
-</div>
   );
 }
 

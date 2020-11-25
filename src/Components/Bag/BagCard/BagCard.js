@@ -8,8 +8,8 @@ const stylesForBag = {
 }
 
 function Person(props) {
-  const {product} = props;
-  const {urlPhoto, price, producer, type, sizes, description, tags} = product;
+  const {bagItem} = props;
+  const {urlPhoto, price, producer, type, sizes, description, tags} = bagItem;
   return (
     <div className="row justify-content-between bag-thing border align-items-center">
     <div className="col-4 mr-auto">

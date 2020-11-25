@@ -5,12 +5,10 @@ import '../StylesForPages/ClientBag.css';
 
 
 
-function ClientBag() {
+function ClientBag(props) {
   return (
     <div>
-        
-        <Bag />
-       
+        <Bag bags={props.bags} />
     </div>
   );
 }

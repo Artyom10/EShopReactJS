@@ -9,7 +9,7 @@ function StyleExamples(props) {
         <div className="container">
                <h3 className="choose-style-introduction">Choose your style</h3>
             <div className="row">
-                {props.guidStyle.map(style => {
+                {props.stylesExample.map(style => {
                     return <StyleCard styleType={style} />
                 })}
             </div>
