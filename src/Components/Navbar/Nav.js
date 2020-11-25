@@ -7,7 +7,6 @@ import ModalLog from './ModalLog/ModalLog';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 
-// <ChoosePanel who={this.state.isWho} />
 
 function ChoosePanel(props){
   const isPanel = props.who;
@@ -49,17 +48,7 @@ class Nav extends PureComponent {
             <NavLink className="nav-link" to="/main">Main page</NavLink>
           </li>
         </ul>
-        <ul className="navbar-nav ml-auto">
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/profile">Profile</NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/bag">Bag</NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/exit">Exit</NavLink>
-    </li>
-  </ul>
+        <ChoosePanel who={this.state.isWho} />
       </div>
        </div>
        <ModalLog />
