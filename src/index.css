@@ -1,4 +1,4 @@
-.my-navbar {
+/*.my-navbar {
   font-family: "Trispace", sans-serif;
 }
 
@@ -63,10 +63,10 @@
   margin-right: 3px;
   border-radius: 30px;
   background-color: #d4f5ff;
-}
+}*/
 
 /*CARUSEL*/
-
+/*
 .slider {
   margin-top: 0px;
 }
@@ -76,10 +76,11 @@
 
   font-weight: bold;
   font-size: 22px;
-}
+}*/
 
 /*Brand introduction */
 /* appear */
+/*
 .container-brand-card .card {
   margin-top: 10%;
 }
@@ -126,7 +127,7 @@
 .container-brand-card .card:hover .card-title {
   top: 80px;
 }
-/*appear end*/
+
 .show-brands-modal {
   background-color: blue;
   border: none;
@@ -142,16 +143,19 @@
 .brand-introduction {
   text-align: center;
   font-family: "Trispace", sans-serif;
-}
-
+}*/
+/*MODAL FOR SIGN OR LOG*/
+/*
 .login-container .container-signup {
   height: 520px;
   width: 340px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .login-container .container-login {
   height: 420px;
   width: 340px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .login-form {
@@ -187,9 +191,9 @@
 .login-form a:hover {
   color: gold;
 }
-
+*/
 /* guid style*/
-.show-picture {
+/*.show-picture {
   display: flex;
 }
 
@@ -202,10 +206,10 @@
 .choose-style-description {
   font-family: "Trispace", sans-serif;
   text-align: center;
-}
+}*/
 
 /*For grid card system, show all*/
-
+/*
 .container-all-product .col {
   flex: 0 0 25%;
   padding-top: 12px;
@@ -250,9 +254,9 @@
 .inner:hover img {
   transform: scale(1.5);
 }
-
+*/
 /* footer*/
-
+/*
 .footer {
   width: 100%;
   height: 114px;
@@ -276,9 +280,9 @@
   color: #fada5a;
   text-decoration: none;
 }
-
+*/
 /*Modal for all information about Product*/
-
+/*
 .rating {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -301,4 +305,4 @@
 .rating[data-total-value="4"] .rating-item:nth-child(n + 2),
 .rating[data-total-value="5"] .rating-item:nth-child(n + 1) {
   color: #2796ff;
-}
+}*/

@@ -1,0 +1,23 @@
+.footer {
+    width: 100%;
+    height: 114px;
+    background-color: #232323;
+    color: #ffffff;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 16px;
+    line-height: 2;
+    font-weight: 500;
+  }
+  
+  .footer::before {
+    content: "";
+    display: table;
+  }
+  .footer a {
+    color: #fada5a;
+    text-decoration: none;
+  }

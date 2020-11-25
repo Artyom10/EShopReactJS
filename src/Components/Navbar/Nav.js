@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import NavAdminPanel from './NavAdminPanel/NavAdminPanel';
 import NavClientPanel from './NavClientPanel/NavClientPanel';
 import NavStartPanel from './NavStartPanel/NavStartPanel';
 import ModalSign from './ModalSign/ModalSign';
 import ModalLog from './ModalLog/ModalLog';
-//const panel = this.state.isClient && <NavClientPanel /> || <NavAdminPanel />
+import './Navbar.css';
+import { NavLink } from 'react-router-dom';
+
+// <ChoosePanel who={this.state.isWho} />
 
 function ChoosePanel(props){
   const isPanel = props.who;
@@ -21,7 +24,7 @@ function ChoosePanel(props){
 }
 
 
-class Nav extends Component {
+class Nav extends PureComponent {
     constructor(props){
       super(props)
 
@@ -34,7 +37,7 @@ class Nav extends Component {
   render() {
      
        return (
-    <nav className="navbar my-navbar navbar-expand-lg navbar-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
        <div className="container">
           <a className="navbar-brand" href="#"><div className="logo"><span>E</span>Shop</div></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +46,20 @@ class Nav extends Component {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item ">
-            <a className="nav-link" href="/pages/index.html">Main page</a>
+            <NavLink className="nav-link" to="/main">Main page</NavLink>
           </li>
         </ul>
-         <ChoosePanel who={this.state.isWho} />
+        <ul className="navbar-nav ml-auto">
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/profile">Profile</NavLink>
+    </li>
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/bag">Bag</NavLink>
+    </li>
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/exit">Exit</NavLink>
+    </li>
+  </ul>
       </div>
        </div>
        <ModalLog />

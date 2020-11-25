@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from './ProductRating/ProductRating';
 
-
 function ProductCard(props) {
     const {product} = props; 
     const {urlPhoto, price, producer, type, sizes, description, tags} = product;

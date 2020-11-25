@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductRating from '../Products/ProductCard/ProductRating/ProductRating';
+import ProductRating from '../ProductCard/ProductRating/ProductRating';
 
 const modalStyleProduct = {
     modalStyle: {

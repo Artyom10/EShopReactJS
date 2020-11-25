@@ -1,0 +1,14 @@
+.show-picture {
+    display: flex;
+  }
+  
+  .choose-style-introduction {
+    text-align: center;
+    font-family: "Trispace", sans-serif;
+    margin-top: 20px;
+  }
+  
+  .choose-style-description {
+    font-family: "Trispace", sans-serif;
+    text-align: center;
+  }

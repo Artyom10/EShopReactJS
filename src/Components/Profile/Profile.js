@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ModalDeleteProfile from './ModalDeleteProfile/ModalDeleteProfile';
 
 function Profile(props) {
     const {client} = props;
@@ -46,12 +47,14 @@ function Profile(props) {
         </div>
         <div className="row justify-content-center">
             <div className="col-md-6">
-              <button className="btn update-button btn-block" onClick={handleUpdateProfile}>Update</button>
-              <button className="btn  general-button delete-button btn-block" data-toggle="modal" data-target="#notice">Delete request</button>
+              <button className="btn update-button btn-block">Update</button>
+              <button className="btn general-button delete-button btn-block" data-toggle="modal" data-target="#notice">Delete request</button>
             </div>
         </div>
+        <ModalDeleteProfile />
       </div>
     );
+
 }
 
 function handleUpdateProfile(){

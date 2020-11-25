@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StyleCard from './StyleCard/StyleCard';
+import './StyleExamples.css';
 
 
 function StyleExamples(props) {

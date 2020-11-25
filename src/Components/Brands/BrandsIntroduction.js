@@ -1,6 +1,7 @@
 import React from 'react';
 import BrandCard from './BrandCard/BrandCard'
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
+import './BrandsIntroduction.css';
 
 function BrandIntroduction(props) {
     return (

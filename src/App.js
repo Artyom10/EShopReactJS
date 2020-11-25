@@ -1,28 +1,31 @@
 import logo from './logo.svg';
 import React from 'react';
 import Nav from './Components/Navbar/Nav';
-import Slider from './Components/Slider/Slider';
-import BrandIntroduction from './Components/Brands/BrandsIntroduction';
-import ShowProducts from './Components/Products/ShowPoducts';
-import StyleExamples from './Components/StyleExamples/StyleExamples';
 import Footer from './Components/Footer/Footer';
+import MainPage from './Pages/MainPage';
+import ClientProfile from './Pages/ClientProfile';
+import ClientBag from './Pages/ClientBag';
+import AdminClients from './Pages/AdminClients';
+import AdminProducts from './Pages/AdminProducts'; 
+
 import './App.css';
-
-import products from './Components/Products/ProductsData';
-import brands from './Components/Brands/BrandsData';
-import guidStyle from './Components/StyleExamples/StyleExampleData';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
-const  App = () => {
+
+const  App = (props) => {
   return (
-    <div>
-   <Nav></Nav>
-   <Slider></Slider>
-   <BrandIntroduction brands={brands} />
-   <StyleExamples guidStyle={guidStyle} />
-   <ShowProducts products={products} />
-   <Footer />
-   </div>
+    <BrowserRouter>
+     <div>
+       <Nav></Nav>
+       <Route path="/main" component={MainPage}/>
+       <Route path="/profile" component={ClientProfile}/>
+       <Route path="/bag" component={ClientBag}/>
+       <Route path="/clients" component={AdminClients}/>
+       <Route path="/products" component={AdminProducts}/>
+       <Footer></Footer>
+     </div>
+    </BrowserRouter>
   );
 }
 

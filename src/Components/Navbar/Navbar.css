@@ -1,0 +1,110 @@
+nav {
+    font-family: "Trispace", sans-serif;
+  }
+  
+  .logo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 1;
+    color: black;
+  }
+  
+  .logo span {
+    color: rebeccapurple;
+  }
+  
+  .action-button_log {
+    font-family: "Trispace", sans-serif;
+    background-color: slategrey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+  }
+  
+  .action-button_sign {
+    font-family: "Trispace", sans-serif;
+    background-color: powderblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+  
+  .add-bag-button {
+    background-color: #2796ff;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
+    letter-spacing: 0.2px;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .action-button_log:hover {
+    background-color: turquoise;
+  }
+  
+  .action-button_sign:hover {
+    background-color: turquoise;
+  }
+  
+  .nav-btn {
+    font-family: "Trispace", sans-serif;
+    margin-right: 3px;
+    border-radius: 30px;
+    background-color: #d4f5ff;
+  }
+
+  .login-container .container-signup {
+    height: 520px;
+    width: 340px;
+  }
+  
+  .login-container .container-login {
+    height: 420px;
+    width: 340px;
+  }
+  
+  .login-form {
+    max-width: 100%;
+    width: 370px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-control {
+    font-size: 15px;
+    min-height: 48px;
+    font-weight: 500;
+  }
+  
+  .form-control:focus {
+    border-color: gold;
+  }
+  
+  .emergency {
+    font-size: 13px;
+  }
+  
+  .emergency label {
+    margin-bottom: 0;
+  }
+  
+  .login-form a {
+    text-decoration: none;
+    color: gray;
+  }
+  
+  .login-form a:hover {
+    color: gold;
+  }

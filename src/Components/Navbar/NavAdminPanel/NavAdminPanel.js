@@ -1,20 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function NavAdminPanel() {
   return ( 
-        <form className="form-inline my-2 my-lg-0">
+        
            <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">Products</a>
+              <NavLink className="nav-link" to="/products">Products</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Clients</a>
+              <NavLink className="nav-link" to="/clients">Clients</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Exit</a>
+              <NavLink className="nav-link" to="/exit">Exit</NavLink>
             </li>
           </ul>
-        </form>
+     
   );
 }
 

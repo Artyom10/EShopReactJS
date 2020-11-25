@@ -1,16 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function NavClientPanel() {
   return ( 
-    <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Profile</a>
+    <ul className="navbar-nav ml-auto">
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/profile">Profile</NavLink>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Bag</a>
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/bag">Bag</NavLink>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Exit</a>
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/exit">Exit</NavLink>
     </li>
   </ul>
   );
