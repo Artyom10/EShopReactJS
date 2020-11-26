@@ -13,7 +13,7 @@ function Bag(props) {
            })}
       </div>
       <BagPayment />
-      <BagBill />
+      <BagBill bags={props.bags}/>
    </div>
     );
 }

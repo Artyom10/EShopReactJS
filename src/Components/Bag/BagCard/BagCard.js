@@ -24,7 +24,7 @@ function Person(props) {
                 {producer} /
                  <span class="product-identificator">{type}</span>
               </h5>
-              <p class="card-text card-text-inside">Price: {price}</p>
+              <p class="card-text card-text-inside">Price: {price}$</p>
               <p class="card-text card-text-inside">Size: S</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ function Person(props) {
 Person.propTypes = {
   product: PropTypes.object.isRequired,
   urlPhoto: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   producer: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 }

@@ -5,6 +5,9 @@ import './Products.css'
 
 
 function ShowProducts(props) {
+    /*(const seeProducts = props.products.map(product => {
+        return <ProductCard product={product}></ProductCard>
+     })*/
     return (
         <div className="container-all-product">
             <div className="container">

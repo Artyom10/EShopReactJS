@@ -6,22 +6,23 @@ import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 
 
 function ProductList(props) {
+
     return (
        <div className="container">
            <AddProductButton />
-           <ModalAddProduct />
+           <ModalAddProduct addProduct={props.addProduct}/>
           <div className="row"> 
                {props.products.map( product => {
-                   return <ProductAdminCard  product={product}/>
+                   return <ProductAdminCard  product={product} />
                })}
           </div>
           
        </div>
     );
 }
-
+/*
 ProductList.propTypes = {
     products: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
-
+*/
 export default ProductList;

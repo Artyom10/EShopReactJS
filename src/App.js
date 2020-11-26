@@ -10,6 +10,7 @@ import AdminProducts from './Pages/AdminProducts';
 
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { addProduct } from './redux/state';
 
 
 const  App = (props) => {
@@ -18,7 +19,7 @@ const  App = (props) => {
      <div>
        <Nav></Nav>
        <Route path="/main" 
-       render={ () => <MainPage products={props.state.mainPage.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />} />
+       render={ () => <MainPage products={props.state.mainPage.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />} addProduct={addProduct}/>
        <Route path="/profile" 
        render={ () => <ClientProfile />} />
        <Route path="/bag" 
@@ -26,7 +27,7 @@ const  App = (props) => {
        <Route path="/clients" 
        render={ () => <AdminClients clients={props.state.clientsPage.clients}/>} />
        <Route path="/products" 
-       render={ () => <AdminProducts products={props.state.mainPage.products} />} />
+       render={ () => <AdminProducts products={props.state.mainPage.products} addProduct={props.addProduct}/>} />
        <Footer></Footer>
      </div>
     </BrowserRouter>
