@@ -6,15 +6,18 @@ import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 
 
 function ProductList(props) {
-
+  const allAdmin = props.products.map(product => 
+    <ProductAdminCard urlPhoto={product.urlPhoto} price={product.price} producer={product.producer} type={product.type}
+    sizes={product.sizes} description={product.description} tags={product.tags} />  )
     return (
        <div className="container">
            <AddProductButton />
            <ModalAddProduct addProduct={props.addProduct}/>
           <div className="row"> 
-               {props.products.map( product => {
+               {/*props.products.map( product => {
                    return <ProductAdminCard  product={product} />
-               })}
+               })*/}
+               {allAdmin}
           </div>
           
        </div>

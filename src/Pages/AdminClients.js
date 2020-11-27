@@ -8,7 +8,7 @@ function App(props) {
   return (
     <div>
         
-        <Clients  clients={props.clients}/>
+        <Clients  clients={props.clients} addPerson={props.addPerson}/>
        
     </div>
   );

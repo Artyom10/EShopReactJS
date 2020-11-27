@@ -1,5 +1,6 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
+import ProductAdminCard from '../ProductAdminCard/ProductAdminCard';
 
 function ModalAddProduct(props) {
     const urlPhoto = 'https://sun9-56.userapi.com/impg/46d6OEAguHzOvhD8gFvtuaKJpgbB2HdpCrR2wQ/rXhMbv1AJnE.jpg?size=800x800&quality=96&proxy=1&sign=1c6396244ef85dbe1ab426308018ddca';
@@ -14,7 +15,7 @@ function ModalAddProduct(props) {
     const addProduct = () => {
       const data = {
         id: 9,
-        "urlPhoto": `${setPhoto.current.value}`,
+        "urlPhoto": urlPhoto,
                 "price": `${setPrice.current.value}`,
                 "producer": `${setProducer.current.value}`,
                 "type": `${setType.current.value}`,
@@ -30,6 +31,12 @@ function ModalAddProduct(props) {
         tags: setTags.current.value,*/
       }
      props.addProduct(data);
+     setPrice.current.value = '';
+     setProducer.current.value = '';
+     setType.current.value = '';
+     setSizes.current.value = '';
+     setDescription.current.value = '';
+     setTags.current.value = '';
     }
     return (
     <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-hidden="true">

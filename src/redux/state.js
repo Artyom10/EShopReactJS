@@ -1,3 +1,5 @@
+import { rerenderTree } from "../render";
+
 let state = {
     mainPage: {
         brands: [ {
@@ -184,10 +186,14 @@ let state = {
     },
 }
 
+
 export let addProduct = (data) => {
 debugger;
- 
-  state.mainPage.products.push(data);
+
+
+ state.mainPage.products.push(data);
+ rerenderTree(state);
 }
+
 
 export default state;

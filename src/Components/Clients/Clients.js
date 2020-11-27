@@ -3,6 +3,17 @@ import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
 
 function Clients(props) {
+  const addPerson = () => {
+    const data = {
+      "id": 4,
+     "firstName": "Pete",
+     "secondName": "Stupid",
+     "username": "@lox",
+     "mail": "inknown@gail.com",
+     "request": "False"
+    }
+   props.addPerson(data);
+  }
     return (
      <div className="container">
          <table className="table client-table">
@@ -25,7 +36,7 @@ function Clients(props) {
     </table>
     <div className="row justify-content-center">
         <div className="col-md-12">
-          <button className="btn btn-primary btn-block add-client-button">Add new client</button>
+          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson}>Add new client</button>
         </div>
       </div>
      </div>
