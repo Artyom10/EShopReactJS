@@ -13,24 +13,8 @@ function ModalAddProduct(props) {
     let setPhoto = React.createRef();
 
     const addProduct = () => {
-      const data = {
-        id: 9,
-        "urlPhoto": urlPhoto,
-                "price": `${setPrice.current.value}`,
-                "producer": `${setProducer.current.value}`,
-                "type": `${setType.current.value}`,
-                "sizes": `${setSizes.current.value}`,
-                "description": `${setDescription.current.value}`,
-                "tags": `${setTags.current.value}`
-       /* urlPhoto: setPhoto.current.value,
-        price: setPrice.current.value,
-        producer: setProducer.current.value,
-        type: setType.current.value,
-        sizes: setSizes.current.value,
-        description: setDescription.current.value,
-        tags: setTags.current.value,*/
-      }
-     props.addProduct(data);
+      
+     props.dispatch({ type: 'ADD-PRODUCT'});
      setPrice.current.value = '';
      setProducer.current.value = '';
      setType.current.value = '';
@@ -38,6 +22,23 @@ function ModalAddProduct(props) {
      setDescription.current.value = '';
      setTags.current.value = '';
     }
+
+    const onChangeProduct = () => {
+      const data = {
+        id: 9,
+        "urlPhoto": urlPhoto,
+        "price": `${setPrice.current.value}`,
+        "producer": `${setProducer.current.value}`,
+        "type": `${setType.current.value}`,
+        "sizes": `${setSizes.current.value}`,
+        "description": `${setDescription.current.value}`,
+        "tags": `${setTags.current.value}`
+      };
+      /*const newData = `"urlPhoto": ${urlPhoto},"price": ${setPrice.current.value}, "producer": ${setProducer.current.value},"type": ${setType.current.value},
+      "sizes": ${setSizes.current.value}, "description": ${setDescription.current.value},  "tags": ${setTags.current.value} `*/
+      props.dispatch({type: 'UPDATE-NEW-PRODUCT', newProduct: data});
+    }
+
     return (
     <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-hidden="true">
       <div className="modal-dialog modal-lg">
@@ -62,19 +63,19 @@ function ModalAddProduct(props) {
                     <form>
                         <div className="form-group">
                          <label for="photo">Url photo</label>
-                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} />
+                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={onChangeProduct} />
                           <label for="price">Price</label>
-                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} />
+                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} onChange={onChangeProduct} />
                           <label for="producer">Producer</label>
-                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} />
+                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} onChange={onChangeProduct}/>
                           <label for="type">Type</label>
-                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} />
+                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} onChange={onChangeProduct}/>
                           <label for="sizes">Sizes</label>
-                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} />
+                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} onChange={onChangeProduct}/>
                           <label for="description">Description</label>
-                          <textarea className="form-control" id="description" rows="3" ref={setDescription}></textarea>
+                          <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={onChangeProduct}></textarea>
                           <label for="tags">Tags</label>
-                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} />
+                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} onChange={onChangeProduct}/>
                         </div>
                     </form>
                   </div>

@@ -10,7 +10,8 @@ import AdminProducts from './Pages/AdminProducts';
 
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
-
+import store from './redux/state';
+//Данные только addProduct
 
 
 const  App = (props) => {
@@ -24,9 +25,10 @@ const  App = (props) => {
        <Route path="/bag" 
        render={ () => <ClientBag bags={props.state.bagPage.bags} />} />
        <Route path="/clients" 
-       render={ () => <AdminClients clients={props.state.clientsPage.clients} addPerson={props.addPerson}/>} />
+       render={ () => <AdminClients clients={props.state.clientsPage.clients} dispatch={props.dispatch} />} />
        <Route path="/products" 
-       render={ () => <AdminProducts products={props.state.mainPage.products} addProduct={props.addProduct}/>} />
+       render={ () => <AdminProducts products={props.state.mainPage.products} 
+       dispatch={props.dispatch} />} />
        <Footer></Footer>
      </div>
     

@@ -4,16 +4,23 @@ import Person from './Person/Person';
 
 function Clients(props) {
   const addPerson = () => {
-    const data = {
-      "id": 4,
-     "firstName": "Pete",
-     "secondName": "Stupid",
-     "username": "@lox",
-     "mail": "inknown@gail.com",
-     "request": "False"
-    }
-   props.addPerson(data);
+   props.addPerson();
   }
+
+  const onChangePerson = () => {
+    const newPerson = {
+      "id": 4,
+      "firstName": "Larry",
+      "secondName": "Bird",
+      "username": "@twitter",
+      "mail": "larrybird@gmail.com",
+      "request": "False", 
+      "pawword": "12345",
+      "urlPhoto": "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf"
+   }
+   props.updateNewPerson(newPerson);
+  }
+
     return (
      <div className="container">
          <table className="table client-table">
@@ -36,7 +43,7 @@ function Clients(props) {
     </table>
     <div className="row justify-content-center">
         <div className="col-md-12">
-          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson}>Add new client</button>
+          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson} onChange={onChangePerson}>Add new client</button>
         </div>
       </div>
      </div>

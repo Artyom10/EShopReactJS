@@ -12,7 +12,7 @@ function ProductList(props) {
     return (
        <div className="container">
            <AddProductButton />
-           <ModalAddProduct addProduct={props.addProduct}/>
+           <ModalAddProduct dispatch={props.dispatch}/>
           <div className="row"> 
                {/*props.products.map( product => {
                    return <ProductAdminCard  product={product} />

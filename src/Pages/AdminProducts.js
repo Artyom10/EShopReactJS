@@ -4,14 +4,14 @@ import ProductsList from '../Components/ProductsList/ProductsList';
 import '../StylesForPages/AdminProducts.css';
 
 
-function App(props) {
+function AdminProducts(props) {
   return (
     <div>
         
-        <ProductsList products={props.products} addProduct={props.addProduct} />
+        <ProductsList products={props.products} dispatch={props.dispatch}/>
        
     </div>
   );
 }
 
-export default App;
+export default AdminProducts;
