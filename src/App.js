@@ -12,7 +12,7 @@ import MoreAboutProduct from './Components/Products/SeeMoreProduct/SeeMoreProduc
 
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
-import store from './redux/state';
+import store from './redux/redux-store';
 
 
 

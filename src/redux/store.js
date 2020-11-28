@@ -71,12 +71,6 @@ let store = {
           title: "Military",
         },
       ],
-    newProductObject: {
-
-    },
-    newUpdateObject: {
-
-    },
    
     },
     productPages: {
