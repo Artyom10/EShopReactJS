@@ -8,9 +8,24 @@ const modalStyleProduct = {
     }
   }
 
-function ModalProduct(props) {
+function MoreAboutProduct(props) {
     const {product} = props;
     const {urlPhoto, price, producer, type, sizes, description, tags} = product;
+
+    const addToBag = () => {
+      const data = {
+        id: 3,
+        "urlPhoto": urlPhoto,
+        "price": price,
+        "producer": producer,
+        "type": type,
+        "sizes": sizes,
+        "description": description,
+        "tags": tags
+      }
+      props.dispatch({ type: 'ADD-TO-BAG', newBagProduct: data });
+    }
+
   return ( 
     <div className="container">
         <div className="card mb-3 ">
@@ -24,7 +39,7 @@ function ModalProduct(props) {
               <div className="card-body">
                 <h5 className="card-title">Main information</h5>
                 <ul className="list-group">
-                  <li className="list-group-item">Price: {price}</li>
+                  <li className="list-group-item">Price: {price}$</li>
                   <li className="list-group-item">
                     Producer/type:{producer} : {type}
                   </li>
@@ -46,7 +61,7 @@ function ModalProduct(props) {
                     </div>
                   </li>
                   <li className="list-group-item">
-                    <button className="btn add-bag-button">Add to bag</button>
+                    <button className="btn add-bag-button" onClick={addToBag}>Add to bag</button>
                   </li>
                   <li className="list-group-item">
                     <ProductRating />
@@ -60,7 +75,7 @@ function ModalProduct(props) {
   );
 }
 
-ModalProduct.propTypes = {
+MoreAboutProduct.propTypes = {
     product: PropTypes.object.isRequired,
     urlPhoto: PropTypes.string,
     price: PropTypes.string,
@@ -71,4 +86,4 @@ ModalProduct.propTypes = {
     tags: PropTypes.string
 }
 
-export default ModalProduct;
+export default MoreAboutProduct;

@@ -9,7 +9,7 @@ function Bag(props) {
     <div>
       <div className="container">
            {props.bags.map( bag => {
-             return <BagCard  bagItem={bag}/>
+             return <BagCard  bagItem={bag} dispatch={props.dispatch}/>
            })}
       </div>
       <BagPayment />

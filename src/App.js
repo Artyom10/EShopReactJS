@@ -8,10 +8,12 @@ import ClientBag from './Pages/ClientBag';
 import AdminClients from './Pages/AdminClients';
 import AdminProducts from './Pages/AdminProducts'; 
 
+import MoreAboutProduct from './Components/Products/SeeMoreProduct/SeeMoreProduct'
+
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
 import store from './redux/state';
-//Данные только addProduct
+
 
 
 const  App = (props) => {
@@ -23,12 +25,14 @@ const  App = (props) => {
        <Route path="/profile" 
        render={ () => <ClientProfile />} />
        <Route path="/bag" 
-       render={ () => <ClientBag bags={props.state.bagPage.bags} />} />
+       render={ () => <ClientBag bags={props.state.bagPage.bags}  dispatch={props.dispatch}/>} />
        <Route path="/clients" 
        render={ () => <AdminClients clients={props.state.clientsPage.clients} dispatch={props.dispatch} />} />
        <Route path="/products" 
        render={ () => <AdminProducts products={props.state.mainPage.products} 
        dispatch={props.dispatch} />} />
+         <Route path="/2"
+        render={ () => <MoreAboutProduct product={props.state.mainPage.products[1]} dispatch={props.dispatch} /> }  /> 
        <Footer></Footer>
      </div>
     

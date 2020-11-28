@@ -4,10 +4,6 @@ import Person from './Person/Person';
 
 function Clients(props) {
   const addPerson = () => {
-   props.addPerson();
-  }
-
-  const onChangePerson = () => {
     const newPerson = {
       "id": 4,
       "firstName": "Larry",
@@ -18,8 +14,10 @@ function Clients(props) {
       "pawword": "12345",
       "urlPhoto": "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf"
    }
-   props.updateNewPerson(newPerson);
+   props.dispatch({type:'ADD-PERSON', newPerson: newPerson});
   }
+
+
 
     return (
      <div className="container">
@@ -43,7 +41,7 @@ function Clients(props) {
     </table>
     <div className="row justify-content-center">
         <div className="col-md-12">
-          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson} onChange={onChangePerson}>Add new client</button>
+          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson}>Add new client</button>
         </div>
       </div>
      </div>

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 function Person(props) {
   const {client} = props;
   const {firstName, secondName, username, mail, request} = client;
+
+
   return (
    <tr>
      <th scope="row">{client.id}</th>

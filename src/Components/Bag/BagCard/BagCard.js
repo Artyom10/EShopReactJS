@@ -9,7 +9,22 @@ const stylesForBag = {
 
 function Person(props) {
   const {bagItem} = props;
-  const {urlPhoto, price, producer, type, sizes, description, tags} = bagItem;
+  const {id, urlPhoto, price, producer, type, sizes, description, tags} = bagItem;
+
+  const removeFromBag = () => {
+    const data = {
+      id: id,
+      "urlPhoto": urlPhoto,
+      "price": price,
+      "producer": producer,
+      "type": type,
+      "sizes": sizes,
+      "description": description,
+      "tags": tags
+    }
+    props.dispatch({type: 'REMOVE-FROM-BAG', removeTarget: data});
+  }
+
   return (
     <div className="row justify-content-between bag-thing border align-items-center">
     <div className="col-4 mr-auto">
@@ -25,7 +40,7 @@ function Person(props) {
                  <span class="product-identificator">{type}</span>
               </h5>
               <p class="card-text card-text-inside">Price: {price}$</p>
-              <p class="card-text card-text-inside">Size: S</p>
+              <p class="card-text card-text-inside">Size: {sizes}</p>
             </div>
           </div>
         </div>
@@ -33,7 +48,7 @@ function Person(props) {
     </div>
     <div className="col-auto">
       <span className="hidden-button"
-        ><button className="btn btn-danger badge-pill">Remove</button></span>
+        ><button className="btn btn-danger badge-pill" onClick={removeFromBag}>Remove</button></span>
     </div>
   </div>
   );

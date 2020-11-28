@@ -28,7 +28,7 @@ let store = {
           id: 1,
           urlPhoto:
             "https://sun9-75.userapi.com/impg/v9-83eUNEQ5s5JdHfLDdcFXVoSdZ8CvseVH3Tw/JAxl7sVkPs4.jpg?size=762x1100&quality=96&proxy=1&sign=524d2c12b64f491a17abd599fa4318f7",
-          price: "50$",
+          price: "50",
           producer: "Mango",
           type: "Jacket",
           sizes: "XS,S,M,L",
@@ -39,7 +39,7 @@ let store = {
           id: 2,
           urlPhoto:
             "https://sun9-68.userapi.com/impg/BHwQV6ItiqEBIU0jgzXb4LpWm4R_8639f7WF9g/tBB8NyRwMhE.jpg?size=1496x2160&quality=96&proxy=1&sign=17b1b3045f69aab4a771d0fb9e4511a4",
-          price: "100$",
+          price: "100",
           producer: "Carhartt",
           type: "Down jacket",
           sizes: "S,M,L",
@@ -50,7 +50,7 @@ let store = {
           id: 3,
           urlPhoto:
             "https://sun9-66.userapi.com/impg/VrtHC75OfFYYCa9JfkL-W7cORCkFEIhGKFbwBw/ym1NDhSC9fs.jpg?size=1496x2160&quality=96&proxy=1&sign=b908d4ad177c98974ad56576acfa6bf3",
-          price: "35$",
+          price: "35",
           producer: "Diesel",
           type: "Shirt",
           sizes: "S",
@@ -61,7 +61,7 @@ let store = {
           id: 4,
           urlPhoto:
             "https://sun9-52.userapi.com/impg/kz7_A2GPc8s3WwGZDSkyNGgcWJactYgDYlQqug/WQpW-9mdTWU.jpg?size=600x866&quality=96&proxy=1&sign=bc15dc8d948e3c67970b3d255f2b19f6",
-          price: "70$",
+          price: "70",
           producer: "Mango",
           type: "Jacket",
           sizes: "XS,S,M,L",
@@ -72,7 +72,7 @@ let store = {
           id: 5,
           urlPhoto:
             "https://sun9-51.userapi.com/impg/mP-HyBe0hlpJkK8JLrjuDsvlfC5N897l38-cJQ/q656OVsD3Xk.jpg?size=600x866&quality=96&proxy=1&sign=2aa238d9da68b421b4aafb1f652d2b36",
-          price: "70$",
+          price: "70",
           producer: "Mango",
           type: "Coat",
           sizes: "M,L",
@@ -83,7 +83,7 @@ let store = {
           id: 6,
           urlPhoto:
             "https://sun9-53.userapi.com/impg/rZO7uzY77jW4S1C_bZFjOEDbjO40s8bk-rgGRA/q3v79SyeC5I.jpg?size=600x866&quality=96&proxy=1&sign=1085920c0f91da8084a5005d9f1b18c0",
-          price: "47$",
+          price: "47",
           producer: "Mango",
           type: "Pants",
           sizes: "M,L,XL",
@@ -94,7 +94,7 @@ let store = {
           id: 7,
           urlPhoto:
             "https://sun9-13.userapi.com/impg/6bJBE1DBLwKvFu8csRcfTtHkHHuMKZaQCOkMeg/QYXQybTR_Uo.jpg?size=1496x2160&quality=96&proxy=1&sign=33b12de91d790063bef8b9b6a52f0abe",
-          price: "500$",
+          price: "500",
           producer: "Diesel",
           type: "Coat",
           sizes: "XS,S,M",
@@ -105,7 +105,7 @@ let store = {
           id: 8,
           urlPhoto:
             "https://sun9-52.userapi.com/impg/xWd_NaCKK7vVjAIBP0dTekN36nsRI9kidnelOw/V7IfJ1kIGO8.jpg?size=762x1100&quality=96&proxy=1&sign=ec477ba05df76b5c6a800f2f0b3ebeee",
-          price: "47$",
+          price: "47",
           producer: "Mango",
           type: "Pants",
           sizes: "M,L,XL",
@@ -224,6 +224,9 @@ let store = {
           tags: "#mango, #pants",
         },
       ],
+      newBagObject: {
+
+      },
     },
   },
 
@@ -240,31 +243,6 @@ let store = {
   },
 
 
-/*
-  addProduct() {
-  const result = {...this._state.mainPage.newProductObject};
-    this._state.mainPage.products.push(result);
-    this._state.mainPage.newProductObject = {} ;
-    this._callSubscriber(this._state);
-  },
-
-  updateNewProduct(newProduct) {
-    this._state.mainPage.newProductObject = {...newProduct};
-    this._callSubscriber(this._state);
-  },
-
-  addPerson(){
-    const result = {...this._state.clientsPage.newClientObject};
-   this._state.clientsPage.clients.push(result);
-   this._state.clientsPage.newClientObject = {};
-   this._callSubscriber(this._state);
-  },
-
-  updateNewPerson(newPerson){
-  this._state.clientsPage.newClientObject = {...newPerson};
-  this._callSubscriber(this._state);
-  },*/
-
   dispatch(action){
     if(action.type === 'ADD-PRODUCT'){
      const result = {...this._state.mainPage.newProductObject};
@@ -277,14 +255,28 @@ let store = {
       this._callSubscriber(this._state);
     }
     else if(action.type === 'ADD-PERSON'){
+      this._state.clientsPage.newClientObject = {...action.newPerson};
       const result = {...this._state.clientsPage.newClientObject};
       this._state.clientsPage.clients.push(result);
       this._state.clientsPage.newClientObject = {};
       this._callSubscriber(this._state);
     }
-    else if(action.type === 'UPDATE-NEW-PERSON'){
-      this._state.clientsPage.newClientObject = {...action.newPerson};
+    else if(action.type === 'ADD-TO-BAG'){
+      this._state.bagPage.newBagObject = {...action.newBagProduct};
+      const result = {...this._state.bagPage.newBagObject};
+      this._state.bagPage.bags.push(result);
+      this._state.bagPage.newBagObject = {};
       this._callSubscriber(this._state);
+    }
+    else if(action.type === 'REMOVE-FROM-BAG'){
+      debugger;
+      let remove = {...action.removeTarget};
+      this._state.bagPage.bags.forEach((bagProduct, index) => {
+        if(remove.id === bagProduct.id){
+          this._state.bagPage.bags.splice(index,1);
+        }
+        this._callSubscriber(this._state);
+      })
     }
   }
 };

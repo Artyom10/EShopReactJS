@@ -34,8 +34,7 @@ function ModalAddProduct(props) {
         "description": `${setDescription.current.value}`,
         "tags": `${setTags.current.value}`
       };
-      /*const newData = `"urlPhoto": ${urlPhoto},"price": ${setPrice.current.value}, "producer": ${setProducer.current.value},"type": ${setType.current.value},
-      "sizes": ${setSizes.current.value}, "description": ${setDescription.current.value},  "tags": ${setTags.current.value} `*/
+     
       props.dispatch({type: 'UPDATE-NEW-PRODUCT', newProduct: data});
     }
 

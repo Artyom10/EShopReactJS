@@ -8,7 +8,7 @@ import '../StylesForPages/ClientBag.css';
 function ClientBag(props) {
   return (
     <div>
-        <Bag bags={props.bags} />
+        <Bag bags={props.bags} dispatch={props.dispatch}/>
     </div>
   );
 }

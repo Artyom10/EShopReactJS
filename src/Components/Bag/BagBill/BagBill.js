@@ -3,7 +3,7 @@ import React from 'react';
 
 
 function BagBill(props) {
-  let sum = props.bags.reduce((sum, current) => sum + current.price, 0);
+  let sum = props.bags.reduce((sum, current) => sum + +current.price, 0);
   return (
     <div className="container order-bag">
       <div className="row justify-content-center align-items-center">

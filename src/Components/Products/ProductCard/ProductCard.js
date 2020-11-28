@@ -6,13 +6,13 @@ import { NavLink } from 'react-router-dom';
 function ProductCard(props) {
     const {product} = props; 
     const {urlPhoto, price, producer, type, sizes, description, tags, id} = product;
-    const router = `/main/${id}`;
+    const router = `${id}`;
   return (
     <div className="col d-md-flex">
         <div className="card  product-card">
           <div className="inner"> <img src={urlPhoto} className="card-img-top ihv" alt={type} /></div>
           <div className="card-body">
-             <h5 className="price-card">{price}</h5>
+             <h5 className="price-card">{price}$</h5>
         <p className="card-text">{producer}/ <span className="product-identificator">{type}</span></p>
           <span className="available-sizes">Sizes: <span><strong>{sizes}</strong></span></span>
             <ul className="list-group list-group-flush">
