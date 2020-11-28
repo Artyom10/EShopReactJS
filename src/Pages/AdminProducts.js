@@ -8,7 +8,8 @@ function AdminProducts(props) {
   return (
     <div>
         
-        <ProductsList products={props.products} dispatch={props.dispatch}/>
+        <ProductsList products={props.products} dispatch={props.dispatch}
+        newProductObject={props.newProductObject} />
        
     </div>
   );

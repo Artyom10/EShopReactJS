@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
+import {addPersonActionCreator} from '../../redux/state';
+
 
 function Clients(props) {
   const addPerson = () => {
@@ -11,10 +13,11 @@ function Clients(props) {
       "username": "@twitter",
       "mail": "larrybird@gmail.com",
       "request": "False", 
-      "pawword": "12345",
+      "password": "12345",
       "urlPhoto": "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf"
    }
-   props.dispatch({type:'ADD-PERSON', newPerson: newPerson});
+   let action = addPersonActionCreator(newPerson);
+   props.dispatch(action);
   }
 
 
@@ -35,7 +38,7 @@ function Clients(props) {
          </thead>
          <tbody>
              {props.clients.map(client => {
-               return <Person client={client} />
+               return <Person client={client} dispatch={props.dispatch} />
              })}
          </tbody>
     </table>

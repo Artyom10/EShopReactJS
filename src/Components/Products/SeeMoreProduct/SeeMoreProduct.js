@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from '../ProductCard/ProductRating/ProductRating';
+import { addToBagActionCreator } from '../../../redux/state';
 
 const modalStyleProduct = {
     modalStyle: {
         display: 'none'
     }
   }
+
+
 
 function MoreAboutProduct(props) {
     const {product} = props;
@@ -23,7 +26,8 @@ function MoreAboutProduct(props) {
         "description": description,
         "tags": tags
       }
-      props.dispatch({ type: 'ADD-TO-BAG', newBagProduct: data });
+      let action = addToBagActionCreator(data);
+      props.dispatch(action);
     }
 
   return ( 

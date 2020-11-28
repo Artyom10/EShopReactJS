@@ -1,10 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {removeUserActionCreator} from '../../../redux/state';
 
 function Person(props) {
   const {client} = props;
-  const {firstName, secondName, username, mail, request} = client;
-
+  const {id, urlPhoto, firstName, secondName, username, mail, password,request} = client;
+  const removeUser = () => {
+    debugger;
+    const data = {
+      "id": id,
+      "firstName": firstName,
+      "secondName": secondName,
+      "username": username,
+      "mail": mail,
+      "request": request, 
+      "password": password,
+      "urlPhoto": urlPhoto
+    }
+    let action = removeUserActionCreator(data);
+    props.dispatch(action);
+  };
 
   return (
    <tr>
@@ -14,7 +29,7 @@ function Person(props) {
      <td>{username}</td>
      <td>{mail}</td>
      <td>{request}</td>
-    <td><button className="btn delete-client-button">Delete</button></td>
+    <td><button className="btn delete-client-button" onClick={removeUser}>Delete</button></td>
   </tr>
   );
 }

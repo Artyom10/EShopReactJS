@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {removeTargetActionCreator} from '../../../redux/state';
+
 
 const stylesForBag = {
   cardStyle: {
@@ -7,12 +9,13 @@ const stylesForBag = {
   }
 }
 
+
 function Person(props) {
   const {bagItem} = props;
   const {id, urlPhoto, price, producer, type, sizes, description, tags} = bagItem;
 
   const removeFromBag = () => {
-    const data = {
+      const data = {
       id: id,
       "urlPhoto": urlPhoto,
       "price": price,
@@ -22,8 +25,12 @@ function Person(props) {
       "description": description,
       "tags": tags
     }
-    props.dispatch({type: 'REMOVE-FROM-BAG', removeTarget: data});
+    let action = removeTargetActionCreator(data);
+    props.dispatch(action);
+
   }
+
+
 
   return (
     <div className="row justify-content-between bag-thing border align-items-center">

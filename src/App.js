@@ -21,7 +21,7 @@ const  App = (props) => {
      <div>
        <Nav></Nav>
        <Route path="/main" 
-       render={ () => <MainPage products={props.state.mainPage.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />}/>
+       render={ () => <MainPage products={props.state.productPages.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />}/>
        <Route path="/profile" 
        render={ () => <ClientProfile />} />
        <Route path="/bag" 
@@ -29,10 +29,10 @@ const  App = (props) => {
        <Route path="/clients" 
        render={ () => <AdminClients clients={props.state.clientsPage.clients} dispatch={props.dispatch} />} />
        <Route path="/products" 
-       render={ () => <AdminProducts products={props.state.mainPage.products} 
-       dispatch={props.dispatch} />} />
+       render={ () => <AdminProducts products={props.state.productPages.products} 
+       dispatch={props.dispatch} newProductObject={props.state.productPages.newProductObject} />} />
          <Route path="/2"
-        render={ () => <MoreAboutProduct product={props.state.mainPage.products[1]} dispatch={props.dispatch} /> }  /> 
+        render={ () => <MoreAboutProduct product={props.state.productPages.products[1]} dispatch={props.dispatch} /> }  /> 
        <Footer></Footer>
      </div>
     

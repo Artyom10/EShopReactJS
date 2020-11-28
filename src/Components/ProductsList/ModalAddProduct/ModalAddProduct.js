@@ -1,6 +1,8 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import ProductAdminCard from '../ProductAdminCard/ProductAdminCard';
+import {addProductActionCreator,updateProductActionCreator} from '../../../redux/state';
+
 
 function ModalAddProduct(props) {
     const urlPhoto = 'https://sun9-56.userapi.com/impg/46d6OEAguHzOvhD8gFvtuaKJpgbB2HdpCrR2wQ/rXhMbv1AJnE.jpg?size=800x800&quality=96&proxy=1&sign=1c6396244ef85dbe1ab426308018ddca';
@@ -14,7 +16,7 @@ function ModalAddProduct(props) {
 
     const addProduct = () => {
       
-     props.dispatch({ type: 'ADD-PRODUCT'});
+     props.dispatch(addProductActionCreator());
      setPrice.current.value = '';
      setProducer.current.value = '';
      setType.current.value = '';
@@ -23,7 +25,7 @@ function ModalAddProduct(props) {
      setTags.current.value = '';
     }
 
-    const onChangeProduct = () => {
+    const updateProduct = () => {
       const data = {
         id: 9,
         "urlPhoto": urlPhoto,
@@ -34,8 +36,8 @@ function ModalAddProduct(props) {
         "description": `${setDescription.current.value}`,
         "tags": `${setTags.current.value}`
       };
-     
-      props.dispatch({type: 'UPDATE-NEW-PRODUCT', newProduct: data});
+     let action = updateProductActionCreator(data)
+      props.dispatch(action);
     }
 
     return (
@@ -62,19 +64,19 @@ function ModalAddProduct(props) {
                     <form>
                         <div className="form-group">
                          <label for="photo">Url photo</label>
-                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={onChangeProduct} />
+                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={updateProduct} value={props.newProductObject.urlPhoto}/>
                           <label for="price">Price</label>
-                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} onChange={onChangeProduct} />
+                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} onChange={updateProduct} value={props.newProductObject.price} />
                           <label for="producer">Producer</label>
-                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} onChange={onChangeProduct}/>
+                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} onChange={updateProduct} value={props.newProductObject.producer}/>
                           <label for="type">Type</label>
-                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} onChange={onChangeProduct}/>
+                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} onChange={updateProduct} value={props.newProductObject.type}/>
                           <label for="sizes">Sizes</label>
-                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} onChange={onChangeProduct}/>
+                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} onChange={updateProduct} value={props.newProductObject.sizes}/>
                           <label for="description">Description</label>
-                          <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={onChangeProduct}></textarea>
+                          <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={updateProduct} value={props.newProductObject.description} ></textarea>
                           <label for="tags">Tags</label>
-                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} onChange={onChangeProduct}/>
+                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} onChange={updateProduct} value={props.newProductObject.tags} />
                         </div>
                     </form>
                   </div>
