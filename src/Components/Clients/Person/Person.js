@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {removeUserActionCreator} from '../../../redux/state';
+import {removeUserActionCreator} from '../../../redux/clientsPage-reducer';
 
 function Person(props) {
   const {client} = props;

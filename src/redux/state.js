@@ -1,9 +1,10 @@
-const ADD_PRODUCT = 'ADD-PRODUCT';
-const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
-const ADD_PERSON = 'ADD-PERSON';
-const ADD_TO_BAG = 'ADD-TO-BAG'
-const REMOVE_FROM_BAG = 'REMOVE-FROM-BAG';
-const REMOVE_USER = 'REMOVE-USER';
+import productPagesReducer from './productPages-reducer';
+import mainPageReducer from './mainPage-reducer';
+import clientsPageReducer from './clientsPage-reducer';
+import bagPageReducer from './bagPage-reducer';
+
+
+
 
 let store = {
   _state: {
@@ -175,6 +176,9 @@ let store = {
       newUpdateObject: {
   
       },
+      newRemovedObject: {
+        
+      }
     },
 
     clientsPage: {
@@ -269,111 +273,24 @@ let store = {
 
 
   dispatch(action){
-    if(action.type === ADD_PRODUCT){ //
-     const result = {...this._state.productPages.newProductObject};
-     this._state.productPages.products.push(result);
-     debugger;
-     this._state.productPages.newProductObject = {} ;
-     this._callSubscriber(this._state);
-    }
-    else if(action.type === UPDATE_NEW_PRODUCT){//
-      this._state.productPages.newProductObject = {...action.newProduct};
-      this._callSubscriber(this._state);
-    }
-    else if(action.type === ADD_PERSON){ //
-      this._state.clientsPage.newClientObject = {...action.newPerson};
-      const result = {...this._state.clientsPage.newClientObject};
-      this._state.clientsPage.clients.push(result);
-      this._state.clientsPage.newClientObject = {};
-      this._callSubscriber(this._state);
-    }
-    else if(action.type ===  ADD_TO_BAG){
-      this._state.bagPage.newBagObject = {...action.newBagProduct}; //Добавляем в state добавленный обьект из UI 
-      const result = {...this._state.bagPage.newBagObject};
-      this._state.bagPage.bags.push(result);
-      this._state.bagPage.newBagObject = {};
-      this._callSubscriber(this._state);
-    }
-    else if(action.type === REMOVE_FROM_BAG){ //
-      let remove = {...action.removeTarget};
-      this._state.bagPage.newBagDeletedObject = {...remove};
-      this._state.bagPage.bags.forEach((bagProduct, index) => {
-        if(this._state.bagPage.newBagDeletedObject.id === bagProduct.id){
-          this._state.bagPage.bags.splice(index,1);
-        }
-        this._callSubscriber(this._state);
-      })
-      this._state.bagPage.newBagDeletedObject = {};
-    }
-    else if(action.type === 'UPDATE-PRODUCT'){
-      this._state.productPages.newUpdateObject = {...action.updatedProduct};
-      this._callSubscriber(this._state);
-    }
-    else if(action.type === 'EDIT-PRODUCT'){
-      const result = {...this._state.productPages.newUpdateObject};
-      this._state.productPages.products.forEach((product, index) => {
-        if(result.id === product.id){
-          product = {...result};
-        }
-      })
-      this._state.productPages.newUpdateObject = {};
-      this._callSubscriber(this._state);
-    }
-    else if(action.type === REMOVE_USER){
-      debugger;
-       let user = {...action.removeUser};
-       this._state.clientsPage.removedUser = {...user};
-       this._state.clientsPage.clients.forEach((user, index) => {
-         if(this._state.clientsPage.removedUser.id === user.id){
-           this._state.clientsPage.clients.splice(index,1);
-         }
-       })
-       this._callSubscriber(this._state);
-    }
+
+   this._state.productPages = productPagesReducer(this._state.productPages, action);
+   this._state.mainPage = mainPageReducer(this._state.mainPage, action);
+   this._state.clientsPage = clientsPageReducer(this._state.clientsPage, action);
+   this._state.bagPage = bagPageReducer(this._state.bagPage, action);
+
+   this._callSubscriber(this._state);
+   
     
   }
 };
 
-export const addProductActionCreator = () => {
-  return {
-    type: ADD_PRODUCT
-  };
-};
 
-export const updateProductActionCreator = (data) => {
-  return {
-    type: UPDATE_NEW_PRODUCT,
-    newProduct: data
- }
-};
 
-export const addPersonActionCreator = (data) => {
-  return {
-    type: ADD_PERSON,
-    newPerson: data
-  }
-};
 
-export const addToBagActionCreator = (data) => {
-  return {
-    type: ADD_TO_BAG,
-    newBagProduct: data
-  }
-}
 
-export const removeTargetActionCreator = (data) => {
-  return {
-    type: REMOVE_FROM_BAG,
-    removeTarget: data
-  }
-}
 
-export const removeUserActionCreator = (data) => {
-  return {
-    type: REMOVE_USER,
-    removeUser: data
-  }
-}
+
 
 window.store = store;
 

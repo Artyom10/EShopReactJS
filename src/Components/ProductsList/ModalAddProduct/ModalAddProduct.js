@@ -1,7 +1,7 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import ProductAdminCard from '../ProductAdminCard/ProductAdminCard';
-import {addProductActionCreator,updateProductActionCreator} from '../../../redux/state';
+import {addProductActionCreator,updateProductActionCreator} from '../../../redux/productPages-reducer';
 
 
 function ModalAddProduct(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {removeProductActionCreator} from '../../../redux/productPages-reducer';
 
 const stylesForAdminCard = {
     cardStyle: {
@@ -43,6 +44,21 @@ function ProductAdminCard(props) {
     props.dispatch({type: 'UPDATE-PRODUCT', updatedProduct: data })    
   }
 
+  const removeProduct = () => {
+    const data = {
+      id: id,
+      "urlPhoto": urlPhoto,
+      "price": `${setPrice.current.value}`,
+      "producer": `${setProducer.current.value}`,
+      "type": `${setType.current.value}`,
+      "sizes": `${setSizes.current.value}`,
+      "description": `${setDescription.current.value}`,
+      "tags": `${setTags.current.value}`
+    }
+  let action = removeProductActionCreator(data);
+  props.dispatch(action);
+  }
+
 
 
    return (
@@ -78,7 +94,7 @@ function ProductAdminCard(props) {
                   <button className="btn general-button edit-button" onClick={editProduct}>Edit product</button>
                 </div>
                 <div className="col">
-                  <button className="btn general-button delete-button" >Delete product</button>
+                  <button className="btn general-button delete-button" onClick={removeProduct} >Delete product</button>
                 </div>
               </div>
             </li>

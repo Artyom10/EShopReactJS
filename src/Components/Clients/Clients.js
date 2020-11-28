@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
-import {addPersonActionCreator} from '../../redux/state';
+import {addPersonActionCreator} from '../../redux/clientsPage-reducer';
 
 
 function Clients(props) {
