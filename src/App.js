@@ -23,14 +23,15 @@ const  App = (props) => {
        <Route path="/main" 
        render={ () => <MainPage products={props.state.productPages.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />}/>
        <Route path="/profile" 
-       render={ () => <ClientProfile />} />
+       render={ () => <ClientProfile dispatch={props.dispatch} clients={props.state.clientsPage.clients} />} />
        <Route path="/bag" 
        render={ () => <ClientBag bags={props.state.bagPage.bags}  dispatch={props.dispatch}/>} />
        <Route path="/clients" 
        render={ () => <AdminClients clients={props.state.clientsPage.clients} dispatch={props.dispatch} />} />
        <Route path="/products" 
        render={ () => <AdminProducts products={props.state.productPages.products} 
-       dispatch={props.dispatch} newProductObject={props.state.productPages.newProductObject} />} />
+       dispatch={props.dispatch} newProductObject={props.state.productPages.newProductObject}
+       changedProductObject={props.state.productPages.changedProductObject} />} />
          <Route path="/2"
         render={ () => <MoreAboutProduct product={props.state.productPages.products[1]} dispatch={props.dispatch} /> }  /> 
        <Footer></Footer>

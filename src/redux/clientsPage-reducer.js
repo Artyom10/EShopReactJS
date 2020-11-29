@@ -1,5 +1,9 @@
+import ClientsData from "../Components/Clients/ClientsData";
+
 const ADD_PERSON = 'ADD-PERSON';
 const REMOVE_USER = 'REMOVE-USER';
+
+const REMOVE_REQUEST = 'REMOVE-REQUEST';
 
 let initialState = {
     clients: [
@@ -65,6 +69,14 @@ const clientsPageReducer = (state = initialState, action) => {
          })
          state.removedUser = {};
         return state;
+      case REMOVE_REQUEST:
+        let person = {...action.personRequest}; //Поменять remove request на True 
+        state.clients.forEach((client, index) => {
+          if(person.id === client.id){
+            client.request = 'True';
+          }
+          debugger;
+        })
     default:
         return state;
   }
@@ -83,5 +95,12 @@ export const removeUserActionCreator = (data) => {
       removeUser: data
     }
   }
+
+export const removeRequestActionCreator = (data) => {
+  return {
+      type: REMOVE_REQUEST,
+      personRequest: data
+  }
+}
 
 export default clientsPageReducer;

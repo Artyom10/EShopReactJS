@@ -5,11 +5,11 @@ import '../StylesForPages/ClientProfile.css';
 
 import clients from '../Components/Clients/ClientsData';
 
-function ClientProfile() {
+function ClientProfile(props) {
   return (
     <div>
         
-        <Profile client={clients[2]}></Profile>
+        <Profile client={props.clients[1]} dispatch={props.dispatch}></Profile>
        
     </div>
   );

@@ -1,10 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ModalDeleteProfile from './ModalDeleteProfile/ModalDeleteProfile';
+import {removeRequestActionCreator} from '../../redux/clientsPage-reducer';
+
 
 function Profile(props) {
     const {client} = props;
-    const {id, firstName, secondName, username, mail, password, urlPhoto} = client;
+    const {id, firstName, secondName, username, mail, password, urlPhoto,request} = client;
+    const removeRequest = () => {
+      const data = {
+        "id": id,
+        "firstName": firstName,
+        "secondName": secondName,
+        "username": username,
+        "mail": mail,
+        "request": request, 
+        "password": password,
+        "urlPhoto": urlPhoto
+      }
+     let action = removeRequestActionCreator(data);
+     props.dispatch(action);
+    }
+
     return (
         <div className="container">
         <div className="row justify-content-center">
@@ -48,7 +65,7 @@ function Profile(props) {
         <div className="row justify-content-center">
             <div className="col-md-6">
               <button className="btn update-button btn-block">Update</button>
-              <button className="btn general-button delete-button btn-block" data-toggle="modal" data-target="#notice">Delete request</button>
+               <button className="btn general-button delete-button btn-block" onClick={removeRequest}>Delete request</button>
             </div>
         </div>
         <ModalDeleteProfile />

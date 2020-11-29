@@ -9,7 +9,7 @@ function AdminProducts(props) {
     <div>
         
         <ProductsList products={props.products} dispatch={props.dispatch}
-        newProductObject={props.newProductObject} />
+        newProductObject={props.newProductObject} changedProductObject={props.changedProductObject} />
        
     </div>
   );

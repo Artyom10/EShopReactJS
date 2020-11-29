@@ -7,7 +7,7 @@ import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 
 function ProductList(props) {
   const allAdmin = props.products.map(product => 
-    <ProductAdminCard product={product} dispatch={props.dispatch}  />  )
+    <ProductAdminCard product={product} dispatch={props.dispatch} changedProductObject={props.changedProductObject} />  )
     return (
        <div className="container">
            <AddProductButton />

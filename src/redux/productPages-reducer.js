@@ -1,8 +1,8 @@
 const ADD_PRODUCT = 'ADD-PRODUCT';
 const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
-const UPDATE_PRODUCT = 'UPDATE-PRODUCT';
-const EDIT_PRODUCT = 'EDIT-PRODUCT';
 const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
+const EDIT_PRODUCT = 'EDIT-PRODUCT';
+const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
 
 let initialState = {
     products: [
@@ -103,7 +103,10 @@ let initialState = {
     },
     newRemovedObject: {
       
-    }
+    },
+    changedProductObject: {
+
+    },
   };
 
 const productPagesReducer = (state = initialState, action) => {
@@ -117,18 +120,27 @@ const productPagesReducer = (state = initialState, action) => {
     case UPDATE_NEW_PRODUCT:
         state.newProductObject = { ...action.newProduct };
         return state;
-    case UPDATE_PRODUCT: //Не реализованно
-        state.newUpdateObject = {...action.updatedProduct};
+    case CONSTANTLY_UPDATE_PRODUCT:
+      debugger;
+      state.changedProductObject = {...action.updatedProduct};
+
+
         return state;
-    case EDIT_PRODUCT: //Не реализованно
-        const resultEdit = {...state.newUpdateObject};
-        state.products.forEach((product, index) => {
-          if(resultEdit.id === product.id){
-            product = {...result};
+    case EDIT_PRODUCT:
+      //const recivedProduct = {...action.necessaryObject};
+       debugger;
+        const receivedProduct = {...state.changedProductObject};
+        state.products.forEach((product,index) => {
+          if(receivedProduct.id === product.id){
+            product.price = receivedProduct.price;
+            product.producer = receivedProduct.producer;
+            product.type = receivedProduct.type;
+            product.description = receivedProduct.description;
+            product.tags = receivedProduct.tags;
+            product.sizes = receivedProduct.sizes;
           }
-        });
-        state.newUpdateObject = {};
-        return state;   
+        })
+        return state;
     case REMOVE_PRODUCT:
         let resultRemove = {...action.removedProduct};
         state.newRemovedObject = {...resultRemove};
@@ -150,7 +162,7 @@ export const addProductActionCreator = () => {
     };
   };
   
-export const updateProductActionCreator = (data) => {
+export const updateProductActionCreator = (data) => { //updateNewProduct
     return {
       type: UPDATE_NEW_PRODUCT,
       newProduct: data
@@ -164,6 +176,20 @@ export const removeProductActionCreator = (data) => {
         type: REMOVE_PRODUCT,
         removedProduct: data
     }
+}
+
+export const editProductActionCreator = (data) => {
+  return {
+    type: EDIT_PRODUCT,
+   // necessaryObject: data
+  }
+}
+
+export const updateProductInListActionCreator = (data) => {
+  return {
+    type: CONSTANTLY_UPDATE_PRODUCT,
+    updatedProduct: data
+  }
 }
 
 

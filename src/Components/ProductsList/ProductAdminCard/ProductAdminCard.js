@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {removeProductActionCreator} from '../../../redux/productPages-reducer';
+import {editProductActionCreator} from '../../../redux/productPages-reducer';
+import {updateProductInListActionCreator} from '../../../redux/productPages-reducer';
 
 const stylesForAdminCard = {
     cardStyle: {
@@ -26,23 +28,7 @@ function ProductAdminCard(props) {
   let setTags = React.createRef();
  
 
-  const editProduct = () => {
-    props.dispatch({type: 'EDIT-PRODUCT'})
-  }
-
-  const updateAdminProduct = () => {
-    const data = {
-      id: id,
-      "urlPhoto": urlPhoto,
-      "price": `${setPrice.current.value}`,
-      "producer": `${setProducer.current.value}`,
-      "type": `${setType.current.value}`,
-      "sizes": `${setSizes.current.value}`,
-      "description": `${setDescription.current.value}`,
-      "tags": `${setTags.current.value}`
-    }
-    props.dispatch({type: 'UPDATE-PRODUCT', updatedProduct: data })    
-  }
+  
 
   const removeProduct = () => {
     const data = {
@@ -57,6 +43,36 @@ function ProductAdminCard(props) {
     }
   let action = removeProductActionCreator(data);
   props.dispatch(action);
+  }
+
+  const editProductAdmin = () => {
+    debugger;
+    const data = {
+      id: id,
+      "price": `${setPrice.current.value}`,
+      "producer": `${setProducer.current.value}`,
+      "type": `${setType.current.value}`,
+      "sizes": `${setSizes.current.value}`,
+      "description": `${setDescription.current.value}`,
+      "tags": `${setTags.current.value}`
+    }
+    let action = editProductActionCreator();
+   props.dispatch(action);
+  }
+
+  const changeProduct = () => {
+    const data = {
+      id: id,
+      "price": `${setPrice.current.value}`,
+      "producer": `${setProducer.current.value}`,
+      "type": `${setType.current.value}`,
+      "sizes": `${setSizes.current.value}`,
+      "description": `${setDescription.current.value}`,
+      "tags": `${setTags.current.value}`
+    };
+    let action = updateProductInListActionCreator(data);
+   props.dispatch(action);
+
   }
 
 
@@ -75,23 +91,23 @@ function ProductAdminCard(props) {
               <form>
                 <div className="form-group">
                   <label for="price">Price</label>
-                  <input className="form-control" type="text" id="price" value={price} ref={setPrice} onChange={updateAdminProduct}/>
+                  <input className="form-control" type="text" id="price" placeholder={price} ref={setPrice} onChange={changeProduct} value={props.changedProductObject.price}/>
                   <label for="producer">Producer</label>
-                  <input type="text" className="form-control" id="producer" value={producer} ref={setProducer} onChange={updateAdminProduct}/>
+                  <input type="text" className="form-control" id="producer" placeholder={producer} ref={setProducer} onChange={changeProduct} value={props.changedProductObject.producer}/>
                   <label for="type">Type</label>
-                  <input type="text" className="form-control" id="type" value={type} ref={setType} onChange={updateAdminProduct}/>
+                  <input type="text" className="form-control" id="type" placeholder={type} ref={setType} onChange={changeProduct} value={props.changedProductObject.type}/>
                   <label for="sizes">Sizes</label>
-                  <input className="form-control" type="text" id="sizes" value={sizes} ref={setSizes} onChange={updateAdminProduct} />
+                  <input className="form-control" type="text" id="sizes" placeholder={sizes} ref={setSizes} onChange={changeProduct} value={props.changedProductObject.sizes} />
                   <label for="description">Description</label>
-                  <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={updateAdminProduct}>{description}</textarea>
+                  <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={changeProduct} value={props.changedProductObject.description}>{description}</textarea>
                   <label for="tags">Tags</label>
-                  <input type="text" className="form-control" id="tags" value={tags} ref={setTags} onChange={updateAdminProduct}/>
+                  <input type="text" className="form-control" id="tags" placeholder={tags} ref={setTags} onChange={changeProduct} value={props.changedProductObject.tags}/>
                 </div>
             </form>
               <li className="list-group-item">
               <div className="row justify-content-center">
                 <div className="col">
-                  <button className="btn general-button edit-button" onClick={editProduct}>Edit product</button>
+                  <button className="btn general-button edit-button" onClick={editProductAdmin}>Edit product</button>
                 </div>
                 <div className="col">
                   <button className="btn general-button delete-button" onClick={removeProduct} >Delete product</button>
