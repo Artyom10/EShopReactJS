@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
 import {addPersonActionCreator} from '../../redux/clientsPage-reducer';
+import PersonContainer from './Person/PersonContainer';
 
 
 function Clients(props) {
@@ -16,11 +17,10 @@ function Clients(props) {
       "password": "12345",
       "urlPhoto": "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf"
    }
-   let action = addPersonActionCreator(newPerson);
-   props.dispatch(action);
+   //let action = addPersonActionCreator(newPerson);
+   ///props.dispatch(action);
+   props.addPerson(newPerson);
   }
-
-
 
     return (
      <div className="container">
@@ -37,9 +37,10 @@ function Clients(props) {
           </tr>
          </thead>
          <tbody>
-             {props.clients.map(client => {
+             {/*props.clients.map(client => {
                return <Person client={client} dispatch={props.dispatch} />
-             })}
+             })*/}
+             <PersonContainer />
          </tbody>
     </table>
     <div className="row justify-content-center">

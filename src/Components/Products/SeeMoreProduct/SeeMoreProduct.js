@@ -26,8 +26,7 @@ function MoreAboutProduct(props) {
         "description": description,
         "tags": tags
       }
-      let action = addToBagActionCreator(data);
-      props.dispatch(action);
+      props.addToBag(data);
     }
 
   return ( 
@@ -78,7 +77,7 @@ function MoreAboutProduct(props) {
       </div>
   );
 }
-
+/*
 MoreAboutProduct.propTypes = {
     product: PropTypes.object.isRequired,
     urlPhoto: PropTypes.string,
@@ -89,5 +88,5 @@ MoreAboutProduct.propTypes = {
     description: PropTypes.string,
     tags: PropTypes.string
 }
-
+*/
 export default MoreAboutProduct;

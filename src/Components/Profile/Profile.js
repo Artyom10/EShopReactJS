@@ -18,8 +18,9 @@ function Profile(props) {
         "password": password,
         "urlPhoto": urlPhoto
       }
-     let action = removeRequestActionCreator(data);
-     props.dispatch(action);
+    // let action = removeRequestActionCreator(data);
+     //props.dispatch(action);
+     props.removeRequest(data);
     }
 
     return (
@@ -77,7 +78,7 @@ function Profile(props) {
 function handleUpdateProfile(){
   console.log('click');
 }
-
+/*
 Profile.propTypes = {
   client: PropTypes.object.isRequired,
   id: PropTypes.number,
@@ -87,6 +88,6 @@ Profile.propTypes = {
   mail: PropTypes.string,
   urlPhoto: PropTypes.string,
   password: PropTypes.string
-}
+}*/
 
 export default Profile;

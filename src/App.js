@@ -13,6 +13,7 @@ import MoreAboutProduct from './Components/Products/SeeMoreProduct/SeeMoreProduc
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
 import store from './redux/redux-store';
+import MoreAboutProductContainer from './Components/Products/SeeMoreProduct/SeeMoreProductContainer';
 
 
 
@@ -21,19 +22,17 @@ const  App = (props) => {
      <div>
        <Nav></Nav>
        <Route path="/main" 
-       render={ () => <MainPage products={props.state.productPages.products} brands={props.state.mainPage.brands} sliders={props.state.mainPage.sliders} stylesExample={props.state.mainPage.stylesData} />}/>
+       render={ () => <MainPage  />}/>
        <Route path="/profile" 
-       render={ () => <ClientProfile dispatch={props.dispatch} clients={props.state.clientsPage.clients} />} />
+       render={ () => <ClientProfile />} />
        <Route path="/bag" 
-       render={ () => <ClientBag bags={props.state.bagPage.bags}  dispatch={props.dispatch}/>} />
+       render={ () => <ClientBag/>} />
        <Route path="/clients" 
-       render={ () => <AdminClients clients={props.state.clientsPage.clients} dispatch={props.dispatch} />} />
+       render={ () => <AdminClients  />} />
        <Route path="/products" 
-       render={ () => <AdminProducts products={props.state.productPages.products} 
-       dispatch={props.dispatch} newProductObject={props.state.productPages.newProductObject}
-       changedProductObject={props.state.productPages.changedProductObject} />} />
+       render={ () => <AdminProducts />} />
          <Route path="/2"
-        render={ () => <MoreAboutProduct product={props.state.productPages.products[1]} dispatch={props.dispatch} /> }  /> 
+        render={ () => <MoreAboutProductContainer /> }  /> 
        <Footer></Footer>
      </div>
     

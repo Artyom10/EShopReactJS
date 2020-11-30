@@ -2,16 +2,17 @@ import logo from '../logo.svg';
 import React from 'react';
 import Clients from '../Components/Clients/Clients';
 import '../StylesForPages/AdminClients.css';
+import ClientsContainer from '../Components/Clients/ClientsContainer';
 
 
-function App(props) {
+function AdminClients(props) {
   return (
     <div>
         
-        <Clients  clients={props.clients} dispatch={props.dispatch}/>
+        <ClientsContainer  />
        
     </div>
   );
 }
 
-export default App;
+export default AdminClients;

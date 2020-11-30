@@ -3,37 +3,24 @@ import PropTypes from 'prop-types';
 import {removeUserActionCreator} from '../../../redux/clientsPage-reducer';
 
 function Person(props) {
-  const {client} = props;
-  const {id, urlPhoto, firstName, secondName, username, mail, password,request} = client;
-  const removeUser = () => {
-    debugger;
-    const data = {
-      "id": id,
-      "firstName": firstName,
-      "secondName": secondName,
-      "username": username,
-      "mail": mail,
-      "request": request, 
-      "password": password,
-      "urlPhoto": urlPhoto
-    }
-    let action = removeUserActionCreator(data);
-    props.dispatch(action);
-  };
+ // const {client} = props;
+ /// const {id, urlPhoto, firstName, secondName, username, mail, password,request} = client;
 
+  
   return (
-   <tr>
+    props.clients.map(client =>
+   <tr key={client.id}>
      <th scope="row">{client.id}</th>
-     <td>{firstName}</td>
-     <td>{secondName}</td>
-     <td>{username}</td>
-     <td>{mail}</td>
-     <td>{request}</td>
-    <td><button className="btn delete-client-button" onClick={removeUser}>Delete</button></td>
+     <td>{client.firstName}</td>
+     <td>{client.secondName}</td>
+     <td>{client.username}</td>
+     <td>{client.mail}</td>
+     <td>{client.request}</td>
+    <td><button className="btn delete-client-button" onClick={() => (props.removeUser(client.id))}>Delete</button></td>
   </tr>
-  );
+  ));
 }
-
+/*
 Person.propTypes = {
   client: PropTypes.object.isRequired,
   firstName: PropTypes.string,
@@ -42,5 +29,5 @@ Person.propTypes = {
   mail: PropTypes.string,
   request: PropTypes.string,
 }
-
+*/
 export default Person;

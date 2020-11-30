@@ -14,19 +14,20 @@ function ModalAddProduct(props) {
     let setTags = React.createRef();
     let setPhoto = React.createRef();
 
-    const addProduct = () => {
+   /* const addProduct = () => {
       
-     props.dispatch(addProductActionCreator());
+     props.addProduct();
      setPrice.current.value = '';
      setProducer.current.value = '';
      setType.current.value = '';
      setSizes.current.value = '';
      setDescription.current.value = '';
      setTags.current.value = '';
-    }
+     
+    }*/
 
-    const updateProduct = () => {
-      const data = {
+    /*const updateProduct = (from) => {
+     /* const data = {
         id: 9,
         "urlPhoto": urlPhoto,
         "price": `${setPrice.current.value}`,
@@ -36,10 +37,9 @@ function ModalAddProduct(props) {
         "description": `${setDescription.current.value}`,
         "tags": `${setTags.current.value}`
       };
-     let action = updateProductActionCreator(data)
-      props.dispatch(action);
-    }
-
+      props.updateProduct(data,from,urlPhoto, n, newProducer, newType, newSizes, newDescription, newTags);
+    }*/
+debugger;
     return (
     <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-hidden="true">
       <div className="modal-dialog modal-lg">
@@ -64,26 +64,26 @@ function ModalAddProduct(props) {
                     <form>
                         <div className="form-group">
                          <label for="photo">Url photo</label>
-                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={updateProduct} value={props.newProductObject.urlPhoto}/>
+                          <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={() => {props.updateProduct('urlPhoto', setPhoto.current.value)}} value={props.newPhoto}/>
                           <label for="price">Price</label>
-                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} onChange={updateProduct} value={props.newProductObject.price} />
+                          <input className="form-control" type="text" id="price" placeholder="Enter price" ref={setPrice} onChange={() => {props.updateProduct('price', setPrice.current.value)}} value={props.newPrice} />
                           <label for="producer">Producer</label>
-                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} onChange={updateProduct} value={props.newProductObject.producer}/>
+                          <input type="text" className="form-control" id="producer" placeholder="Enter producer" ref={setProducer} onChange={() => {props.updateProduct('producer', setProducer.current.value)}} value={props.producer}/>
                           <label for="type">Type</label>
-                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} onChange={updateProduct} value={props.newProductObject.type}/>
+                          <input type="text" className="form-control" id="type" placeholder="Enter type" ref={setType} onChange={() => {props.updateProduct('type', setType.current.value)}} value={props.type}/>
                           <label for="sizes">Sizes</label>
-                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} onChange={updateProduct} value={props.newProductObject.sizes}/>
+                          <input className="form-control" type="text" id="sizes" placeholder="Enter sizes(use ',')" ref={setSizes} onChange={() => {props.updateProduct('sizes',setSizes.current.value)}} value={props.sizes}/>
                           <label for="description">Description</label>
-                          <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={updateProduct} value={props.newProductObject.description} ></textarea>
+                          <textarea className="form-control" id="description" rows="3" ref={setDescription} onChange={() => {props.updateProduct('description', setDescription.current.value)}} value={props.description} ></textarea>
                           <label for="tags">Tags</label>
-                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} onChange={updateProduct} value={props.newProductObject.tags} />
+                          <input type="text" className="form-control" id="tags" placeholder="Enter tags" ref={setTags} onChange={() => {props.updateProduct('tags', setTags.current.value)}} value={props.tags} />
                         </div>
                     </form>
                   </div>
               </div>
               <div className="row justify-content-center">
                   <div className="col-md-6">
-                    <button className="btn general-button add-button-modal btn-block" onClick={addProduct}>Add product</button>
+                    <button className="btn general-button add-button-modal btn-block" onClick={() => (props.addProduct())}>Add product</button>
                     <button className="btn general-button delete-button btn-block" data-dismiss="modal">Canel</button>
                   </div>
               </div>

@@ -5,6 +5,13 @@ const EDIT_PRODUCT = 'EDIT-PRODUCT';
 const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
 
 let initialState = {
+  newPhoto: '',
+  newPrice: '',
+  newProducer: '',
+  newType: '',
+  newSizes: '',
+  newDescription: '',
+  newTags: '',
     products: [
     {
       id: 1,
@@ -113,23 +120,64 @@ const productPagesReducer = (state = initialState, action) => {
 
   switch(action.type){
     case ADD_PRODUCT:
-        const result = { ...state.newProductObject };
+        /*const result = { ...state.newProductObject };
         state.products.push(result);
-        state.newProductObject = {};
+        state.newProductObject = {};*/
+        const newProduct = {
+           id: 9,
+           urlPhoto: state.newPhoto,
+           price: state.newPrice,
+           producer: state.newProducer,
+           type: state.newType,
+           sizes: state.newSizes,
+           description: state.newDescription,
+           tags: state.newTags
+
+        }
+        state.products.push(newProduct);
+
         return state;
     case UPDATE_NEW_PRODUCT:
-        state.newProductObject = { ...action.newProduct };
-        return state;
+       // state.newProductObject = { ...action.newProduct };
+       switch(action.from){
+         case 'urlPhoto':
+           return {
+           ...state,
+          newPhoto: action.newText }
+          case 'price':
+           return {
+           ...state,
+          newPrice: action.newText }
+          case 'producer':
+           return {
+           ...state,
+          newProducer: action.newText }
+          case 'type':
+           return {
+           ...state,
+          newType: action.newText }
+          case 'sizes':
+           return {
+           ...state,
+          newSizes: action.newText }
+          case 'description':
+           return {
+           ...state,
+          newDescription: action.newText }
+          case 'tags':
+           return {
+           ...state,
+          newTags: action.newText }
+        default:
+          return state;
+       }
+        
     case CONSTANTLY_UPDATE_PRODUCT:
       debugger;
       state.changedProductObject = {...action.updatedProduct};
-
-
         return state;
     case EDIT_PRODUCT:
-      //const recivedProduct = {...action.necessaryObject};
-       debugger;
-        const receivedProduct = {...state.changedProductObject};
+        /*const receivedProduct = {...state.changedProductObject};
         state.products.forEach((product,index) => {
           if(receivedProduct.id === product.id){
             product.price = receivedProduct.price;
@@ -139,17 +187,16 @@ const productPagesReducer = (state = initialState, action) => {
             product.tags = receivedProduct.tags;
             product.sizes = receivedProduct.sizes;
           }
-        })
+        })*/
+
         return state;
     case REMOVE_PRODUCT:
-        let resultRemove = {...action.removedProduct};
-        state.newRemovedObject = {...resultRemove};
+        let resultRemoveId = action.removedProductId;
         state.products.forEach((product, index) => {
-            if(state.newRemovedObject.id === product.id){
+            if(resultRemoveId === product.id){
                 state.products.splice(index,1);
             }
         })
-        state.removedProduct = {};
         return state;
     default:
         return state;
@@ -162,10 +209,11 @@ export const addProductActionCreator = () => {
     };
   };
   
-export const updateProductActionCreator = (data) => { //updateNewProduct
+export const updateProductActionCreator = (from,newText) => { //updateNewProduct
     return {
       type: UPDATE_NEW_PRODUCT,
-      newProduct: data
+      from,
+      newText,
    }
   };
 
@@ -174,7 +222,7 @@ export const updateProductActionCreator = (data) => { //updateNewProduct
 export const removeProductActionCreator = (data) => {
     return {
         type: REMOVE_PRODUCT,
-        removedProduct: data
+        removedProductId: data
     }
 }
 

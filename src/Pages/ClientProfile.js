@@ -4,12 +4,13 @@ import Profile from '../Components/Profile/Profile';
 import '../StylesForPages/ClientProfile.css';
 
 import clients from '../Components/Clients/ClientsData';
+import ProfileContainer from '../Components/Profile/ProfileContainer';
 
 function ClientProfile(props) {
   return (
     <div>
         
-        <Profile client={props.clients[1]} dispatch={props.dispatch}></Profile>
+        <ProfileContainer ></ProfileContainer>
        
     </div>
   );

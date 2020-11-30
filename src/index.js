@@ -10,6 +10,7 @@ import store from './redux/redux-store';
 
 
 import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
 
@@ -19,7 +20,9 @@ const rerenderTree = (state) => { //берём state из store.getState() в re
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
+      <Provider store={store}>
     <App state={state} dispatch={store.dispatch.bind(store)} />
+    </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

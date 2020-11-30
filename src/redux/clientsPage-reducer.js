@@ -60,10 +60,10 @@ const clientsPageReducer = (state = initialState, action) => {
         state.newClientObject = {};
         return state;
     case REMOVE_USER:
-        let user = {...action.removeUser};
-         state.removedUser = {...user};
+      debugger;
+        let userId = action.removeUserId
          state.clients.forEach((user, index) => {
-           if(state.removedUser.id === user.id){
+           if(userId === user.id){
              state.clients.splice(index,1);
            }
          })
@@ -92,7 +92,7 @@ export const addPersonActionCreator = (data) => {
 export const removeUserActionCreator = (data) => {
     return {
       type: REMOVE_USER,
-      removeUser: data
+      removeUserId: data
     }
   }
 

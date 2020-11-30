@@ -44,10 +44,9 @@ const bagPageReducer = (state = initialState, action) => {
             state.newBagObject = {};
             return state;
         case REMOVE_FROM_BAG:
-            let remove = {...action.removeTarget};
-            state.newBagDeletedObject = {...remove};
+            let remove = action.removeTargetId;
             state.bags.forEach((bagProduct, index) => {
-             if(state.newBagDeletedObject.id === bagProduct.id){
+             if(remove === bagProduct.id){
                state.bags.splice(index,1);
             }
  
@@ -70,7 +69,7 @@ export const addToBagActionCreator = (data) => {
   export const removeTargetActionCreator = (data) => {
     return {
       type: REMOVE_FROM_BAG,
-      removeTarget: data
+      removeTargetId: data
     }
   }
 
