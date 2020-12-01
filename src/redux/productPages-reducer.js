@@ -117,26 +117,25 @@ let initialState = {
   };
 
 const productPagesReducer = (state = initialState, action) => {
-
+  let stateCopy;
   switch(action.type){
     case ADD_PRODUCT:
-        /*const result = { ...state.newProductObject };
-        state.products.push(result);
-        state.newProductObject = {};*/
-        const newProduct = {
-           id: 9,
-           urlPhoto: state.newPhoto,
-           price: state.newPrice,
-           producer: state.newProducer,
-           type: state.newType,
-           sizes: state.newSizes,
-           description: state.newDescription,
-           tags: state.newTags
-
-        }
-        state.products.push(newProduct);
-
-        return state;
+      const newProduct = {
+        id: 9,
+        urlPhoto: state.newPhoto,
+        price: state.newPrice,
+        producer: state.newProducer,
+        type: state.newType,
+        sizes: state.newSizes,
+        description: state.newDescription,
+        tags: state.newTags
+     }
+      stateCopy = {
+        ...state,
+        products: [...state.products, newProduct],
+        
+      }
+        return stateCopy;
     case UPDATE_NEW_PRODUCT:
        // state.newProductObject = { ...action.newProduct };
        switch(action.from){
@@ -169,7 +168,7 @@ const productPagesReducer = (state = initialState, action) => {
            ...state,
           newTags: action.newText }
         default:
-          return state;
+          return stateCopy;
        }
         
     case CONSTANTLY_UPDATE_PRODUCT:
@@ -189,15 +188,19 @@ const productPagesReducer = (state = initialState, action) => {
           }
         })*/
 
-        return state;
+        return {...state};
     case REMOVE_PRODUCT:
+       stateCopy = {
+         ...state,
+         products: [...state.products]
+       }
         let resultRemoveId = action.removedProductId;
-        state.products.forEach((product, index) => {
+        stateCopy.products.forEach((product, index) => {
             if(resultRemoveId === product.id){
-                state.products.splice(index,1);
+                stateCopy.products.splice(index,1);
             }
         })
-        return state;
+        return stateCopy;
     default:
         return state;
   }

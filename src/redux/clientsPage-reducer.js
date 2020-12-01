@@ -1,4 +1,4 @@
-import ClientsData from "../Components/Clients/ClientsData";
+
 
 const ADD_PERSON = 'ADD-PERSON';
 const REMOVE_USER = 'REMOVE-USER';
@@ -51,34 +51,45 @@ let initialState = {
 
 const clientsPageReducer = (state = initialState, action) => {
     
-      
+  let stateCopy;
   switch(action.type){
-    case ADD_PERSON:
-        state.newClientObject = {...action.newPerson};
-        const result = {...state.newClientObject};
-        state.clients.push(result);
-        state.newClientObject = {};
-        return state;
-    case REMOVE_USER:
-      debugger;
+    case ADD_PERSON:{
+     stateCopy = {
+        ...state,
+        newClientObject: {...action.newPerson},
+        clients: [...state.clients],
+      };
+        stateCopy.clients = [...stateCopy.clients, stateCopy.newClientObject];
+        return stateCopy;
+    }
+    case REMOVE_USER:{
+      stateCopy = {
+        ...state,
+        clients: [...state.clients],
+      }
         let userId = action.removeUserId
-         state.clients.forEach((user, index) => {
+        
+         stateCopy.clients.forEach((user, index) => {
            if(userId === user.id){
-             state.clients.splice(index,1);
+             stateCopy.clients.splice(index,1);
            }
          })
-         state.removedUser = {};
-        return state;
-      case REMOVE_REQUEST:
+        return stateCopy;
+    }
+      case REMOVE_REQUEST:{
+        let stateCopy = {...state};
+        stateCopy.clients = [...state.clients];
         let person = {...action.personRequest}; //Поменять remove request на True 
-        state.clients.forEach((client, index) => {
+        stateCopy.clients.forEach((client, index) => {
           if(person.id === client.id){
             client.request = 'True';
           }
-          debugger;
         })
+        return stateCopy;
+      }
     default:
         return state;
+      
   }
 };
 

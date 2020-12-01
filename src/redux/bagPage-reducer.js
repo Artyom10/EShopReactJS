@@ -36,23 +36,27 @@ let initialState = {
   };
 
 const bagPageReducer = (state = initialState, action) => {
+  let stateCopy;
     switch(action.type){
         case ADD_TO_BAG:
-            state.newBagObject = {...action.newBagProduct}; //Добавляем в state добавленный обьект из UI 
-            const result = {...state.newBagObject};
-            state.bags.push(result);
-            state.newBagObject = {};
-            return state;
+          stateCopy = {
+            ...state,
+            newBagObject: {...action.newBagProduct},
+            bags: [...state.bags]
+          }
+           stateCopy.bags.push(stateCopy.newBagObject);
+            return stateCopy;
         case REMOVE_FROM_BAG:
-            let remove = action.removeTargetId;
-            state.bags.forEach((bagProduct, index) => {
-             if(remove === bagProduct.id){
-               state.bags.splice(index,1);
-            }
- 
+           stateCopy = {
+             ...state,
+             bags: [...state.bags],
+           };
+            stateCopy.bags.forEach((bagProduct, index) => {
+             if(action.removeTargetId === bagProduct.id){
+               stateCopy.bags.splice(index,1);
+             }
            })
-           state.newBagDeletedObject = {};
-            return state;
+            return stateCopy;
         default:
             return state;
     }
