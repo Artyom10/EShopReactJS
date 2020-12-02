@@ -8,11 +8,9 @@ import ClientBag from './Pages/ClientBag';
 import AdminClients from './Pages/AdminClients';
 import AdminProducts from './Pages/AdminProducts'; 
 
-import MoreAboutProduct from './Components/Products/SeeMoreProduct/SeeMoreProduct'
 
 import './App.css';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
-import store from './redux/redux-store';
 import MoreAboutProductContainer from './Components/Products/SeeMoreProduct/SeeMoreProductContainer';
 
 

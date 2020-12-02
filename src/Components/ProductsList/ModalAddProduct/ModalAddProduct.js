@@ -13,6 +13,7 @@ function ModalAddProduct(props) {
     let setDescription = React.createRef();
     let setTags = React.createRef();
     let setPhoto = React.createRef();
+    let setId = React.createRef();
 
    /* const addProduct = () => {
       
@@ -63,6 +64,8 @@ debugger;
                   <div className="col-md-6">
                     <form>
                         <div className="form-group">
+                        <label for="photo">id</label>
+                          <input className="form-control" type="text" id="id" placeholder="id" ref={setId} onChange={() => {props.updateProduct('id', setId.current.value)}} value={props.newId}/>
                          <label for="photo">Url photo</label>
                           <input className="form-control" type="text" id="photo" placeholder="URL" ref={setPhoto} onChange={() => {props.updateProduct('urlPhoto', setPhoto.current.value)}} value={props.newPhoto}/>
                           <label for="price">Price</label>

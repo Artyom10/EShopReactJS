@@ -15,7 +15,8 @@ const mapStateToProp = (state) => {
      newType: state.productPages.newType,
      newSizes: state.productPages.newSizes,
      newDescription: state.productPages.newDescription,
-     newTags: state.productPages.newText
+     newTags: state.productPages.newText,
+     newId: state.productPages.newId
     }
  }
  

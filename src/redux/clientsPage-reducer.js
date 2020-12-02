@@ -5,10 +5,11 @@ const REMOVE_USER = 'REMOVE-USER';
 
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
 const SET_USERS = 'SET-USERS';
+const SET_PROFILES = 'SET-PROFILES';
 
 let initialState = {
    clients: [
-     /* {
+      /*{
         id: 1,
         firstName: "Mark",
         secondName: "Otto",
@@ -54,7 +55,7 @@ const clientsPageReducer = (state = initialState, action) => {
         clients: [...state.clients, action.newPerson],
       };
        // stateCopy.clients = [...stateCopy.clients, action.newPerson];
-       firebaseDb.child('clients').push(
+      firebaseDb.child('clients').push(
          action.newPerson,
          err => {
            if(err){
@@ -74,12 +75,13 @@ const clientsPageReducer = (state = initialState, action) => {
              stateCopy.clients.splice(index,1);
            }
          })
+       // firebaseDb.child('clients'/`${action.removeUserId}`).remove()
         return stateCopy;
     }
       case REMOVE_REQUEST:{
         let stateCopy = {...state,
        clients: state.clients.map((client) => {
-          if(action.personRequest.id === client.id){
+          if(action.personRequestId === client.id){
             return {...client, request: 'True'};
           }
           return client
@@ -89,33 +91,36 @@ const clientsPageReducer = (state = initialState, action) => {
       }
       case SET_USERS:
         //return {...state, clients: [ ...action.clients]}  
-        return {...state, clients: [ ...state.clients,...action.clients]}
+        return {...state, clients: [ ...state.clients,...action.clients]};
+      case SET_PROFILES:
+         return {...state, clients:[...state.clients, ...action.profiles]};
     default:
         return state;
       
   }
 };
 
-export const addPersonActionCreator = (data) => {
+export const addPerson = (data) => {
     return {
       type: ADD_PERSON,
       newPerson: data
     }
   };
 
-export const removeUserActionCreator = (data) => {
+export const removeUser = (data) => {
     return {
       type: REMOVE_USER,
       removeUserId: data
     }
   }
 
-export const removeRequestActionCreator = (data) => {
+export const removeRequestActionCreator = (id) => {
   return {
       type: REMOVE_REQUEST,
-      personRequest: data
+      personRequestId: id
   }
 }
 
-export const setUsersActionCreator = (clients) => ({type: SET_USERS, clients})
+export const setUsers = (clients) => ({type: SET_USERS, clients})
+export const setProfiles = (profiles) => ({type: SET_PROFILES, profiles})
 export default clientsPageReducer;

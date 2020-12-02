@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {removeProductActionCreator} from '../../../redux/productPages-reducer';
+import {removeProductActionCreator, setProductsAC} from '../../../redux/productPages-reducer';
 import {editProductActionCreator} from '../../../redux/productPages-reducer';
 import {updateProductInListActionCreator} from '../../../redux/productPages-reducer';
 import ProductAdminCard from './ProductAdminCard';
@@ -25,6 +25,10 @@ const mapStateToProp = (state) => {
        },
     changeProduct: (data) => {
         let action = updateProductInListActionCreator(data);
+        dispatch(action);
+    },
+    setProducts: (products) => {
+        let action = setProductsAC(products);
         dispatch(action);
     }
    }

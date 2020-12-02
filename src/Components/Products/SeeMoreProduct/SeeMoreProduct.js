@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from '../ProductCard/ProductRating/ProductRating';
 import { addToBagActionCreator } from '../../../redux/bagPage-reducer';
+import firebaseDb from '../../../firebase';
 
 const modalStyleProduct = {
     modalStyle: {

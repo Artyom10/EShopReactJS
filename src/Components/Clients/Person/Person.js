@@ -13,7 +13,7 @@ function Person(props) {
         ...snapshot.val()
       })
     } )
-  }, [])
+  }, []) //componentDidMount in class
 
   if(props.clients.length === 0){
   /* props.setUsers([

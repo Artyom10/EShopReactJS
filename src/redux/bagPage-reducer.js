@@ -63,14 +63,14 @@ const bagPageReducer = (state = initialState, action) => {
     
 };
 
-export const addToBagActionCreator = (data) => {
+export const addToBag = (data) => {
     return {
       type: ADD_TO_BAG,
       newBagProduct: data
     }
   }
   
-  export const removeTargetActionCreator = (data) => {
+  export const removeTarget = (data) => {
     return {
       type: REMOVE_FROM_BAG,
       removeTargetId: data

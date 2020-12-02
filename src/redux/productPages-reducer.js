@@ -1,8 +1,11 @@
+import firebaseDb from '../firebase';
+
 const ADD_PRODUCT = 'ADD-PRODUCT';
 const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
 const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
 const EDIT_PRODUCT = 'EDIT-PRODUCT';
 const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
+const SET_PRODUCTS = 'SET-PRODUCTS';
 
 let initialState = {
   newPhoto: '',
@@ -12,8 +15,9 @@ let initialState = {
   newSizes: '',
   newDescription: '',
   newTags: '',
+  newId: '',
     products: [
-    {
+    /*{
       id: 1,
       urlPhoto:
         "https://sun9-75.userapi.com/impg/v9-83eUNEQ5s5JdHfLDdcFXVoSdZ8CvseVH3Tw/JAxl7sVkPs4.jpg?size=762x1100&quality=96&proxy=1&sign=524d2c12b64f491a17abd599fa4318f7",
@@ -100,7 +104,7 @@ let initialState = {
       sizes: "M,L,XL",
       description: "Something",
       tags: "#mango, #pants",
-    },
+    },*/
     ],
     newProductObject: {
 
@@ -121,7 +125,7 @@ const productPagesReducer = (state = initialState, action) => {
   switch(action.type){
     case ADD_PRODUCT:
       const newProduct = {
-        id: 9,
+        id: state.newId,
         urlPhoto: state.newPhoto,
         price: state.newPrice,
         producer: state.newProducer,
@@ -135,10 +139,23 @@ const productPagesReducer = (state = initialState, action) => {
         products: [...state.products, newProduct],
         
       }
+      firebaseDb.child('products').push(
+        newProduct,
+        err => {
+          if(err){
+            console.log('error')
+          }
+        }
+      )
         return stateCopy;
     case UPDATE_NEW_PRODUCT:
        // state.newProductObject = { ...action.newProduct };
        switch(action.from){
+         case 'id':
+         return {
+           ...state,
+          newId: action.newText
+         }
          case 'urlPhoto':
            return {
            ...state,
@@ -176,18 +193,6 @@ const productPagesReducer = (state = initialState, action) => {
       state.changedProductObject = {...action.updatedProduct};
         return state;
     case EDIT_PRODUCT:
-        /*const receivedProduct = {...state.changedProductObject};
-        state.products.forEach((product,index) => {
-          if(receivedProduct.id === product.id){
-            product.price = receivedProduct.price;
-            product.producer = receivedProduct.producer;
-            product.type = receivedProduct.type;
-            product.description = receivedProduct.description;
-            product.tags = receivedProduct.tags;
-            product.sizes = receivedProduct.sizes;
-          }
-        })*/
-
         return {...state};
     case REMOVE_PRODUCT:
        stateCopy = {
@@ -201,6 +206,8 @@ const productPagesReducer = (state = initialState, action) => {
             }
         })
         return stateCopy;
+      case SET_PRODUCTS:
+        return {...state, products: [ ...state.products,...action.products]};
     default:
         return state;
   }
@@ -232,7 +239,6 @@ export const removeProductActionCreator = (data) => {
 export const editProductActionCreator = (data) => {
   return {
     type: EDIT_PRODUCT,
-   // necessaryObject: data
   }
 }
 
@@ -243,5 +249,12 @@ export const updateProductInListActionCreator = (data) => {
   }
 }
 
+export const setProductsAC = (products) => {
+  return {
+    type: SET_PRODUCTS,
+    products: products
+
+  }
+}
 
 export default productPagesReducer;

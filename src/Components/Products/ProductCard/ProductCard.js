@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from './ProductRating/ProductRating';
 import { NavLink } from 'react-router-dom';
+import firebaseDb from '../../../firebase';
 
 function ProductCard(props) {
+  let [products, setProducts] = useState({})
+  useEffect(() => {
+    firebaseDb.child('products').on('value', snapshot => {
+      if(snapshot.val() != null)
+      setProducts({
+        ...snapshot.val()
+      })
+    } )
+  }, [])
+
+
+  if(props.products.length === 0 ){
+    Object.keys(products).map(id => {
+      props.setProducts([products[id]])
+    })
+  }
+
    /*const {product} = props; 
     const {urlPhoto, price, producer, type, sizes, description, tags, id} = product;
     const router = `${id}`;*/

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { removeTargetActionCreator } from '../../../redux/bagPage-reducer';
+import { removeTarget } from '../../../redux/bagPage-reducer';
 import BagCard from './BagCard';
 import { connect } from 'react-redux';
 
@@ -11,15 +11,15 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
+ /*const mapDispatchToProp = (dispatch) => {
    return {
        removeFromBag: (id) => {
         let action = removeTargetActionCreator(id);
         dispatch(action);
        }
    }
- }
+ }*/
  
- const BagCardContainer = connect(mapStateToProp,mapDispatchToProp)(BagCard);
+ const BagCardContainer = connect(mapStateToProp,{ removeFromBag: removeTarget,})(BagCard);
 
 export default BagCardContainer;

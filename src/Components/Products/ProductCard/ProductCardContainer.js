@@ -4,6 +4,7 @@ import ProductRating from './ProductRating/ProductRating';
 import { NavLink } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { connect } from 'react-redux';
+import { setProductsAC } from '../../../redux/productPages-reducer';
 
 const mapStateToProp = (state) => {
     return {
@@ -13,7 +14,10 @@ const mapStateToProp = (state) => {
  
  const mapDispatchToProp = (dispatch) => {
    return {
-       
+    setProducts: (products) => {
+      let action = setProductsAC(products);
+      dispatch(action);
+  }
    }
  }
  

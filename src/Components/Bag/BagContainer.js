@@ -12,12 +12,12 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
+ /*const mapDispatchToProp = (dispatch) => {
    return {
        
    }
- }
+ }*/
  
- const BagContainer = connect(mapStateToProp,mapDispatchToProp)(Bag);
+ const BagContainer = connect(mapStateToProp,{})(Bag);
 
 export default BagContainer;
