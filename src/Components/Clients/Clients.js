@@ -17,8 +17,6 @@ function Clients(props) {
       "password": "12345",
       "urlPhoto": "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf"
    }
-   //let action = addPersonActionCreator(newPerson);
-   ///props.dispatch(action);
    props.addPerson(newPerson);
   }
 

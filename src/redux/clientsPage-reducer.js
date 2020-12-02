@@ -1,13 +1,14 @@
-
+import firebaseDb from '../firebase';
 
 const ADD_PERSON = 'ADD-PERSON';
 const REMOVE_USER = 'REMOVE-USER';
 
 const REMOVE_REQUEST = 'REMOVE-REQUEST';
+const SET_USERS = 'SET-USERS';
 
 let initialState = {
-    clients: [
-      {
+   clients: [
+     /* {
         id: 1,
         firstName: "Mark",
         secondName: "Otto",
@@ -39,14 +40,8 @@ let initialState = {
         password: "12345",
         urlPhoto:
           "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf",
-      },
+      }, */
     ],
-    newClientObject: {
-
-    },
-    removedUser: {
-
-    },
   };
 
 const clientsPageReducer = (state = initialState, action) => {
@@ -56,10 +51,17 @@ const clientsPageReducer = (state = initialState, action) => {
     case ADD_PERSON:{
      stateCopy = {
         ...state,
-        newClientObject: {...action.newPerson},
-        clients: [...state.clients],
+        clients: [...state.clients, action.newPerson],
       };
-        stateCopy.clients = [...stateCopy.clients, stateCopy.newClientObject];
+       // stateCopy.clients = [...stateCopy.clients, action.newPerson];
+       firebaseDb.child('clients').push(
+         action.newPerson,
+         err => {
+           if(err){
+             console.log('error')
+           }
+         }
+       )
         return stateCopy;
     }
     case REMOVE_USER:{
@@ -67,26 +69,27 @@ const clientsPageReducer = (state = initialState, action) => {
         ...state,
         clients: [...state.clients],
       }
-        let userId = action.removeUserId
-        
          stateCopy.clients.forEach((user, index) => {
-           if(userId === user.id){
+           if(action.removeUserId === user.id){
              stateCopy.clients.splice(index,1);
            }
          })
         return stateCopy;
     }
       case REMOVE_REQUEST:{
-        let stateCopy = {...state};
-        stateCopy.clients = [...state.clients];
-        let person = {...action.personRequest}; //Поменять remove request на True 
-        stateCopy.clients.forEach((client, index) => {
-          if(person.id === client.id){
-            client.request = 'True';
+        let stateCopy = {...state,
+       clients: state.clients.map((client) => {
+          if(action.personRequest.id === client.id){
+            return {...client, request: 'True'};
           }
-        })
+          return client
+       })
+      };
         return stateCopy;
       }
+      case SET_USERS:
+        //return {...state, clients: [ ...action.clients]}  
+        return {...state, clients: [ ...state.clients,...action.clients]}
     default:
         return state;
       
@@ -114,4 +117,5 @@ export const removeRequestActionCreator = (data) => {
   }
 }
 
+export const setUsersActionCreator = (clients) => ({type: SET_USERS, clients})
 export default clientsPageReducer;

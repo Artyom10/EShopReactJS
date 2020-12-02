@@ -18,8 +18,6 @@ function Profile(props) {
         "password": password,
         "urlPhoto": urlPhoto
       }
-    // let action = removeRequestActionCreator(data);
-     //props.dispatch(action);
      props.removeRequest(data);
     }
 

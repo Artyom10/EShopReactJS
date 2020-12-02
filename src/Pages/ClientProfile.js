@@ -10,7 +10,7 @@ function ClientProfile(props) {
   return (
     <div>
         
-        <ProfileContainer ></ProfileContainer>
+        <ProfileContainer />
        
     </div>
   );

@@ -3,7 +3,7 @@ import PropTypes, { object } from 'prop-types';
 import Person from './Person';
 import { connect } from 'react-redux';
 
-import { removeUserActionCreator } from '../../../redux/clientsPage-reducer';
+import { removeUserActionCreator, setUsersActionCreator } from '../../../redux/clientsPage-reducer';
 
 
 
@@ -18,6 +18,9 @@ const mapDispatchToProp = (dispatch) => {
       removeUser: (id) => {
          let action = removeUserActionCreator(id);
          dispatch(action);
+      },
+      setUsers: (clientId) => {
+         dispatch(setUsersActionCreator(clientId));
       }
   }
 }

@@ -9,7 +9,7 @@ function ProductCard(props) {
     const router = `${id}`;*/
   return (
     props.products.map(product => 
-      <div className="col d-md-flex">
+      <div className="col d-md-flex" key={product.id}>
       <div className="card  product-card">
         <div className="inner"> <img src={product.urlPhoto} className="card-img-top ihv" alt={product.type} /></div>
         <div className="card-body">
