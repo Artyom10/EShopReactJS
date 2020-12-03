@@ -1,9 +1,9 @@
 import React from 'react';
-import './Footer.css';
+import stylesFor from './Footer.module.css';
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className={stylesFor.footer}>
     <p>Artyom Grishin <a href="#">ART</a></p>
  </footer>
   );

@@ -16,13 +16,13 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
+ /*const mapDispatchToProp = (dispatch) => {
    return {
    
    }
- }
+ }*/
  
- const ProductListContainer = connect(mapStateToProp,mapDispatchToProp)(ProductList);
+ const ProductListContainer = connect(mapStateToProp,{})(ProductList);
    
 
 export default ProductListContainer;

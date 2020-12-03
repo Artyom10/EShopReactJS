@@ -1,0 +1,33 @@
+.containerSignup {
+    height: 520px;
+    width: 340px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+  .control {
+    font-size: 15px;
+    min-height: 48px;
+    font-weight: 500;
+  }
+  
+  .control:focus {
+    border-color: gold;
+  }
+
+  .emergency {
+    font-size: 13px;
+  }
+  
+  .emergencyLabel {
+    margin-bottom: 0;
+  }
+  
+  .loginFormForA {
+    text-decoration: none;
+    color: gray;
+  }
+  
+  .loginFormForA:hover {
+    color: gold;
+  }

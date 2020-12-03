@@ -9,7 +9,7 @@ const SET_PROFILES = 'SET-PROFILES';
 
 let initialState = {
    clients: [
-      /*{
+      {
         id: 1,
         firstName: "Mark",
         secondName: "Otto",
@@ -41,7 +41,7 @@ let initialState = {
         password: "12345",
         urlPhoto:
           "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf",
-      }, */
+      }, 
     ],
   };
 
@@ -55,14 +55,14 @@ const clientsPageReducer = (state = initialState, action) => {
         clients: [...state.clients, action.newPerson],
       };
        // stateCopy.clients = [...stateCopy.clients, action.newPerson];
-      firebaseDb.child('clients').push(
+   /*   firebaseDb.child('clients').push(
          action.newPerson,
          err => {
            if(err){
              console.log('error')
            }
          }
-       )
+       )*/
         return stateCopy;
     }
     case REMOVE_USER:{
@@ -75,7 +75,6 @@ const clientsPageReducer = (state = initialState, action) => {
              stateCopy.clients.splice(index,1);
            }
          })
-       // firebaseDb.child('clients'/`${action.removeUserId}`).remove()
         return stateCopy;
     }
       case REMOVE_REQUEST:{
@@ -87,13 +86,15 @@ const clientsPageReducer = (state = initialState, action) => {
           return client
        })
       };
+
         return stateCopy;
       }
       case SET_USERS:
         //return {...state, clients: [ ...action.clients]}  
         return {...state, clients: [ ...state.clients,...action.clients]};
       case SET_PROFILES:
-         return {...state, clients:[...state.clients, ...action.profiles]};
+        debugger;
+         return {...state, clients:[...state.clients,...action.profiles]};
     default:
         return state;
       

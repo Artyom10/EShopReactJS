@@ -3,6 +3,7 @@ import PropTypes, { object } from 'prop-types';
 import Person from './Person/Person';
 import {addPersonActionCreator} from '../../redux/clientsPage-reducer';
 import PersonContainer from './Person/PersonContainer';
+import stylesFor from './Clients.module.css';
 
 
 function Clients(props) {
@@ -22,9 +23,9 @@ function Clients(props) {
 
     return (
      <div className="container">
-         <table className="table client-table">
+         <table className={`table ${stylesFor.clientTable}`}>
          <thead>
-          <tr>
+          <tr className={stylesFor.trStyle}>
             <th scope="col">#</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
@@ -43,7 +44,7 @@ function Clients(props) {
     </table>
     <div className="row justify-content-center">
         <div className="col-md-12">
-          <button className="btn btn-primary btn-block add-client-button" onClick={addPerson}>Add new client</button>
+          <button className={`btn btn-primary btn-block ${stylesFor.addClientButton}`} onClick={addPerson}>Add new client</button>
         </div>
       </div>
      </div>

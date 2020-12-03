@@ -1,8 +1,8 @@
-nav {
+/*.myNav {
     font-family: "Trispace", sans-serif;
-  }
+  }*/
   
-  .logo {
+ /* .logo {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     font-weight: 900;
@@ -12,9 +12,9 @@ nav {
   
   .logo span {
     color: rebeccapurple;
-  }
+  }*/
   
-  .action-button_log {
+ /* .action-button_log {
     font-family: "Trispace", sans-serif;
     background-color: slategrey;
     border: none;
@@ -39,50 +39,50 @@ nav {
     font-size: 16px;
     border-radius: 3px;
     margin-left: 5px;
-  }
+  }*/
   
-  .add-bag-button {
+ /* .add-bag-button {
     background-color: #2796ff;
     border: none;
     box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
     letter-spacing: 0.2px;
     color: #fff;
     padding: 10px;
-  }
+  }*/
   
-  .action-button_log:hover {
+  /*.action-button_log:hover {
     background-color: turquoise;
   }
   
   .action-button_sign:hover {
     background-color: turquoise;
-  }
+  }*/
   
-  .nav-btn {
+  /*.nav-btn {
     font-family: "Trispace", sans-serif;
     margin-right: 3px;
     border-radius: 30px;
     background-color: #d4f5ff;
-  }
+  }*/
 
-  .login-container .container-signup {
+  /*.login-container .container-signup {
     height: 520px;
     width: 340px;
-  }
+  }*/
   
-  .login-container .container-login {
+  /*.login-container .container-login {
     height: 420px;
     width: 340px;
-  }
+  }*/
   
-  .login-form {
+ /* .login-form {
     max-width: 100%;
     width: 370px;
     padding: 15px;
     margin: auto;
-  }
+  }*/
   
-  .form-control {
+  /*.form-control {
     font-size: 15px;
     min-height: 48px;
     font-weight: 500;
@@ -107,4 +107,4 @@ nav {
   
   .login-form a:hover {
     color: gold;
-  }
+  }*/

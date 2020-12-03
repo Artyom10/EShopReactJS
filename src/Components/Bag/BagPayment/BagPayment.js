@@ -1,5 +1,5 @@
 import React from 'react';
-
+import stylesFor from './BagPayment.module.css';
 function BagPayment(props) {
 
   return (
@@ -9,6 +9,7 @@ function BagPayment(props) {
      <div class="btn-group" data-toggle="buttons">
       <label className="btn active">
         <input
+        className={stylesFor.inputX}
           type="radio"
           name="options"
           id="optionCash"
@@ -18,6 +19,7 @@ function BagPayment(props) {
       </label>
       <label className="btn">
         <input
+         className={stylesFor.inputX}
           type="radio"
           name="options"
           id="optionCard"

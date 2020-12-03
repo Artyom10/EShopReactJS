@@ -15,38 +15,12 @@ function ModalAddProduct(props) {
     let setPhoto = React.createRef();
     let setId = React.createRef();
 
-   /* const addProduct = () => {
-      
-     props.addProduct();
-     setPrice.current.value = '';
-     setProducer.current.value = '';
-     setType.current.value = '';
-     setSizes.current.value = '';
-     setDescription.current.value = '';
-     setTags.current.value = '';
-     
-    }*/
-
-    /*const updateProduct = (from) => {
-     /* const data = {
-        id: 9,
-        "urlPhoto": urlPhoto,
-        "price": `${setPrice.current.value}`,
-        "producer": `${setProducer.current.value}`,
-        "type": `${setType.current.value}`,
-        "sizes": `${setSizes.current.value}`,
-        "description": `${setDescription.current.value}`,
-        "tags": `${setTags.current.value}`
-      };
-      props.updateProduct(data,from,urlPhoto, n, newProducer, newType, newSizes, newDescription, newTags);
-    }*/
-debugger;
     return (
     <div className="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-hidden="true">
       <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Add product</h5>
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {removeUserActionCreator} from '../../../redux/clientsPage-reducer';
 import firebaseDb from '../../../firebase';
+import stylesFor from './Person.module.css';
 
 function Person(props) {
  
-  let [clients, setClients] = useState({})
+  /*let [clients, setClients] = useState({})
   useEffect(() => {
     firebaseDb.child('clients').on('value', snapshot => {
       if(snapshot.val() != null)
@@ -13,9 +14,9 @@ function Person(props) {
         ...snapshot.val()
       })
     } )
-  }, []) //componentDidMount in class
+  }, []) //componentDidMount in class*/
 
-  if(props.clients.length === 0){
+  //if(props.clients.length === 0){
   /* props.setUsers([
     {
       id: 1,
@@ -51,10 +52,10 @@ function Person(props) {
         "https://sun9-11.userapi.com/impg/kmBJYJ5uzeAzzFzjzsKNPk-_-XVrImJWvS0ILw/4c_igfiEqMI.jpg?size=512x512&quality=96&proxy=1&sign=093166373fa3195e88d2f44ed114afcf",
     },
   ])*/
-  Object.keys(clients).map(id => {
+ /* Object.keys(clients).map(id => {
     props.setUsers([clients[id]])
   })
-}
+}*/
 
   return (
     props.clients.map(client =>
@@ -65,7 +66,7 @@ function Person(props) {
      <td>{client.username}</td>
      <td>{client.mail}</td>
      <td>{client.request}</td>
-    <td><button className="btn delete-client-button" onClick={() => (props.removeUser(client.id))}>Delete</button></td>
+    <td><button className={`btn ${stylesFor.deleteClientButton}`} onClick={() => (props.removeUser(client.id))}>Delete</button></td>
   </tr>
   ));
 }

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const mapStateToProp = (state) => {
     return {
     // client: state.clientsPage.clients[2], //Не было реализации, получает одного клиента как профиль для отрисовки, но теперь state пуст
-    clients: state.clientsPage.clients,
+    client: state.clientsPage.clients[1],
     }
  }
  

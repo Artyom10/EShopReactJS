@@ -66,3 +66,9 @@
   .rating[data-total-value="5"] .rating-item:nth-child(n + 1) {
     color: #2796ff;
   }
+
+  .tags-dec {
+    font-size: 12px;
+    font-weight: 200;
+   color: darkgray;
+  }

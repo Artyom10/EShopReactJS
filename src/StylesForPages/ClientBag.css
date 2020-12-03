@@ -1,28 +1,28 @@
-body {
+/*body {
     font-family: "Trispace", sans-serif;
-  }
+  }*/
   
-  .hidden-button {
+  /*.hidden-button {
     display: none;
-  }
+  }*/
   
-  .bag-thing {
+  /*.bag-thing {
     margin-bottom: 10px;
   }
   
   .bag-thing:hover .hidden-button {
     display: inline;
-  }
+  }*/
   
-  .card-text-inside {
+  /*.card-text-inside {
     margin-bottom: 0%;
-  }
+  }*/
   
-  .order-bag {
+ /* .order-bag {
     margin-bottom: 15px;
-  }
+  }*/
   
-  .order-button {
+  /*.order-button {
     padding: 0 32px;
     line-height: 40px;
     width: 250px;
@@ -34,9 +34,9 @@ body {
     letter-spacing: 0.2px;
     color: #fff;
     text-align: center;
-  }
+  }*/
   
-  .btn input {
+  /*.btn input {
     margin-right: 1rem;
-  }
+  }*/
   

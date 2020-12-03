@@ -1,0 +1,41 @@
+.loginContainer {
+  height: 420px;
+  width: 340px;
+ /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+ font-family: 'Times New Roman', Times, serif;
+  }
+
+  .loginForm {
+    max-width: 100%;
+    width: 370px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+  }
+
+.control {
+    font-size: 15px;
+    min-height: 48px;
+    font-weight: 500;
+  }
+  
+  .control:focus {
+    border-color: gold;
+  }
+
+  .emergency {
+    font-size: 13px;
+  }
+  
+  .emergencyLabel {
+    margin-bottom: 0;
+  }
+  
+  .loginFormForA {
+    text-decoration: none;
+    color: gray;
+  }
+  
+  .loginFormForA:hover {
+    color: gold;
+  }

@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import stylesFor from './StyleCard.module.css';
 
 function StyleCard(props) {
- // const {styleType} = props;
- // const {urlPhoto, title} = styleType; 
   return (
     props.stylesExample.map(styleOf =>
       <div className="col-4"> <figure className="figure test-img">
       <img src={styleOf.urlPhoto} className="figure-img img-fluid rounded" alt={styleOf.title} />
-  <p class="choose-style-description">{styleOf.title}</p>
+  <p className={stylesFor.chooseStyleDescription}>{styleOf.title}</p>
     </figure>
     </div>
       )

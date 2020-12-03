@@ -19,7 +19,7 @@ const  App = (props) => {
   return (
      <div>
        <Nav></Nav>
-       <Route path="/main" 
+       <Route exact path="/" 
        render={ () => <MainPage  />}/>
        <Route path="/profile" 
        render={ () => <ClientProfile />} />

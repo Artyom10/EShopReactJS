@@ -2,24 +2,28 @@
 let initialState = {
     brands: [
       {
-        title: "Tommy Hilfiger",
+        title: /*"Tommy Hilfiger"*/ 'Pants',
         urlPhoto:
-          "https://sun9-13.userapi.com/impg/xN5D8Yh3MgDVF9ajbLcPqLECprYTUgYRh-eX7A/MNApVqDxm3w.jpg?size=1600x1940&quality=96&proxy=1&sign=def7aa8d2f59c73835b66bfa4d17eaa2",
+        "https://sun9-49.userapi.com/impg/Yc2WgYCxxofy_Vzn8awYjabOZgPcytZ-zLXyZQ/RxXuvpqgl-0.jpg?size=1600x1940&quality=96&proxy=1&sign=fd92a716e2661985c70ced4343816b6e" 
+        //"https://sun9-13.userapi.com/impg/xN5D8Yh3MgDVF9ajbLcPqLECprYTUgYRh-eX7A/MNApVqDxm3w.jpg?size=1600x1940&quality=96&proxy=1&sign=def7aa8d2f59c73835b66bfa4d17eaa2",
       },
       {
-        title: "Polo Ralph Lauren",
+        title:/* "Polo Ralph Lauren"*/ 'Jacket',
         urlPhoto:
-          "https://sun9-61.userapi.com/impg/bYX_qovkC0Gn2o2pl7qH8ZRNeA7VcOHqfh5tKA/0LY-RT1jW7g.jpg?size=1600x1940&quality=96&proxy=1&sign=3e1ca3a8bee9f8a6514f950f094fa8a2",
+        "https://sun9-14.userapi.com/impg/PKMrR-Zz0XdWWxgUb-qTbA_-iOyDkWh8hU3EkQ/S754s1bG-Ak.jpg?size=1600x1940&quality=96&proxy=1&sign=f2573fe5d98f349aaf1d931a972f8e71"
+          //"https://sun9-61.userapi.com/impg/bYX_qovkC0Gn2o2pl7qH8ZRNeA7VcOHqfh5tKA/0LY-RT1jW7g.jpg?size=1600x1940&quality=96&proxy=1&sign=3e1ca3a8bee9f8a6514f950f094fa8a2",
       },
       {
-        title: "Hugo Boss",
+        title: /*"Hugo Boss"*/ "Coat",
         urlPhoto:
-          "https://sun9-20.userapi.com/impg/UMv0fl1YvOYKUUPQq6YX44q4_UCUljuIIGmd0g/PhrM3l2W7Gk.jpg?size=1600x1940&quality=96&proxy=1&sign=a12bc5b3c55c62b9efeefa19c38216d2",
+        "https://sun9-47.userapi.com/impg/FTkXfhWFj1cWXw9ttZau2D4FInYtW2zc3YAo2g/ipm_NNR_bhk.jpg?size=1600x1940&quality=96&proxy=1&sign=73b2fdab52f048504e45882a1af85041"
+          //"https://sun9-20.userapi.com/impg/UMv0fl1YvOYKUUPQq6YX44q4_UCUljuIIGmd0g/PhrM3l2W7Gk.jpg?size=1600x1940&quality=96&proxy=1&sign=a12bc5b3c55c62b9efeefa19c38216d2",
       },
       {
-        title: "Carhartt",
+        title: /*"Carhartt"*/ "Shirt",
         urlPhoto:
-          "https://sun9-46.userapi.com/impg/nSojveHYD_IA9-O89sXKQde6ql2AGj21UhqCaA/ZjUF279FeUI.jpg?size=1600x1940&quality=96&proxy=1&sign=5578d0354eb85c4f864e3e22b0b5e877",
+        "https://sun9-14.userapi.com/impg/6OsrKT2FNI4aFQ4GYWm2z5f2o8FaH6G51g1cIw/GHpa4Vkeg-Y.jpg?size=1600x1940&quality=96&proxy=1&sign=a0771a6af59ff360846452d182dcbc20"
+          //"https://sun9-46.userapi.com/impg/nSojveHYD_IA9-O89sXKQde6ql2AGj21UhqCaA/ZjUF279FeUI.jpg?size=1600x1940&quality=96&proxy=1&sign=5578d0354eb85c4f864e3e22b0b5e877",
       },
     ],
     sliders: [

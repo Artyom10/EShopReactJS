@@ -22,9 +22,8 @@ function ProductCard(props) {
     })
   }
 
-   /*const {product} = props; 
-    const {urlPhoto, price, producer, type, sizes, description, tags, id} = product;
-    const router = `${id}`;*/
+
+
   return (
     props.products.map(product => 
       <div className="col d-md-flex" key={product.id}>
@@ -34,8 +33,9 @@ function ProductCard(props) {
            <h5 className="price-card">{product.price}$</h5>
       <p className="card-text">{product.producer}/ <span className="product-identificator">{product.type}</span></p>
         <span className="available-sizes">Sizes: <span><strong>{product.sizes}</strong></span></span>
+        <p class="card-text">Tags: <span class="tags-dec">{product.tags}</span> </p>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item"><NavLink to={2} className="btn add-bag-button" type="button" data-toggle="modal" data-target="#seeMore">See more</NavLink></li>
+            <li className="list-group-item"><button className="btn add-bag-button" type="button" onClick={() => (props.addToBag(product))}>Add to bag</button></li>
             <li className="list-group-item">
              <ProductRating />
             </li>

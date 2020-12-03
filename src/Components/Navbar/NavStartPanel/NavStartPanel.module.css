@@ -1,0 +1,35 @@
+.action__button_sign {
+    font-family: "Trispace", sans-serif;
+    background-color: powderblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+
+  .action__button_log {
+    font-family: "Trispace", sans-serif;
+    background-color: slategrey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+  }
+
+  .action__button_log:hover {
+    background-color: turquoise;
+  }
+
+  
+  .action__button_sign:hover {
+    background-color: turquoise;
+  }

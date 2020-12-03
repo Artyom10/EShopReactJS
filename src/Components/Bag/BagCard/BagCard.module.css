@@ -1,0 +1,19 @@
+.hiddenButton {
+    display: none;
+}
+
+.bagThing {
+    margin-bottom: 10px;
+}
+  
+  .bagThing:hover .hiddenButton {
+    display: inline;
+}
+
+.cardTextInside {
+    margin-bottom: 0%;
+}
+
+.cardBag {
+    max-width: 540px;
+}

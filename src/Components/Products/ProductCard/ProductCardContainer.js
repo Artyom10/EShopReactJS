@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { connect } from 'react-redux';
 import { setProductsAC } from '../../../redux/productPages-reducer';
+import { addToBag } from '../../../redux/bagPage-reducer';
 
 const mapStateToProp = (state) => {
     return {
@@ -17,7 +18,11 @@ const mapStateToProp = (state) => {
     setProducts: (products) => {
       let action = setProductsAC(products);
       dispatch(action);
-  }
+     },
+    addToBag: (product) => {
+      let action = addToBag(product);
+      dispatch(action);
+    },
    }
  }
  

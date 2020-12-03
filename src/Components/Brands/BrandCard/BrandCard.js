@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import stylesFor from './BrandCard.module.css';
 
-function BrandCard(props) {
-  //const {brand} = props;
-  //const {title, urlPhoto} = brand;
+
+function BrandCard(props) {  
   return (
     props.brands.map(brand => 
-      <div className="col-md-3 "><div className="card  text-center">
+      <div className="col-md-3 "><div className={`${stylesFor.cardIntro} card  text-center`}>
       <img src={brand.urlPhoto} className="card-img-top" alt={brand.title} />
-      
       <div className="card-body">
-        <h5 className="card-title">{brand.title}</h5>
-        <p className="card-text"><button className="btn btn-dark btn-sm">See now</button></p>
+      {/*  <h5 className="card-title">{brand.title}</h5> */}
+        <p className='card-text'>{brand.title}</p>
+        <p className="card-text"><button className="btn btn-dark btn-sm" onClick={() => (props.showCertainProducts(brand.title))}>See now</button></p>
       </div>
     </div></div>
       )

@@ -9,9 +9,6 @@ function Bag(props) {
     return (
     <div>
       <div className="container">
-           {/*props.bags.map( bag => {
-             return <BagCardContainer  />
-           })*/}
            <BagCardContainer />
       </div>
       <BagPayment />

@@ -6,6 +6,7 @@ const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
 const EDIT_PRODUCT = 'EDIT-PRODUCT';
 const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
 const SET_PRODUCTS = 'SET-PRODUCTS';
+const GET_CERTAIN_CLOTHES = 'GET-CERTAIN-CLOTHES';
 
 let initialState = {
   newPhoto: '',
@@ -105,6 +106,9 @@ let initialState = {
       description: "Something",
       tags: "#mango, #pants",
     },*/
+    ],
+    productsCertainType: [
+
     ],
     newProductObject: {
 
@@ -208,6 +212,20 @@ const productPagesReducer = (state = initialState, action) => {
         return stateCopy;
       case SET_PRODUCTS:
         return {...state, products: [ ...state.products,...action.products]};
+      case GET_CERTAIN_CLOTHES:
+        let stateCopy = {
+          ...state,
+          product: [...state.products],
+          productsCertainType : [...state.productsCertainType]
+        }
+stateCopy.products = stateCopy.products.filter((product) => product.type === action.typeProducts);
+   /* stateCopy.products.forEach((product,index) => {
+      if(action.typeProducts === product.type){
+        stateCopy.productsCertainType.push(product);
+      }
+    })
+    stateCopy.products = stateCopy.productsCertainType;*/
+    return stateCopy;
     default:
         return state;
   }
@@ -254,6 +272,13 @@ export const setProductsAC = (products) => {
     type: SET_PRODUCTS,
     products: products
 
+  }
+}
+
+export const setCertainProductsAC = (typeProducts) => {
+  return {
+    type: GET_CERTAIN_CLOTHES,
+    typeProducts: typeProducts,
   }
 }
 
