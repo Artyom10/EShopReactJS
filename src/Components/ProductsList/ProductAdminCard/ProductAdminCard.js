@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {removeProductActionCreator} from '../../../redux/productPages-reducer';
-import {editProductActionCreator} from '../../../redux/productPages-reducer';
-import {updateProductInListActionCreator} from '../../../redux/productPages-reducer';
 import firebaseDb from '../../../firebase';
+import stylesFor from './ProductAdminCard.module.css';
+import generalStyles from '../GeneralStyles.module.css';
 
-const stylesForAdminCard = {
-    cardStyle: {
-        maxWidth: '540px'
-    },
-
-    colInContainer: {
-        flex: '1 0 50%',
-        paddingTop: '12px',
-        paddingBottom: '12px'
-    }
-}
 
 function ProductAdminCard(props) {
 
@@ -153,11 +141,11 @@ function ProductAdminCard(props) {
 
    return (
      props.products.map(product => 
-      <div className="col d-md-flex" style={stylesForAdminCard.colInContainer} key={product.id}>
-    <div className="card mb-3" style={stylesForAdminCard.cardStyle}>
+      <div className={`col d-md-flex ${stylesFor.colInContainer}`} key={product.id}>
+    <div className={`card mb-3 ${stylesFor.cardStyle}`}>
       <div className="row no-gutters justify-content-center">
         <div className="col-md-6">
-          <img src={product.urlPhoto} className="card-img" alt={product.type} />
+          <img src={product.urlPhoto} className={`card-img`} alt={product.type} />
         </div>
         <div className="col-md-8">
           <div className="card-body">
@@ -184,10 +172,10 @@ function ProductAdminCard(props) {
               <li className="list-group-item">
               <div className="row justify-content-center">
                 <div className="col">
-                  <button className="btn general-button edit-button" onClick={() => (props.editProductAdmin(product.id))}>Edit product</button>
+                  <button className={`btn ${generalStyles.generalButton} ${stylesFor.editButton}`} onClick={() => (props.editProductAdmin(product.id))}>Edit product</button>
                 </div>
                 <div className="col">
-                  <button className="btn general-button delete-button" onClick={() => (props.removeProduct(product.id))} >Delete product</button>
+                  <button className={`btn ${generalStyles.generalButton} ${stylesFor.deleteButton}`} onClick={() => (props.removeProduct(product.id))} >Delete product</button>
                 </div>
               </div>
             </li>

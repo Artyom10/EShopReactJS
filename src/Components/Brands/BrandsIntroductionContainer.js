@@ -1,7 +1,6 @@
 import React from 'react';
 import BrandCard from './BrandCard/BrandCard'
 import PropTypes from 'prop-types';
-import './BrandsIntroduction.css';
 import { connect } from 'react-redux';
 import BrandIntroduction from './BrandsIntroduction';
 
@@ -11,13 +10,8 @@ const mapStateToProp = (state) => {
      brands: state.mainPage.brands,
     }
  }
+
  
- const mapDispatchToProp = (dispatch) => {
-   return {
-       
-   }
- }
- 
- const BrandsIntroductionContainer = connect(mapStateToProp,mapDispatchToProp)(BrandIntroduction);
+ const BrandsIntroductionContainer = connect(mapStateToProp,{})(BrandIntroduction);
 
 export default BrandsIntroductionContainer;

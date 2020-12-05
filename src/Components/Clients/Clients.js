@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
-import Person from './Person/Person';
-import {addPersonActionCreator} from '../../redux/clientsPage-reducer';
 import PersonContainer from './Person/PersonContainer';
 import stylesFor from './Clients.module.css';
 
@@ -36,9 +34,6 @@ function Clients(props) {
           </tr>
          </thead>
          <tbody>
-             {/*props.clients.map(client => {
-               return <Person client={client} dispatch={props.dispatch} />
-             })*/}
              <PersonContainer />
          </tbody>
     </table>

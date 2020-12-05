@@ -1,0 +1,28 @@
+.colInContainer {
+    flex: 1 0 50%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.cardStyle {
+    max-width: 540px
+}
+
+.editButton {
+    background: #2796ff;
+  }
+  
+  .deleteButton {
+    background: #ed3330;
+  }
+
+  .deleteButton:hover,
+  .editButton:hover,
+  .addButton:hover:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+  }

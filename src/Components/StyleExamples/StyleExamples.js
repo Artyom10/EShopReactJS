@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyleCard from './StyleCard/StyleCard';
 import stylesFor from  './StyleExamples.module.css';
 import StyleCardContainer from './StyleCard/StyleCardContainer';
 

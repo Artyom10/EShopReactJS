@@ -11,13 +11,7 @@ const mapStateToProp = (state) => {
      bags: state.bagPage.bags,
     }
  }
- 
- /*const mapDispatchToProp = (dispatch) => {
-   return {
-       
-   }
- }*/
- 
+  
  const BagContainer = connect(mapStateToProp,{})(Bag);
 
 export default BagContainer;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ModalDeleteProfile from './ModalDeleteProfile/ModalDeleteProfile';
-import {removeRequestActionCreator, setProfiles} from '../../redux/clientsPage-reducer';
+import {removeRequest, setProfiles} from '../../redux/clientsPage-reducer';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 
@@ -13,19 +12,6 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
-   return {
-    removeRequest: (id) => {
-        let action = removeRequestActionCreator(id);
-       dispatch(action);
-    },
-    setClients: (profiles) => {
-      let action = setProfiles(profiles);
-      dispatch(action);
-    }
-   }
- }
- 
- const ProfileContainer = connect(mapStateToProp,mapDispatchToProp)(Profile);
+ const ProfileContainer = connect(mapStateToProp,{removeRequest, setProfiles, })(Profile);
 
 export default ProfileContainer;

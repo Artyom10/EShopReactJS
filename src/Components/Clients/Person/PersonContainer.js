@@ -13,17 +13,6 @@ const mapStateToProp = (state) => {
    }
 }
 
-/*const mapDispatchToProp = (dispatch) => {
-  return {
-     removeUser: (id) => {
-         let action = removeUserActionCreator(id);
-         dispatch(action);
-      },
-      setUsers: (clientId) => {
-         dispatch(setUsersActionCreator(clientId));
-      }
-  }
-}*/
 
 const PersonContainer = connect(mapStateToProp,{removeUser, setUsers,})(Person);
 

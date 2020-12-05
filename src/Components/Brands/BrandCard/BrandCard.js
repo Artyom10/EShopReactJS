@@ -9,7 +9,6 @@ function BrandCard(props) {
       <div className="col-md-3 "><div className={`${stylesFor.cardIntro} card  text-center`}>
       <img src={brand.urlPhoto} className="card-img-top" alt={brand.title} />
       <div className="card-body">
-      {/*  <h5 className="card-title">{brand.title}</h5> */}
         <p className='card-text'>{brand.title}</p>
         <p className="card-text"><button className="btn btn-dark btn-sm" onClick={() => (props.showCertainProducts(brand.title))}>See now</button></p>
       </div>

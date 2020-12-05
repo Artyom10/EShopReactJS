@@ -9,14 +9,9 @@ const mapStateToProp = (state) => {
         stylesExample: state.mainPage.stylesData,
     }
  }
+
  
- const mapDispatchToProp = (dispatch) => {
-   return {
-       
-   }
- }
- 
- const StyleCardContainer = connect(mapStateToProp,mapDispatchToProp)(StyleCard);
+ const StyleCardContainer = connect(mapStateToProp,{})(StyleCard);
 
 export default StyleCardContainer;
 

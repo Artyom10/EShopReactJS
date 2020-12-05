@@ -1,0 +1,9 @@
+.addButtonModal {
+    background: purple;
+    padding: 5px;
+    margin-bottom: 0;
+}
+
+.deleteButton {
+    background: #ed3330;
+  }

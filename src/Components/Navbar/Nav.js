@@ -28,7 +28,7 @@ class Nav extends PureComponent {
       super(props)
 
       this.state = {
-        isWho: 'admin'
+        isWho: 'client'
       }
     }
 

@@ -127,7 +127,7 @@ let initialState = {
 const productPagesReducer = (state = initialState, action) => {
   let stateCopy;
   switch(action.type){
-    case ADD_PRODUCT:
+    case ADD_PRODUCT:{
       const newProduct = {
         id: state.newId,
         urlPhoto: state.newPhoto,
@@ -138,7 +138,7 @@ const productPagesReducer = (state = initialState, action) => {
         description: state.newDescription,
         tags: state.newTags
      }
-      stateCopy = {
+     let stateCopy = {
         ...state,
         products: [...state.products, newProduct],
         
@@ -152,8 +152,8 @@ const productPagesReducer = (state = initialState, action) => {
         }
       )
         return stateCopy;
+    }
     case UPDATE_NEW_PRODUCT:
-       // state.newProductObject = { ...action.newProduct };
        switch(action.from){
          case 'id':
          return {
@@ -212,32 +212,26 @@ const productPagesReducer = (state = initialState, action) => {
         return stateCopy;
       case SET_PRODUCTS:
         return {...state, products: [ ...state.products,...action.products]};
-      case GET_CERTAIN_CLOTHES:
+      case GET_CERTAIN_CLOTHES: //Рабоает не правильно, нужно создать отдельный массив для хранения определённых продуктов
         let stateCopy = {
           ...state,
           product: [...state.products],
           productsCertainType : [...state.productsCertainType]
         }
-stateCopy.products = stateCopy.products.filter((product) => product.type === action.typeProducts);
-   /* stateCopy.products.forEach((product,index) => {
-      if(action.typeProducts === product.type){
-        stateCopy.productsCertainType.push(product);
-      }
-    })
-    stateCopy.products = stateCopy.productsCertainType;*/
+        stateCopy.products = stateCopy.products.filter((product) => product.type === action.typeProducts);
     return stateCopy;
     default:
         return state;
   }
 };
 
-export const addProductActionCreator = () => {
+export const addProduct = () => {
     return {
       type: ADD_PRODUCT
     };
   };
   
-export const updateProductActionCreator = (from,newText) => { //updateNewProduct
+export const updateProduct = (from,newText) => { //updateNewProduct
     return {
       type: UPDATE_NEW_PRODUCT,
       from,
@@ -247,27 +241,27 @@ export const updateProductActionCreator = (from,newText) => { //updateNewProduct
 
 
 
-export const removeProductActionCreator = (data) => {
+export const removeProduct = (data) => {
     return {
         type: REMOVE_PRODUCT,
         removedProductId: data
     }
 }
 
-export const editProductActionCreator = (data) => {
+export const editProductAdmin = (data) => {
   return {
     type: EDIT_PRODUCT,
   }
 }
 
-export const updateProductInListActionCreator = (data) => {
+export const changeProduct = (data) => {
   return {
     type: CONSTANTLY_UPDATE_PRODUCT,
     updatedProduct: data
   }
 }
 
-export const setProductsAC = (products) => {
+export const setProducts = (products) => {
   return {
     type: SET_PRODUCTS,
     products: products
@@ -275,7 +269,7 @@ export const setProductsAC = (products) => {
   }
 }
 
-export const setCertainProductsAC = (typeProducts) => {
+export const showCertainProducts = (typeProducts) => {
   return {
     type: GET_CERTAIN_CLOTHES,
     typeProducts: typeProducts,

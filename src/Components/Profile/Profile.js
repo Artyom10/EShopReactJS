@@ -17,25 +17,8 @@ function Profile(props) {
 
  /* if(props.clients.length === 0){
     Object.keys(clients).map(id => {
-      props.setClients([clients[id]])
+      props.setProfiles([clients[id]])
     })*/
-   // props.setClients(clients[1])
-  //}
-   /* const {client} = props;
-    const {id, firstName, secondName, username, mail, password, urlPhoto,request} = client;
-    const removeRequest = () => {
-      const data = {
-        "id": id,
-        "firstName": firstName,
-        "secondName": secondName,
-        "username": username,
-        "mail": mail,
-        "request": request, 
-        "password": password,
-        "urlPhoto": urlPhoto
-      }
-     props.removeRequest(data);
-    }*/
  
     return (
         <div className="container">

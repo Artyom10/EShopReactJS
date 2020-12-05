@@ -1,8 +1,8 @@
 import React from 'react';
 import BagCard from './BagCard/BagCard';
 import BagPayment from './BagPayment/BagPayment';
-import BagBill from './BagBill/BagBill';
 import BagCardContainer from './BagCard/BagCardContainer';
+import BagBillContainer from './BagBill/BagBillContainer';
 
 
 function Bag(props) {
@@ -12,7 +12,7 @@ function Bag(props) {
            <BagCardContainer />
       </div>
       <BagPayment />
-      <BagBill bags={props.bags}/>
+      <BagBillContainer/>
    </div>
     );
 }

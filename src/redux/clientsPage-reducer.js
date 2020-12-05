@@ -115,7 +115,7 @@ export const removeUser = (data) => {
     }
   }
 
-export const removeRequestActionCreator = (id) => {
+export const removeRequest = (id) => {
   return {
       type: REMOVE_REQUEST,
       personRequestId: id

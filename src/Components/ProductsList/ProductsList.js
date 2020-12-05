@@ -13,16 +13,14 @@ function ProductList(props) {
            <AddProductButton />
            <ModalAddProductContainer />
           <div className="row"> 
-               {/*props.products.map( product => {
-                   return <ProductAdminCard  product={product} />
-               })*/}
-               <ProductAdminCardContainer />
-           
+            <ProductAdminCardContainer />   
           </div>
           
        </div>
     );
 }
+
+
 /*
 ProductList.propTypes = {
     products: PropTypes.arrayOf(PropTypes.object).isRequired,

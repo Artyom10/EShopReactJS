@@ -1,7 +1,7 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
-import ProductAdminCard from '../ProductAdminCard/ProductAdminCard';
-import {addProductActionCreator,updateProductActionCreator} from '../../../redux/productPages-reducer';
+import stylesFor from './ModalAddProduct.module.css';
+import generalStyles from '../GeneralStyles.module.css';
 
 
 function ModalAddProduct(props) {
@@ -60,8 +60,8 @@ function ModalAddProduct(props) {
               </div>
               <div className="row justify-content-center">
                   <div className="col-md-6">
-                    <button className="btn general-button add-button-modal btn-block" onClick={() => (props.addProduct())}>Add product</button>
-                    <button className="btn general-button delete-button btn-block" data-dismiss="modal">Canel</button>
+                    <button className={`btn ${generalStyles.generalButton} ${stylesFor.addButtonModal} btn-block`} onClick={() => (props.addProduct())}>Add product</button>
+                    <button className={`btn ${generalStyles.generalButton} ${stylesFor.deleteButton} btn-block`} data-dismiss="modal">Canel</button>
                   </div>
               </div>
             </div>

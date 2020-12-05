@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {removeTargetActionCreator} from '../../../redux/bagPage-reducer';
 import firebaseDb from '../../../firebase';
 import stylesFor from './BagCard.module.css';
-
-
-/*const stylesForBag = {
-  cardStyle: {
-      maxWidth: '540px'
-  }
-}*/
 
 
 function BagCard(props) {

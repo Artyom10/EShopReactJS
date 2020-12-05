@@ -1,7 +1,7 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import ProductAdminCard from '../ProductAdminCard/ProductAdminCard';
-import {addProductActionCreator,updateProductActionCreator} from '../../../redux/productPages-reducer';
+import {addProduct,updateProduct} from '../../../redux/productPages-reducer';
 import ModalAddProduct from './ModalAddProduct';
 import { connect } from 'react-redux';
 
@@ -20,20 +20,8 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
-   return {
-    addProduct: () => {
-        dispatch(addProductActionCreator());
-       },
-    updateProduct: (from,newText) => {
-        let action = updateProductActionCreator(from,newText)
-        dispatch(action);
-    }
-    
-   }
- }
  
- const ModalAddProductContainer = connect(mapStateToProp,mapDispatchToProp)(ModalAddProduct);
+ const ModalAddProductContainer = connect(mapStateToProp,{addProduct, updateProduct})(ModalAddProduct);
 
 
 export default ModalAddProductContainer;

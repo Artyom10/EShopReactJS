@@ -7,7 +7,7 @@ import BrandCardContainer from './BrandCard/BrandCardContainer';
 function BrandIntroduction(props) {
     return (
         <div className="container-brand-card">
-   <h1 className={stylesFor.brandIntroduction}>Most popular brands</h1>
+   <h1 className={stylesFor.brandIntroduction}>Most popular clothes</h1>
        <div className="container">
          <div className="row">
              <BrandCardContainer />

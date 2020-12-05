@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductRating from './ProductRating/ProductRating';
-import { NavLink } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { connect } from 'react-redux';
-import { setProductsAC } from '../../../redux/productPages-reducer';
+import { setProducts } from '../../../redux/productPages-reducer';
 import { addToBag } from '../../../redux/bagPage-reducer';
 
 const mapStateToProp = (state) => {
@@ -13,19 +11,7 @@ const mapStateToProp = (state) => {
     }
  }
  
- const mapDispatchToProp = (dispatch) => {
-   return {
-    setProducts: (products) => {
-      let action = setProductsAC(products);
-      dispatch(action);
-     },
-    addToBag: (product) => {
-      let action = addToBag(product);
-      dispatch(action);
-    },
-   }
- }
  
- const ProductCardContainer = connect(mapStateToProp,mapDispatchToProp)(ProductCard);
+ const ProductCardContainer = connect(mapStateToProp,{setProducts, addToBag, })(ProductCard);
 
 export default ProductCardContainer;
