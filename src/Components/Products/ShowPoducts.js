@@ -9,7 +9,7 @@ function ShowProducts(props) {
         <div className="container-all-product">
             <div className="container">
                 <div className="row">
-                    <ProductCardContainer />
+                    <ProductCard products={props.products} addToBag={props.addToBag} />
                 </div>
             </div>
         </div>

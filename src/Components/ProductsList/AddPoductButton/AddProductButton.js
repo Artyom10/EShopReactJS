@@ -7,7 +7,7 @@ function AddProductButton() {
     <div class="container">
     <div class="row justify-content-center">
       <div class="col">
-        <button class={`btn ${generalStyles.generalButton} ${stylesFor.addButton} btn-block`} type="button" data-toggle="modal" data-target="#addProduct">Add product</button>
+        <button class={`btn ${generalStyles.generalButton} ${stylesFor.addButton} btn-block`} type="submit">Add product</button>
       </div>
     </div>
   </div>

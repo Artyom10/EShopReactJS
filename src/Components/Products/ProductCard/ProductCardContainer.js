@@ -1,9 +1,9 @@
-import React from 'react';
+/*import React from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 import { connect } from 'react-redux';
-import { setProducts } from '../../../redux/productPages-reducer';
-import { addToBag } from '../../../redux/bagPage-reducer';
+import { setProducts } from '../../../redux/reducers/productPagesReducer';
+import { addToBag } from '../../../redux/reducers/bagPageReducer';
 
 const mapStateToProp = (state) => {
     return {
@@ -15,3 +15,4 @@ const mapStateToProp = (state) => {
  const ProductCardContainer = connect(mapStateToProp,{setProducts, addToBag, })(ProductCard);
 
 export default ProductCardContainer;
+*/

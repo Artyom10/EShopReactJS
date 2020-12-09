@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes, { object } from 'prop-types';
 import PersonContainer from './Person/PersonContainer';
 import stylesFor from './Clients.module.css';
+import { Redirect } from 'react-router-dom';
 
 
 function Clients(props) {
-  const addPerson = () => {
+  if(!props.auth.uid) return <Redirect to='/log_in'/>
+
+
+  const addPersonIn = () => {
     const newPerson = {
       "id": 4,
       "firstName": "Larry",
@@ -39,7 +43,7 @@ function Clients(props) {
     </table>
     <div className="row justify-content-center">
         <div className="col-md-12">
-          <button className={`btn btn-primary btn-block ${stylesFor.addClientButton}`} onClick={addPerson}>Add new client</button>
+          <button className={`btn btn-primary btn-block ${stylesFor.addClientButton}`} onClick={addPersonIn}>Add new client</button>
         </div>
       </div>
      </div>

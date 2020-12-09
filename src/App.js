@@ -1,34 +1,41 @@
 import logo from './logo.svg';
 import React from 'react';
-import Nav from './Components/Navbar/Nav';
 import Footer from './Components/Footer/Footer';
 
 import './App.css';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import ProfileContainer from './Components/Profile/ProfileContainer';
-import BagContainer from './Components/Bag/BagContainer';
 import ClientsContainer from './Components/Clients/ClientsContainer';
-import ProductListContainer from './Components/ProductsList/ProductsListContainer';
 import ViewComponent from './Components/ViewComponent/ViewComponent';
-
+import LogIn from './Components/AuthComponent/LogIn/LogIn';
+import SignUp from './Components/AuthComponent/SignUp/SignUp';
+import Nav from './Components/Navbar/Nav';
+import ProductList from './Components/ProductsList/ProductsList';
+import Bag from './Components/Bag/Bag';
 
 
 
 const  App = (props) => {
   return (
      <div>
-       <Nav></Nav>
+       <Nav />
+       <Switch>
        <Route exact path="/" 
        render={ () => <ViewComponent  />}/>
        <Route path="/profile" 
        render={ () => <ProfileContainer />} />
        <Route path="/bag" 
-       render={ () => <BagContainer/>} />
+       render={ () => <Bag/>} />
        <Route path="/clients" 
        render={ () => <ClientsContainer  />} />
        <Route path="/products" 
-       render={ () => <ProductListContainer />} />
-       <Footer></Footer>
+       render={ () => <ProductList />} />
+       <Route path="/log_in"
+       render={ () => <LogIn />} />
+       <Route path="/sign_up"
+       render={ () => <SignUp />} />
+       </Switch>
+       <Footer />
      </div>
     
   );

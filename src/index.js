@@ -3,18 +3,58 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/redux-store';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import rootReducer from './redux/reducers/rootReducer';
+import thunk from 'redux-thunk';
+import {reduxFirestore,getFirestore, createFirestoreInstance} from 'redux-firestore';
+import {ReactReduxFirebaseProvider ,reactReduxFirebase,getFirebase, isLoaded} from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
+import firebase from 'firebase/app';
 
+const store = createStore(rootReducer,
+  compose(
+  applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+  reduxFirestore(fbConfig),
+ //reactReduxFirebase(fbConfig),
+  )
+);
 
+const config = {
+  userProfile: 'users', // where profiles are stored in database 
+  presence: 'presence', // where list of online users is stored in database
+  useFirestoreForProfile: true
+};
+
+const rrfProps = {
+  firebase,
+  //config: fbConfig,
+  config,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+};
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth)
+  if (!isLoaded(auth)) return <div className="app">
+    <div className="content"></div>
+  </div>;
+      return children
+}
 
 ReactDOM.render(
+  <React.StrictMode>
       <BrowserRouter>
       <Provider store={store}>
-    <App />
-    </Provider>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <AuthIsLoaded>
+            <App />
+          </AuthIsLoaded>
+        </ReactReduxFirebaseProvider>
+     </Provider>
     </BrowserRouter>
+    </React.StrictMode>
   ,document.getElementById('root')
 );
 

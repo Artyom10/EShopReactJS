@@ -1,4 +1,4 @@
-import firebaseDb from '../firebase';
+
 
 const ADD_PRODUCT = 'ADD-PRODUCT';
 const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
@@ -18,7 +18,7 @@ let initialState = {
   newTags: '',
   newId: '',
     products: [
-    /*{
+    {
       id: 1,
       urlPhoto:
         "https://sun9-75.userapi.com/impg/v9-83eUNEQ5s5JdHfLDdcFXVoSdZ8CvseVH3Tw/JAxl7sVkPs4.jpg?size=762x1100&quality=96&proxy=1&sign=524d2c12b64f491a17abd599fa4318f7",
@@ -26,7 +26,6 @@ let initialState = {
       producer: "Mango",
       type: "Jacket",
       sizes: "XS,S,M,L",
-      description: "Something",
       tags: "#mango, #jacket, #streetware",
     },
     {
@@ -37,7 +36,6 @@ let initialState = {
       producer: "Carhartt",
       type: "Down jacket",
       sizes: "S,M,L",
-      description: "Something",
       tags: "#carhartt, #jacket",
     },
     {
@@ -48,7 +46,6 @@ let initialState = {
       producer: "Diesel",
       type: "Shirt",
       sizes: "S",
-      description: "Something",
       tags: "#diesel, #shirt",
     },
     {
@@ -59,7 +56,6 @@ let initialState = {
       producer: "Mango",
       type: "Jacket",
       sizes: "XS,S,M,L",
-      description: "Something",
       tags: "#mango, #jacket",
     },
     {
@@ -70,7 +66,6 @@ let initialState = {
       producer: "Mango",
       type: "Coat",
       sizes: "M,L",
-      description: "Something",
       tags: "#mango, #coat",
     },
     {
@@ -81,7 +76,6 @@ let initialState = {
       producer: "Mango",
       type: "Pants",
       sizes: "M,L,XL",
-      description: "Something",
       tags: "#mango, #pants",
     },
     {
@@ -92,7 +86,6 @@ let initialState = {
       producer: "Diesel",
       type: "Coat",
       sizes: "XS,S,M",
-      description: "Something",
       tags: "#diesel, #coat",
     },
     {
@@ -103,9 +96,8 @@ let initialState = {
       producer: "Mango",
       type: "Pants",
       sizes: "M,L,XL",
-      description: "Something",
       tags: "#mango, #pants",
-    },*/
+    },
     ],
     productsCertainType: [
 
@@ -124,11 +116,12 @@ let initialState = {
     },
   };
 
-const productPagesReducer = (state = initialState, action) => {
+/*const productPagesReducer = (state = initialState, action) => {
   let stateCopy;
   switch(action.type){
+
     case ADD_PRODUCT:{
-      const newProduct = {
+      /*const newProduct = {
         id: state.newId,
         urlPhoto: state.newPhoto,
         price: state.newPrice,
@@ -137,22 +130,23 @@ const productPagesReducer = (state = initialState, action) => {
         sizes: state.newSizes,
         description: state.newDescription,
         tags: state.newTags
-     }
-     let stateCopy = {
+     }*/
+   /* let stateCopy = {
         ...state,
-        products: [...state.products, newProduct],
+        products: [...state.products, newProduct],*/
         
-      }
-      firebaseDb.child('products').push(
+      
+     /* firebaseDb.database().ref().child('products').push(
         newProduct,
         err => {
           if(err){
             console.log('error')
           }
         }
-      )
-        return stateCopy;
+      )*/
+   /*     return stateCopy;
     }
+    
     case UPDATE_NEW_PRODUCT:
        switch(action.from){
          case 'id':
@@ -191,15 +185,16 @@ const productPagesReducer = (state = initialState, action) => {
         default:
           return stateCopy;
        }
-        
+        /*
     case CONSTANTLY_UPDATE_PRODUCT:
       debugger;
       state.changedProductObject = {...action.updatedProduct};
         return state;
     case EDIT_PRODUCT:
         return {...state};
-    case REMOVE_PRODUCT:
-       stateCopy = {
+        */
+ /*   case REMOVE_PRODUCT:{
+      let stateCopy = {
          ...state,
          products: [...state.products]
        }
@@ -210,9 +205,13 @@ const productPagesReducer = (state = initialState, action) => {
             }
         })
         return stateCopy;
+      }
+      
+
       case SET_PRODUCTS:
         return {...state, products: [ ...state.products,...action.products]};
-      case GET_CERTAIN_CLOTHES: //Рабоает не правильно, нужно создать отдельный массив для хранения определённых продуктов
+
+      case GET_CERTAIN_CLOTHES:
         let stateCopy = {
           ...state,
           product: [...state.products],
@@ -220,6 +219,32 @@ const productPagesReducer = (state = initialState, action) => {
         }
         stateCopy.products = stateCopy.products.filter((product) => product.type === action.typeProducts);
     return stateCopy;
+    
+    default:
+        return state;
+  }
+};*/
+
+const productPagesReducer = (state = initialState, action) => {
+  switch(action.type){
+    case 'ADD_PRODUCT':
+         console.log('add product', action.newProduct)
+        return  state;
+    case 'ADD_PRODUCT_ERROR':
+         console.log('add product error', action.err);
+         return state;
+    case 'REMOVE_PRODUCT':
+        console.log('remove product', action.targetDeleteProduct)
+        return state;
+    case 'REMOVE_PRODUCT_ERROR':
+        console.log('remove product error', action.err.message);
+        return state;
+    case 'EDIT_PRODUCT'://
+        console.log('edit product', action.targetEditProduct)
+        return state;
+    case 'ADD_TO_BAG'://
+        console.log('add to bag', action.targetAddToBag)
+        return state;
     default:
         return state;
   }

@@ -1,29 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from './ProductRating/ProductRating';
-import firebaseDb from '../../../firebase';
 import stylesFor from './ProductCard.module.css'
 
 function ProductCard(props) {
-  let [products, setProducts] = useState({})
-  useEffect(() => {
-    firebaseDb.child('products').on('value', snapshot => {
-      if(snapshot.val() != null)
-      setProducts({
-        ...snapshot.val()
-      })
-    } )
-  }, [])
-
-
-  if(props.products.length === 0 ){
-    Object.keys(products).map(id => {
-      props.setProducts([products[id]])
-    })
-  }
-
-
-
   return (
     props.products.map(product => 
       <div className={`col d-md-flex ${stylesFor.colProduct}`} key={product.id}>

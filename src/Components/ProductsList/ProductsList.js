@@ -1,29 +1,49 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import ProductAdminCard from './ProductAdminCard/ProductAdminCard';
-import AddProductButton from './AddPoductButton/AddProductButton';
-import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
-import ProductAdminCardContainer from './ProductAdminCard/ProductAdminCardContainer';
-import ModalAddProductContainer from './ModalAddProduct/ModalAddProductContainer';
+import AddProduct from './AddProduct/AddProduct';
+import { Redirect } from 'react-router-dom';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { removeProduct } from '../../redux/reducers/productPagesReducer';
+import { editProduct } from '../../redux/actions/productActions';
 
 
-function ProductList(props) {
-    return (
-       <div className="container">
-           <AddProductButton />
-           <ModalAddProductContainer />
-          <div className="row"> 
-            <ProductAdminCardContainer />   
-          </div>
-          
-       </div>
-    );
+
+class ProductList extends Component{
+    render(){
+        const {auth} = this.props;
+        if(!auth.uid) return <Redirect to='/log_in' />
+        return(
+            <div className="container">
+             <AddProduct />
+            <div className="row"> 
+             {  <ProductAdminCard products={this.props.products} removeProduct={this.props.removeProduct} 
+             editProduct={this.props.editProduct} />} 
+            </div>
+            
+         </div>
+        );
+    }
 }
 
-
-/*
-ProductList.propTypes = {
-    products: PropTypes.arrayOf(PropTypes.object).isRequired,
+const mapStateToProps = (state) => {
+    return {
+        products: state.firestore.ordered.products || state.productPages.products,
+        auth: state.firebase.auth,
+    }
 }
-*/
-export default ProductList;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      removeProduct: (targetDeleteProduct) => dispatch(removeProduct(targetDeleteProduct)),
+      editProduct: (targetEditProduct) => dispatch(editProduct(targetEditProduct)),
+    }
+  }
+
+export default compose(
+    connect(mapStateToProps,mapDispatchToProps),
+    firestoreConnect([
+        { collection: 'products'}
+    ])
+)(ProductList)

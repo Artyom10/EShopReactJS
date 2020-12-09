@@ -1,25 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {removeRequestActionCreator} from '../../redux/clientsPage-reducer';
-import firebaseDb from '../../firebase';
+import {removeRequestActionCreator} from '../../redux/reducers/clientsPageReducer';
 import stylesFor from './Profile.module.css';
+import { Redirect } from 'react-router-dom';
 
 function Profile(props) {
- /* let [clients, setClients] = useState({})
-  useEffect(() => {
-    firebaseDb.child('clients').on('value', snapshot => {
-      if(snapshot.val() != null)
-      setClients({
-        ...snapshot.val()
-      })
-    } )
-  }, [])*/
-
- /* if(props.clients.length === 0){
-    Object.keys(clients).map(id => {
-      props.setProfiles([clients[id]])
-    })*/
- 
+  const {auth} = props;
+  if(!auth.uid) return <Redirect to='/log_in' />
     return (
         <div className="container">
         <div className="row justify-content-center">

@@ -1,4 +1,4 @@
-import firebaseDb from '../firebase';
+
 
 const ADD_TO_BAG = 'ADD-TO-BAG'
 const REMOVE_FROM_BAG = 'REMOVE-FROM-BAG';
@@ -6,7 +6,7 @@ const SET_BAGS = 'SET-BAGS';
 
 let initialState = {
     bags: [
-      /*{
+      {
         id: 1,
         urlPhoto:
           "https://sun9-75.userapi.com/impg/v9-83eUNEQ5s5JdHfLDdcFXVoSdZ8CvseVH3Tw/JAxl7sVkPs4.jpg?size=762x1100&quality=96&proxy=1&sign=524d2c12b64f491a17abd599fa4318f7",
@@ -28,7 +28,7 @@ let initialState = {
         sizes: "M,L,XL",
         description: "Something",
         tags: "#mango, #pants",
-      },*/
+      },
     ],
     newBagObject: {
 
@@ -38,16 +38,17 @@ let initialState = {
     },
   };
 
-const bagPageReducer = (state = initialState, action) => {
+/*const bagPageReducer = (state = initialState, action) => {
   let stateCopy;
     switch(action.type){
+
         case ADD_TO_BAG:
           stateCopy = {
             ...state,
             bags: [...state.bags]
           }
           stateCopy.bags.push(action.newBagProduct)
-           firebaseDb.child('bags').push(
+          /* firebaseDb.database().ref().child('bags').push(
             action.newBagProduct,
             err => {
               if(err){
@@ -56,6 +57,7 @@ const bagPageReducer = (state = initialState, action) => {
             }
           )
             return stateCopy;
+
         case REMOVE_FROM_BAG:
            stateCopy = {
              ...state,
@@ -66,17 +68,29 @@ const bagPageReducer = (state = initialState, action) => {
                stateCopy.bags.splice(index,1);
              }
            })  
-                firebaseDb.child(`bags/${action.removeTargetId}`).remove(  
+               /* firebaseDb.child(`bags/${action.removeTargetId}`).remove(  
                     err => {  
                         if (err)  
                             console.log(err)   
-                    })  
+                    })
               
         
       
             return stateCopy;
+            
           case SET_BAGS:
             return {...state, bags: [ ...state.bags,...action.bags]};
+        default:
+            return state;
+    }
+    
+};*/
+
+const bagPageReducer = (state = initialState, action) => {
+    switch(action.type){
+        case ADD_TO_BAG:
+        case 'REMOVE_FROM_BAG':
+         console.log('remove bag product', action.removeTargetBag);
         default:
             return state;
     }

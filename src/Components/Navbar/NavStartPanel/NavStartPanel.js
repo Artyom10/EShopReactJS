@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styleFor from './NavStartPanel.module.css';
 
 function NavStartPanel() {
   return ( 
     <form class="form-inline my-2 my-lg-0">
-          <button className={styleFor.action__button_log} type="button" data-toggle="modal" data-target="#logIn">Log In</button>
-          <button className={styleFor.action__button_sign} type="button" data-toggle="modal" data-target="#signUp">Sign Up</button>
+          <NavLink className={styleFor.action__button_log} type="button" to='/log_in'>Log In</NavLink>
+          <NavLink className={styleFor.action__button_sign} type="button" to='/sign_up'>Sign Up</NavLink>
         </form>
   );
 }

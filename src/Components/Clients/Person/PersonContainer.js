@@ -3,7 +3,7 @@ import PropTypes, { object } from 'prop-types';
 import Person from './Person';
 import { connect } from 'react-redux';
 
-import { removeUser, setUsers } from '../../../redux/clientsPage-reducer';
+import { removeUser, setUsers } from '../../../redux/reducers/clientsPageReducer';
 
 
 

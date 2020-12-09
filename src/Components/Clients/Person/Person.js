@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {removeUserActionCreator} from '../../../redux/clientsPage-reducer';
-import firebaseDb from '../../../firebase';
+import {removeUserActionCreator} from '../../../redux/reducers/clientsPageReducer';
 import stylesFor from './Person.module.css';
 
 function Person(props) {

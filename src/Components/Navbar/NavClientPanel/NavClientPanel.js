@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOut} from '../../../redux/actions/authAction';
 
-function NavClientPanel() {
+function NavClientPanel(props) { 
   return ( 
     <ul className="navbar-nav ml-auto">
     <li className="nav-item">
@@ -11,10 +13,16 @@ function NavClientPanel() {
       <NavLink className="nav-link" to="/bag">Bag</NavLink>
     </li>
     <li className="nav-item">
-      <NavLink className="nav-link" to="/exit">Exit</NavLink>
+      <a onClick={props.signOut} className="nav-link">Log Out</a>
     </li>
   </ul>
   );
 }
 
-export default NavClientPanel;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut()),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavClientPanel);
