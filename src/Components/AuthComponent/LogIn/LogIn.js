@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import stylesFor from './LogIn.module.css';
 import { connect } from 'react-redux';
-import {signIn} from '../../../redux/actions/authAction';
+import {signIn} from '../../../redux/actions/authActions';
 import { Redirect } from 'react-router-dom';
 
 class LogIn extends React.Component {

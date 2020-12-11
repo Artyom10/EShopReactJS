@@ -3,7 +3,7 @@ import React from 'react';
 import '../../App.css';
 import BrandsIntroductionContainer from '../Brands/BrandsIntroductionContainer';
 import StyleExamplesContainer from '../StyleExamples/StyleExamplesContainer';
-import ShowProductsContainer from '../Products/ShowProductsContainer';
+import ShowProducts from '../Products/ShowPoducts';
 
 
 const  ViewComponent = (props) => {
@@ -11,7 +11,7 @@ const  ViewComponent = (props) => {
       <div> 
      <BrandsIntroductionContainer/>
      <StyleExamplesContainer />
-     <ShowProductsContainer />
+     <ShowProducts />
      </div>
     );
   }

@@ -10,7 +10,7 @@ import { connect} from 'react-redux';
 function Nav(props) {
   const {auth, profile} = props;
 
-  const links = auth.uid ? <NavAdminPanel /> : <NavStartPanel />;
+  const links = auth.uid ? (<NavClientPanel />) : <NavStartPanel />;
   return ( 
     <nav className={` ${stylesFor.myNav} navbar navbar-expand-lg navbar-light`}>
     <div className="container">

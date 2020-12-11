@@ -4,17 +4,22 @@ import Person from './Person';
 import { connect } from 'react-redux';
 
 import { removeUser, setUsers } from '../../../redux/reducers/clientsPageReducer';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
 
 
-const mapStateToProp = (state) => {
+const mapStateToProps = (state) => {
    return {
-    clients: state.clientsPage.clients,
+    //clients: state.clientsPage.clients,
+    users: state.firestore.ordered.users || state.clientsPage.clients,
    }
 }
 
 
-const PersonContainer = connect(mapStateToProp,{removeUser, setUsers,})(Person);
-
-
-export default PersonContainer;
+export default compose(
+   connect(mapStateToProps,{}),
+   firestoreConnect([
+      {collection: 'users'}
+   ])
+)(Person)

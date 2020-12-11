@@ -1,9 +1,9 @@
 
 
-const ADD_PRODUCT = 'ADD-PRODUCT';
+//const ADD_PRODUCT = 'ADD-PRODUCT';
 const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
-const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
-const EDIT_PRODUCT = 'EDIT-PRODUCT';
+//const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
+//const EDIT_PRODUCT = 'EDIT-PRODUCT';
 const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
 const SET_PRODUCTS = 'SET-PRODUCTS';
 const GET_CERTAIN_CLOTHES = 'GET-CERTAIN-CLOTHES';
@@ -225,31 +225,40 @@ let initialState = {
   }
 };*/
 
+const ADD_PRODUCT = 'ADD_PRODUCT';
+const ADD_PRODUCT_ERROR = 'ADD_PRODUCT_ERROR';
+const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+const REMOVE_PRODUCT_ERROR = 'REMOVE_PRODUCT_ERROR';
+const EDIT_PRODUCT = 'EDIT_PRODUCT';
+const ADD_TO_BAG = 'ADD_TO_BAG'
+
 const productPagesReducer = (state = initialState, action) => {
   switch(action.type){
-    case 'ADD_PRODUCT':
+    case ADD_PRODUCT:
          console.log('add product', action.newProduct)
         return  state;
-    case 'ADD_PRODUCT_ERROR':
+    case ADD_PRODUCT_ERROR:
          console.log('add product error', action.err);
          return state;
-    case 'REMOVE_PRODUCT':
+    case REMOVE_PRODUCT:
         console.log('remove product', action.targetDeleteProduct)
         return state;
-    case 'REMOVE_PRODUCT_ERROR':
+    case REMOVE_PRODUCT_ERROR:
         console.log('remove product error', action.err.message);
         return state;
-    case 'EDIT_PRODUCT'://
+    case EDIT_PRODUCT:
         console.log('edit product', action.targetEditProduct)
         return state;
-    case 'ADD_TO_BAG'://
+    /*case ADD_TO_BAG://
         console.log('add to bag', action.targetAddToBag)
         return state;
+        */
     default:
         return state;
   }
 };
 
+/*
 export const addProduct = () => {
     return {
       type: ADD_PRODUCT
@@ -266,12 +275,12 @@ export const updateProduct = (from,newText) => { //updateNewProduct
 
 
 
-export const removeProduct = (data) => {
+/*export const removeProduct = (data) => {
     return {
         type: REMOVE_PRODUCT,
         removedProductId: data
     }
-}
+}*/
 
 export const editProductAdmin = (data) => {
   return {

@@ -12,11 +12,6 @@
     line-height: 2;
     font-weight: 500;
   }
-  
-  .footer::before {
-    content: "";
-    display: table;
-  }
   .footer a {
     color: #fada5a;
     text-decoration: none;

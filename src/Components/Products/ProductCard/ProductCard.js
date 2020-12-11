@@ -8,7 +8,7 @@ function ProductCard(props) {
     props.products.map(product => 
       <div className={`col d-md-flex ${stylesFor.colProduct}`} key={product.id}>
       <div className={`card  ${stylesFor.productCard}`}>
-        <div className={stylesFor.inner}> <img src={product.urlPhoto} className={`card-img-top ihv ${stylesFor.img}`} alt={product.type} /></div>
+        <div className={stylesFor.inner}> <img src={product.photo} className={`card-img-top ihv ${stylesFor.img}`} alt={product.type} /></div>
         <div className="card-body">
            <h5 className={stylesFor.priceCard}>{product.price}$</h5>
       <p className="card-text">{product.producer}/ <span className={stylesFor.productIdentificator}>{product.type}</span></p>

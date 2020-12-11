@@ -1,5 +1,4 @@
 import React from 'react';
-import BrandCard from './BrandCard/BrandCard'
 import PropTypes from 'prop-types';
 import stylesFor from './BrandsIntroduction.module.css';
 import BrandCardContainer from './BrandCard/BrandCardContainer';

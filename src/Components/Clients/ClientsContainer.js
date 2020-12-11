@@ -1,30 +1,30 @@
-import React from 'react';
-import PropTypes, { object } from 'prop-types';
-import {addPerson, setUsers} from '../../redux/reducers/clientsPageReducer';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Clients from './Clients';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
-class ClientsContainer extends React.Component {
-   componentDidMount(){
-
-   }
-
-   render(){
+class ClientsContainer extends Component {
+   render(){;
        return(
-        <Clients addPerson={this.props.addPerson} auth={this.props.auth} />
+        <Clients/>
        );
    }
 }
 
 
-const mapStateToProp = (state) => {
+const mapStateToProps = (state) => {
    return {
-    clients: state.clientsPage.clients,
+    //clients: state.clientsPage.clients,
     auth: state.firebase.auth,
+    users: state.firestore.ordered.users || state.clientsPage.clients,
    }
 }
 
-//const ClientsContainer = connect(mapStateToProp,{addPerson,})(Clients);
-
-export default connect(mapStateToProp,{addPerson, setUsers,})(ClientsContainer);
-//export default ClientsContainer;
+export default compose(
+   connect(mapStateToProps,{}),
+   firestoreConnect([
+      {collection: 'users'}
+   ])
+)(Clients)

@@ -44,57 +44,6 @@ let initialState = {
     ],
   };
 
-/*const clientsPageReducer = (state = initialState, action) => {
-    
-  let stateCopy;
-  switch(action.type){
-
-    case ADD_PERSON:{
-     stateCopy = {
-        ...state,
-        clients: [...state.clients, action.newPerson],
-      };
-        return stateCopy;
-    }
-
-    case REMOVE_USER:{
-      stateCopy = {
-        ...state,
-        clients: [...state.clients],
-      }
-         stateCopy.clients.forEach((user, index) => {
-           if(action.removeUserId === user.id){
-             stateCopy.clients.splice(index,1);
-           }
-         })
-        return stateCopy;
-    }
-
-      case REMOVE_REQUEST:{
-        let stateCopy = {...state,
-       clients: state.clients.map((client) => {
-          if(action.personRequestId === client.id){
-            return {...client, request: 'True'};
-          }
-          return client
-       })
-      };
-
-        return stateCopy;
-      }
-
-      case SET_USERS:
-        //return {...state, clients: [ ...action.clients]}  
-        return {...state, clients: [ ...state.clients,...action.clients]};
-        
-      case SET_PROFILES:
-        debugger;
-         return {...state, clients:[...state.clients,...action.profiles]};
-    default:
-        return state;
-      
-  }
-};*/
 
 const clientsPageReducer = (state = initialState, action) => {
     

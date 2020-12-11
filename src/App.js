@@ -4,7 +4,6 @@ import Footer from './Components/Footer/Footer';
 
 import './App.css';
 import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
-import ProfileContainer from './Components/Profile/ProfileContainer';
 import ClientsContainer from './Components/Clients/ClientsContainer';
 import ViewComponent from './Components/ViewComponent/ViewComponent';
 import LogIn from './Components/AuthComponent/LogIn/LogIn';
@@ -12,6 +11,8 @@ import SignUp from './Components/AuthComponent/SignUp/SignUp';
 import Nav from './Components/Navbar/Nav';
 import ProductList from './Components/ProductsList/ProductsList';
 import Bag from './Components/Bag/Bag';
+import ShowPoducts from './Components/Products/ShowPoducts';
+import Profile from './Components/Profile/Profile';
 
 
 
@@ -21,9 +22,9 @@ const  App = (props) => {
        <Nav />
        <Switch>
        <Route exact path="/" 
-       render={ () => <ViewComponent  />}/>
+       render={ () => <ShowPoducts  />}/>
        <Route path="/profile" 
-       render={ () => <ProfileContainer />} />
+       render={ () => <Profile />} />
        <Route path="/bag" 
        render={ () => <Bag/>} />
        <Route path="/clients" 

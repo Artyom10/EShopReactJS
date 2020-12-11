@@ -3,30 +3,32 @@ import PropTypes from 'prop-types';
 import { removeTarget, setBags} from '../../../redux/reducers/bagPageReducer';
 import BagCard from './BagCard';
 import { connect } from 'react-redux';
-//НА ДАННЫЙ МОМЕНТ НЕ ИСПОЛЬЗУЕТСЯ 
-/*class BagCardContainer extends React.Component {
-  /*  componentDidMount(){
-        firebaseDB.database().ref().child('bags').on('value', snapshot => {
-            if (snapshot.val() != null)
-                this.props.setBags(Object.values(snapshot.val()))
-        })
-    }
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
+class BagCardContainer extends React.Component {
     render(){
         return(
-         <BagCard bags={this.props.bags}
-         removeFromBag={this.props.removeFromBag}/>
+         <BagCard/>
         );
     }
-}*/
+}
+//findProductById
 
 
-const mapStateToProp = (state) => {
+const mapStateToProps = (state) => {
+    console.log(state.firebase.profile.bags)
     return {
-     bags: state.bagPage.bags,
+     //products: state.firestore.ordered.products ||  state.productPages.products,
+     auth: state.firebase.auth,
+     product: state.firebase.profile.bags,
     }
  }
 
-const BagCardContainer = connect(mapStateToProp,{ removeFromBag: removeTarget, setBags})(BagCard);
-export default BagCardContainer;
+export default compose(
+    connect(mapStateToProps,{}),
+    firestoreConnect([
+        {collection: 'products'}
+    ])
+)(BagCard)
 

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { removeProduct } from '../../redux/reducers/productPagesReducer';
+import { removeProduct } from '../../redux/actions/productActions';
 import { editProduct } from '../../redux/actions/productActions';
 
 

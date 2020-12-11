@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProp = (state) => {
     return {
-     bags: state.bagPage.bags,
+        //bags: state.firebase.profile.bags
     }
  }
 

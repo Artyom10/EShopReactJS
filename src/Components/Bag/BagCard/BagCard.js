@@ -3,33 +3,36 @@ import PropTypes from 'prop-types';
 import stylesFor from './BagCard.module.css';
 
 
-function BagCard({bag, removeFromBag}) {
+function BagCard(props) {
+  debugger;
   return (
-       <div className={`row justify-content-between ${stylesFor.bagThing} border align-items-center`}>
+<div className={`row justify-content-between ${stylesFor.bagThing} border align-items-center`}>
        <div className="col-4 mr-auto">
          <div className={`card mb-3 border-0 ${stylesFor.cardBag}`}>
            <div className="row no-gutters">
              <div className="col-md-4">
-               <img src={bag.urlPhoto} className="card-img" alt={bag.type} />
+               <img src={props.product.photo} className="card-img" alt={props.product.type} />
              </div>
              <div className="col-md-6">
                <div className="card-body">
                  <h5 className="card-title">
-                   {bag.producer} /
-                    <span class="product-identificator">{bag.type}</span>
+                   {props.product.producer} /
+                    <span class="product-identificator">{props.product.type}</span>
                  </h5>
-                 <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {bag.price}$</p>
-                 <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {bag.sizes}</p>
+                 <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {props.product.price}$</p>
+                 <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {props.product.sizes}</p>
                </div>
              </div>
            </div>
          </div>
        </div>
        <div className="col-auto">
-         <span className={stylesFor.hiddenButton}
-           ><button className="btn btn-danger badge-pill" onClick={()=> (removeFromBag(bag.id))}>Remove</button></span>
+        {/* <span className={stylesFor.hiddenButton}><button className="btn btn-danger badge-pill" onClick={()=> (removeFromBag(bag.id))}>Remove</button></span>*/}
+        <span className={stylesFor.hiddenButton}><button className="btn btn-danger badge-pill">Remove</button></span>
        </div>
-     </div>    
+     </div>   
+
+      
   );
 }
 /*

@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, {Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import stylesFor from './SignUp.module.css';
-import {signUp} from '../../../redux/actions/authAction';
+import {signUp} from '../../../redux/actions/authActions';
 
 class SignUp extends Component {
   state = {
@@ -11,6 +11,7 @@ class SignUp extends Component {
     firstName: '',
     secondName: '',
     request: false,
+    bags: null,
   }
 
   handleChange = (e) => {

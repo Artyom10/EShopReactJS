@@ -2,7 +2,7 @@ import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { signOut} from '../../../redux/actions/authAction';
+import { signOut} from '../../../redux/actions/authActions';
 
 function NavAdminPanel(props) { 
   return ( 

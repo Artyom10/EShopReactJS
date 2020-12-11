@@ -8,7 +8,7 @@ import AddProductButton from '../AddPoductButton/AddProductButton';
 
 class AddProduct extends React.Component{
   state = {
-     id: '',
+   //  id: '',
      photo: '',
      producer: '',
      price: '',
@@ -30,7 +30,6 @@ class AddProduct extends React.Component{
     e.preventDefault();
     this.props.addNewProduct(this.state);
     this.setState({
-      id: '',
       photo: '',
       producer: '',
       price: '',
@@ -49,34 +48,34 @@ class AddProduct extends React.Component{
        <div className={`${stylesFor.loginContainer} d-flex  align-items-center justify-content-center`}>
          <form onSubmit={this.handleSubmit} className={`${stylesFor.loginForm} text-center`}>
            <h1 className="mb-5 font-weight-light text-uppercase">Add new product</h1>
-           <div className="form-group">
+          {/* <div className="form-group">
              <input type="text" class={`form-control rounded-pill form-control-lg
               ${stylesFor.control}`}
               placeholder="id" onChange={this.handleChange} id="id"/>
-           </div>
+    </div>*/}
            <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="photo" onChange={this.handleChange} id="photo" />
+            placeholder="photo" onChange={this.handleChange} id="photo" value={this.state.photo} />
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="producer" onChange={this.handleChange} id="producer" />
+            placeholder="producer" onChange={this.handleChange} id="producer" value={this.state.producer} />
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="type" onChange={this.handleChange} id="type" />
+            placeholder="type" onChange={this.handleChange} id="type" value={this.state.type} />
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="price" onChange={this.handleChange} id="price" />
+            placeholder="price" onChange={this.handleChange} id="price" value={this.state.price} />
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="sizes" onChange={this.handleChange} id="sizes" />
+            placeholder="sizes" onChange={this.handleChange} id="sizes" value={this.state.sizes}/>
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="tags" onChange={this.handleChange} id="tags" />
+            placeholder="tags" onChange={this.handleChange} id="tags" value={this.state.tags} />
           </div>
            <AddProductButton />
         </form>

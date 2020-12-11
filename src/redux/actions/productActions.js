@@ -14,7 +14,6 @@ export const addNewProduct = (newProduct) => {
 export const removeProduct = (targetDeleteProduct) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
-
         firestore.collection('products').doc(targetDeleteProduct).delete()
         .then(() => {
             dispatch({type: 'REMOVE_PRODUCT', targetDeleteProduct,})
@@ -27,13 +26,28 @@ export const removeProduct = (targetDeleteProduct) => {
 }
 
 export const editProduct = (targetEditProduct) => {
-    return (dispatch, getState) => {
-        dispatch({type: 'EDIT_PRODUCT', targetEditProduct,})
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firestore = getFirestore();
+        firestore.collection('products').doc(targetEditProduct).update({
+         photo: '',
+         producer: '',
+         type: '',
+         price: '',
+         sizes: '',
+         tags: ''
+        })
+        .then(() => {
+            dispatch({type: 'EDIT_PRODUCT', targetEditProduct})
+        }).catch((err) => {
+            dispatch({type: 'EDIT_PRODUCT_ERROR', err})
+        })
     }
-}
 
+
+}
+/*
 export const addToBag = (targetAddToBag) => {
     return (dispatch, getState) => {
         dispatch({type: 'ADD_TO_BAG', targetAddToBag})
     }
-}
+}*/
