@@ -10,7 +10,7 @@ import LogIn from './Components/AuthComponent/LogIn/LogIn';
 import SignUp from './Components/AuthComponent/SignUp/SignUp';
 import Nav from './Components/Navbar/Nav';
 import ProductList from './Components/ProductsList/ProductsList';
-import Bag from './Components/Bag/Bag';
+//import Bag from './Components/Bag/Bag';
 import ShowPoducts from './Components/Products/ShowPoducts';
 import Profile from './Components/Profile/Profile';
 
@@ -25,8 +25,8 @@ const  App = (props) => {
        render={ () => <ShowPoducts  />}/>
        <Route path="/profile" 
        render={ () => <Profile />} />
-       <Route path="/bag" 
-       render={ () => <Bag/>} />
+       {/*<Route path="/bag" 
+       render={ () => <Bag/>} /> */}
        <Route path="/clients" 
        render={ () => <ClientsContainer  />} />
        <Route path="/products" 

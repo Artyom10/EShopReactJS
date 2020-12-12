@@ -27,7 +27,9 @@ class Bag extends Component{
 const mapStateToProps = (state) => {
   return {
    //bags: state.bagPage.bags,
+   //auth: state.firebase.auth,
    auth: state.firebase.auth,
+   bags: state.firebase.profile.bags,
   // products: state.firestore.ordered.products ||  state.productPages.products,
   }
 }

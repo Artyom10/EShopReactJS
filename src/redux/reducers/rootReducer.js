@@ -1,5 +1,4 @@
 import authRecuder from './authReducer';
-import bagPageReducer from './bagPageReducer';
 import clientsPageReducer from './clientsPageReducer';
 import mainPageReducer from './mainPageReducer';
 import productPagesReducer from './productPagesReducer';
@@ -13,7 +12,6 @@ const rootReducer = combineReducers({
   mainPage: mainPageReducer,
   clientsPage: clientsPageReducer,
   productPages: productPagesReducer,
-  bagPage: bagPageReducer,
   profileSet: profileReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer,

@@ -4,23 +4,22 @@ import stylesFor from './BagCard.module.css';
 
 
 function BagCard(props) {
-  debugger;
   return (
 <div className={`row justify-content-between ${stylesFor.bagThing} border align-items-center`}>
        <div className="col-4 mr-auto">
          <div className={`card mb-3 border-0 ${stylesFor.cardBag}`}>
            <div className="row no-gutters">
              <div className="col-md-4">
-               <img src={props.product.photo} className="card-img" alt={props.product.type} />
+               <img src={props.bags.photo} className="card-img" alt={props.bags.type} />
              </div>
              <div className="col-md-6">
                <div className="card-body">
                  <h5 className="card-title">
                    {props.product.producer} /
-                    <span class="product-identificator">{props.product.type}</span>
+                    <span class="product-identificator">{props.bags.type}</span>
                  </h5>
-                 <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {props.product.price}$</p>
-                 <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {props.product.sizes}</p>
+                 <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {props.bags.price}$</p>
+                 <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {props.bags.sizes}</p>
                </div>
              </div>
            </div>

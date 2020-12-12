@@ -4,8 +4,7 @@ import {removeRequestActionCreator} from '../../redux/reducers/clientsPageReduce
 import stylesFor from './Profile.module.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { removeTarget } from '../../redux/reducers/bagPageReducer';
-import { updateProfile } from '../../redux/actions/profileActions';
+import { removeRequest, updateProfile } from '../../redux/actions/profileActions';
 
 /*
 Profile.propTypes = {
@@ -43,7 +42,6 @@ class Profile extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
    this.props.updateProfile(this.state.firstName, this.state.secondName);
-   //console.log(this.state);
   }
 
   render(){
@@ -58,13 +56,6 @@ class Profile extends Component{
               
                 <img src={profile.userPhoto} className={`figure-img img-fluid rounded ${stylesFor.profileImg}`} />
               </figure>
-                <small>
-                <form>
-                <div className="form-group">
-                  <input type="file" className="form-control-file" id="changePhoto" />
-                </div>
-              </form>
-              </small>
           </div>
       </div>
       <div className="row justify-content-center">
@@ -85,7 +76,7 @@ class Profile extends Component{
           <div className="col-md-6">
             <button className={`tn ${stylesFor.updateButton} btn-block`} onClick={this.handleSubmit}>Update</button>
             {profile.request === false ?
-            <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButton} btn-block`} onClick={() =>{this.props.removeRequest(profile.id)}}>Delete request</button>
+            <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButton} btn-block`} onClick={() =>{this.props.removeRequest(profile.uid)}}>Delete request</button>
             : <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButtonBack} btn-block`}>Request has been sent</button> }
           </div>
       </div>
@@ -103,8 +94,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeRequest: (removeRequestUser) => dispatch(removeTarget(removeRequestUser)),
-    updateProfile: (firstName, secondName) => dispatch(updateProfile(firstName,secondName))
+    updateProfile: (firstName, secondName) => dispatch(updateProfile(firstName,secondName)),
+    removeRequest: (user) => dispatch(removeRequest(user)),
   }
 }
 

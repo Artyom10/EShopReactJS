@@ -35,19 +35,11 @@
     background: #ed3330;
   }
   
-  .deleteButton-back {
+  .deleteButtonBack {
     background: gold;
   }
   
   .deleteButton:hover {
-    background: #434343;
-  }
-  
-  .cancelButton {
-    background: rgba(39, 150, 255, 0.6);
-  }
-  
-  .cancelButton:hover {
     background: #434343;
   }
   

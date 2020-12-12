@@ -13,6 +13,15 @@
    padding: 15px;
   }
 
+  .btnProductBought { 
+    background-color: #c5158b;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
+    letter-spacing: 0.2px;
+    color: #fff;
+   padding: 15px;
+  }
+
   .productIdentificator {
     color: gray;
   }
@@ -42,7 +51,6 @@
   
   .img {
     transition: all 3s ease;
-   /* height: 360px;*/
    max-width: 100%;
    display: block;
    object-fit: cover;

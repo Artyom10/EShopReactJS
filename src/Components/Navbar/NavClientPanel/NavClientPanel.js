@@ -9,9 +9,9 @@ function NavClientPanel(props) {
     <li className="nav-item">
       <NavLink className="nav-link" to="/profile">Profile</NavLink>
     </li>
-    <li className="nav-item">
+    {/*<li className="nav-item">
       <NavLink className="nav-link" to="/bag">Bag</NavLink>
-    </li>
+  </li> */}
     <li className="nav-item">
       <a onClick={props.signOut} className="nav-link">Log Out</a>
     </li>

@@ -15,7 +15,10 @@ function ProductCard(props) {
         <span className={stylesFor.availableSizes}>Sizes: <span className={stylesFor.hideSizes}><strong>{product.sizes}</strong></span></span>
         <p class="card-text">Tags: <span class={stylesFor.tagsDec}>{product.tags}</span> </p>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProduct} btn-block`} type="button" onClick={() => (props.addToBag(product))}>Add to bag</button></li>
+             {product.isBought === true 
+             ? <li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProductBought} btn-block`} type="button">Sold out</button></li>
+             :<li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProduct} btn-block`} type="button" onClick={() => (props.buyProduct(product.id))}>Buy</button></li>
+             }
             <li className="list-group-item">
              <ProductRating />
             </li>

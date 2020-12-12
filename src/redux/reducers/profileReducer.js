@@ -14,6 +14,16 @@ const profileReducer = (state = initialState, action) => {
         return {
           ...state,
         }
+    case 'UPDATE_PROFILE_REQUEST':
+      console.log('request has been sent');
+      return {
+        ...state
+      }
+    case 'UPDATE_PROFILE_REQUEST_ERROR':
+      console.log('error while sending request');
+      return {
+        ...state
+      }
     default: 
     return state;
   }
