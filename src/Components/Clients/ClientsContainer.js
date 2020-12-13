@@ -17,7 +17,7 @@ class ClientsContainer extends Component {
 const mapStateToProps = (state) => {
    return {
     auth: state.firebase.auth,
-    users: state.firestore.ordered.users || /*state.clientsPage.clients*/ []
+    users: state.firestore.ordered.users || []
    }
 }
 

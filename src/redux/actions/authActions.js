@@ -38,6 +38,7 @@ export const signUp = (newUser) => {
                 request: newUser.request,
                 bags: newUser.bags,
                 userPhoto: 'https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png',
+                valuedProducts: newUser.valuedProducts,
             })
         }).then(() => {
             dispatch({type: 'SIGNUP_SUCCESS'})

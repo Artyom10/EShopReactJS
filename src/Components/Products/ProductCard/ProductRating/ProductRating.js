@@ -3,7 +3,7 @@ import stylesFor from './ProductRating.module.css';
 
 function ProductRating() {
   return (
-    <div className={stylesFor.rating} data-total-value="2" >
+    <div className={stylesFor.rating} data-total-value="0" >
                   <div className={stylesFor.ratingItem} data-item-value="5" onClick={() => console.log('hi')}>★</div>
                   <div className={stylesFor.ratingItem} data-item-value="4">★</div>
                   <div className={stylesFor.ratingItem} data-item-value="3">★</div>

@@ -8,7 +8,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 
 
-class ShowProducts extends Component{
+class UserProducts extends Component{
     render(){
         const {auth} = this.props;
         if(!auth.uid) return <Redirect to='/log_in' />
@@ -29,15 +29,16 @@ const mapStateToProps = (state) => {
     return {
         products: state.firestore.ordered.products || state.productPages.products,
         auth: state.firebase.auth,
-        bags: state.firebase.profile.bags || [],
+       // valuedProducts: state.firestore.
+       // bags: state.firebase.profile.bags || [],
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      buyProduct: (targetProbuctBuy) => dispatch(buyProduct(targetProbuctBuy)),
-      setRating: (targetProductRating, value) => dispatch(setRating(targetProductRating, value)),
-      deleteRating: (targetProductDeleteRating) => dispatch(deleteRating(targetProductDeleteRating)),
+    //  buyProduct: (targetProbuctBuy) => dispatch(buyProduct(targetProbuctBuy)),
+     // setRating: (targetProductRating, value) => dispatch(setRating(targetProductRating, value)),
+     // deleteRating: (targetProductDeleteRating) => dispatch(deleteRating(targetProductDeleteRating)),
     }
 }
 
@@ -46,4 +47,4 @@ export default compose(
    firestoreConnect([
        { collection: 'products'}
    ])
-)(ShowProducts)
+)(UserProducts)

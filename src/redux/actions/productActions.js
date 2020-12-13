@@ -32,19 +32,20 @@ export const removeProduct = (targetDeleteProduct) => {
   };
 };
 
-export const editProduct = (targetEditProduct) => {
+export const editProduct = (targetEditProduct, newData) => {
+  debugger;
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     firestore
       .collection("products")
       .doc(targetEditProduct)
       .update({
-        photo: "",
-        producer: "",
-        type: "",
-        price: "",
-        sizes: "",
-        tags: "",
+        photo:  newData.photo,//(newData.photo == undefined || newData.photo == '') ? targetEditProduct.photo : newData.photo,
+        producer: newData.producer,
+        type: newData.type,
+        price: newData.price,
+        sizes: newData.sizes,
+        tags: newData.tags,
       })
       .then(() => {
         dispatch({ type: "EDIT_PRODUCT", targetEditProduct });
@@ -89,3 +90,88 @@ export const buyProduct = (targetProductBuy) => {
       });
   };
 };
+
+export const setRating = (targetProductRating, value) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    const buyerId = getState().firebase.auth.uid;
+    const firebaseBuyer = getState().firebase;
+    if(firebaseBuyer.profile.valuedProducts.some((everyData) => everyData.targetProductRating === targetProductRating)){
+    /*  console.log('This product already was rate, we need just update value')
+      firestore.collection('users').doc(buyerId).update({
+       valuedProducts: [{targetProductRating, value,}]
+    })
+    .then(() => {
+      dispatch({ type: "RATE_PRODUCT", targetProductRating });
+    })
+    .catch((err) => {
+      dispatch({ type: "RATE_PRODUCT_ERROR", err });
+    });*/
+    console.log('You have already rated this product, please delete your rate and try again');
+    }
+    else{
+          console.log('This product does not rate yet, we need update product and value')
+          firestore.collection('users').doc(buyerId).update({
+            valuedProducts: [...firebaseBuyer.profile.valuedProducts, {targetProductRating, value,}]
+        })
+        .then(() => {
+          dispatch({ type: "RATE_PRODUCT", targetProductRating });
+        })
+        .catch((err) => {
+          dispatch({ type: "RATE_PRODUCT_ERROR", err });
+        });
+    }
+    /*firestore.collection('users').doc(buyerId).update({
+        valuedProducts: firebaseBuyer.profile.valuedProducts
+        ? [...firebaseBuyer.profile.valuedProducts, {targetProductRating, value,}]
+        : [{targetProductRating, value,}]
+    })
+    .then(() => {
+      dispatch({ type: "RATE_PRODUCT", targetProductRating });
+    })
+    .catch((err) => {
+      dispatch({ type: "RATE_PRODUCT_ERROR", err });
+    });*/
+  }
+}
+
+export const deleteRating = (targetProductDeleteRating) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    const buyerId = getState().firebase.auth.uid;
+    const firebaseBuyer = getState().firebase;
+    let findIndex = null;
+
+    let ratedProducts = firebaseBuyer.profile.valuedProducts;
+    ratedProducts.forEach((product,index) => {
+      if(product.targetProductRating === targetProductDeleteRating){
+              findIndex = index;       
+      }
+    });
+    ratedProducts.splice(findIndex,1);
+
+    firestore.collection('users').doc(buyerId).update({
+     // valuedProducts: firebaseBuyer.profile.valuedProducts.forEach((product) => product.targetProductRating == targetProductDeleteRating)
+     // valuedProducts: firebaseBuyer.profile.valuedProducts.map(product => product)
+     valuedProducts:   ratedProducts && [...ratedProducts]
+    })
+    .then(() => {
+      dispatch({ type: "DELETE_RATE_PRODUCT", targetProductDeleteRating });
+    })
+    .catch((err) => {
+      dispatch({ type: "DELETE_RATE_PRODUCT_ERROR", err });
+    });
+  }
+}
+
+  
+       /* valuedProducts: firebaseBuyer.profile.valuedProducts
+        ? {...firebaseBuyer.profile.valuedProducts, targetProductRating: value }
+        : {targetProductRating: value},*/
+          /*{
+       targetProductRating,
+     value, }
+    })*/
+    /*const firestore = getFirestore();
+    firestore.collection('products').doc(targetProductRating).update({
+      rate: value,*/ 

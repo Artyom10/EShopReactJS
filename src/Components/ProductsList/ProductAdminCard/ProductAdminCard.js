@@ -21,7 +21,7 @@ ProductAdminCard.propTypes = {
   description: PropTypes.string,
   tags: PropTypes.string
 }*/
-
+/*
 class ProductAdminCard extends Component{
   state = {
     photo: '',
@@ -31,25 +31,27 @@ class ProductAdminCard extends Component{
     sizes: '',
     tags: '',
   }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
 
-  /*handleEdit = (e) => {
-    e.preventDefault();
-      this.setState({
-      [e.target.id]: e.target.value
-      })
-    this.props.editProduct(this.state);
-  }*/
+
   
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addNewProduct(this.state);
   }
+
+handleEditSubmit = (productId) => {
+  //e.preventDefault();
+  console.log(this.state);
+  console.log(productId);
+ this.props.editProduct(productId,this.state);
+} 
 
   
   
@@ -74,11 +76,11 @@ class ProductAdminCard extends Component{
                       <label for="price">Price</label>
                       <input className="form-control" type="text" id="price" placeholder={product.price} onChange={this.handleChange}/>
                       <label for="producer">Producer</label>
-                      <input type="text" className="form-control" id="producer" placeholder={product.producer} onChange={this.handleChange} />
+                      <input type="text" className="form-control" id="producer" placeholder={product.producer} onChange={this.handleChange}  />
                       <label for="type">Type</label>
                       <input type="text" className="form-control" id="type" placeholder={product.type}  onChange={this.handleChange} />
                       <label for="sizes">Sizes</label>
-                      <input className="form-control" type="text" id="sizes" placeholder={product.sizes}  onChange={this.handleChange}   />
+                      <input className="form-control" type="text" id="sizes" placeholder={product.sizes}  onChange={this.handleChange}  />
                       <label for="tags">Tags</label>
                       <input type="text" className="form-control" id="tags" placeholder={product.tags} onChange={this.handleChange} />
                     </div>
@@ -86,7 +88,7 @@ class ProductAdminCard extends Component{
                   <li className="list-group-item">
                   <div className="row justify-content-center">
                     <div className="col">
-                      <button className={`btn ${generalStyles.generalButton} ${stylesFor.editButton}`} onClick={() => (this.props.editProduct(product.id))}>Edit product</button>
+                      <button className={`btn ${generalStyles.generalButton} ${stylesFor.editButton}`} onClick={() => (this.handleEditSubmit(product.id))}>Edit product</button>
                     </div>
                     <div className="col">
                       <button className={`btn ${generalStyles.generalButton} ${stylesFor.deleteButton}`} onClick={() => (this.props.removeProduct(product.id))} >Delete product</button>
@@ -105,7 +107,7 @@ class ProductAdminCard extends Component{
   }
     
 }
-
+*/
 /*const mapStateToProps = (state) => {
   return {
     products: state.productPages.products,
@@ -121,6 +123,57 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(ProductAdminCard);*/
+
+
+const ProductAdminCard = (props) => {
+  return(
+  props.products.map(product => 
+    <div className={`col d-md-flex ${stylesFor.colInContainer}`} key={product.id}>
+    <div className={`card mb-3 ${stylesFor.cardStyle}`}>
+      <div className="row no-gutters justify-content-center">
+        <div className="col-md-6">
+          <img src={product.photo} className={`card-img ${stylesFor.insideCard}`} alt={product.type} />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">Main information</h5>
+            <ul className="list-group">
+              <form onSubmit={props.handleSubmit}>
+                <div className="form-group">
+                <label for="price">Photo</label>
+                  <input className="form-control" type="text" id="photo" placeholder={product.photo} onChange={props.handleChange}/>
+                  <label for="price">Price</label>
+                  <input className="form-control" type="text" id="price" placeholder={product.price} onChange={props.handleChange}/>
+                  <label for="producer">Producer</label>
+                  <input type="text" className="form-control" id="producer" placeholder={product.producer} onChange={props.handleChange}  />
+                  <label for="type">Type</label>
+                  <input type="text" className="form-control" id="type" placeholder={product.type}  onChange={props.handleChange} />
+                  <label for="sizes">Sizes</label>
+                  <input className="form-control" type="text" id="sizes" placeholder={product.sizes}  onChange={props.handleChange}  />
+                  <label for="tags">Tags</label>
+                  <input type="text" className="form-control" id="tags" placeholder={product.tags} onChange={props.handleChange} />
+                </div>
+            </form>
+              <li className="list-group-item">
+              <div className="row justify-content-center">
+                <div className="col">
+                  <button className={`btn ${generalStyles.generalButton} ${stylesFor.editButton}`} onClick={() => (props.handleEditSubmit(product.id))}>Edit product</button>
+                </div>
+                <div className="col">
+                  <button className={`btn ${generalStyles.generalButton} ${stylesFor.deleteButton}`} onClick={() => (props.removeProduct(product.id))} >Delete product</button>
+                </div>
+              </div>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    )
+    );
+}
+
 
 export default ProductAdminCard;
 

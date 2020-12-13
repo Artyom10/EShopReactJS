@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ProductRating from './ProductRating/ProductRating';
 import stylesFor from './ProductCard.module.css'
+import Rating2 from './Rating2/Rating2';
 
 function ProductCard(props) {
   return (
@@ -20,7 +21,8 @@ function ProductCard(props) {
              :<li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProduct} btn-block`} type="button" onClick={() => (props.buyProduct(product.id))}>Buy</button></li>
              }
             <li className="list-group-item">
-             <ProductRating />
+            {/* <ProductRating product={product} />*/}
+             <Rating2 product={product} setRating={props.setRating} deleteRating={props.deleteRating} />
             </li>
           </ul>
           

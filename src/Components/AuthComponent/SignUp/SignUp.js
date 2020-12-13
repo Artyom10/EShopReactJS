@@ -12,6 +12,7 @@ class SignUp extends Component {
     secondName: '',
     request: false,
     bags: null,
+    valuedProducts: null
   }
 
   handleChange = (e) => {

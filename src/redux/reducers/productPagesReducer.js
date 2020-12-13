@@ -271,6 +271,26 @@ const productPagesReducer = (state = initialState, action) => {
             ...state,
             productError: action.err.message
           }
+    case 'RATE_PRODUCT':
+      console.log('rated this product well')
+      return {
+        ...state,
+      }
+    case 'RATE_PRODUCT_ERROR':
+      console.log('rated this product with ERROR')
+      return {
+        ...state,
+      }
+    case 'DELETE_RATE_PRODUCT':
+      console.log('rate was deleted')
+      return {
+        ...state,
+      }
+    case 'DELETE_RATE_PRODUCT_ERROR':
+      console.log('rate was not deleted')
+      return {
+        ...state,
+      }
     default:
         return state;
   }
