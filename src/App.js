@@ -14,8 +14,18 @@ import ProductList from './Components/ProductsList/ProductsList';
 import ShowPoducts from './Components/Products/ShowPoducts';
 import Profile from './Components/Profile/Profile';
 import UserProducts from './Components/UserProducts/UserProducts';
+import RatedProducts from './Components/RatedProducts/RatedProducts';
+import RatedProductsContainer from './Components/RatedProducts/RatedProductsContainer';
+import UserProductsContainer from './Components/UserProducts/UserProductsContainer';
+import { connect, useSelector } from 'react-redux';
+import { isLoaded } from 'react-redux-firebase';
+import ProductDetails from './Components/Products/ProductDetails/ProductDetails';
 
-
+function RoleProfile({children}){
+  const role = useSelector(state => state.firebase.profile.isAdmin)
+  if(!isLoaded(role)) return null;
+  return children
+}
 
 const  App = (props) => {
   return (
@@ -24,21 +34,31 @@ const  App = (props) => {
        <Switch>
        <Route exact path="/" 
        render={ () => <ShowPoducts  />}/>
-       <Route path="/profile" 
-       render={ () => <Profile />} />
-       {/*<Route path="/bag" 
-       render={ () => <Bag/>} /> */}
+       <RoleProfile>
+   {props.isAdmin ?
+      <>
        <Route path="/clients" 
        render={ () => <ClientsContainer  />} />
        <Route path="/products" 
        render={ () => <ProductList />} />
+              <Route path="/rating"
+       render={ () => <RatedProductsContainer />} />
+       <Route path="/productsd/:id"
+       render={ () => <ProductDetails />} />
+       </>
+       :
+        <>
+       <Route path="/profile" 
+       render={ () => <Profile />} />
+          <Route path="/userProducts"
+       render={ () => <UserProductsContainer /> } />
+        </>
+        }
+       </RoleProfile>
        <Route path="/log_in"
        render={ () => <LogIn />} />
        <Route path="/sign_up"
        render={ () => <SignUp />} />
-
-       <Route path="/userProducts"
-       render={ () => <UserProducts /> } />
        </Switch>
        <Footer />
      </div>
@@ -46,6 +66,12 @@ const  App = (props) => {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    isAdmin: state.firebase.profile.isAdmin,
+    auth: state.firebase.auth
+  }
+}
+export default connect(mapStateToProps, {})(App);
 
-
-export default App;
+//export default App;

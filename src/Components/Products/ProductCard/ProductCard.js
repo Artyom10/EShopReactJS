@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import ProductRating from './ProductRating/ProductRating';
 import stylesFor from './ProductCard.module.css'
 import Rating2 from './Rating2/Rating2';
+import { NavLink } from 'react-router-dom';
 
 function ProductCard(props) {
+  const {auth} = props;
+  const {profile} = props;
   return (
     props.products.map(product => 
       <div className={`col d-md-flex ${stylesFor.colProduct}`} key={product.id}>
@@ -23,9 +26,12 @@ function ProductCard(props) {
             <li className="list-group-item">
             {/* <ProductRating product={product} />*/}
              <Rating2 product={product} setRating={props.setRating} deleteRating={props.deleteRating} />
+            {/*props.profile.valuedProducts.map(valuedProduct => valuedProduct.targetProductRating === product.id)
+            ? <p>You have already rate this product</p>
+            : null */}
             </li>
           </ul>
-          
+          <NavLink to=""> </NavLink>
         </div>
       </div>
   </div>

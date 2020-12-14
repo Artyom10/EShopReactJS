@@ -17,7 +17,7 @@ class ShowProducts extends Component{
             <div className="container">
                 <div className="row">
                     <ProductCard products={this.props.products} buyProduct={this.props.buyProduct} bags={this.props.bags}
-                    setRating={this.props.setRating} deleteRating={this.props.deleteRating} />
+                    setRating={this.props.setRating} deleteRating={this.props.deleteRating} user={this.user} />
                 </div>
             </div>
         </div>
@@ -26,10 +26,12 @@ class ShowProducts extends Component{
 }
 
 const mapStateToProps = (state) => {
+    debugger;
     return {
         products: state.firestore.ordered.products || state.productPages.products,
         auth: state.firebase.auth,
         bags: state.firebase.profile.bags || [],
+        profile: state.firebase.profile
     }
 }
 
@@ -44,6 +46,7 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
    connect(mapStateToProps,mapDispatchToProps),
    firestoreConnect([
-       { collection: 'products'}
+       { collection: 'products'},
+       { collection: 'users'}
    ])
 )(ShowProducts)

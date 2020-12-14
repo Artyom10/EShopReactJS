@@ -15,6 +15,9 @@ function NavAdminPanel(props) {
               <NavLink className="nav-link" to="/clients">Clients</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/rating">Rating</NavLink>
+            </li>
+            <li className="nav-item">
               <a onClick={props.signOut} className="nav-link">Log Out</a>
             </li>
           </ul>

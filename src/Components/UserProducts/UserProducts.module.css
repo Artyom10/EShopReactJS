@@ -17,3 +17,8 @@
   /*  background-color: aquamarine;*/
     font-size: 18px;
 }
+
+.photoIn {
+    max-width: 150px;
+    max-height: 150px;
+}

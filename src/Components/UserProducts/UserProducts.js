@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { buyProduct, deleteRating, setRating } from '../../redux/actions/productActions';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { connect } from 'react-redux';
 import stylesFor from './UserProducts.module.css';
 
-class UserProducts extends Component{
-    render(){
-        const {auth} = this.props;
+const UserProducts = (props) => {
+        const {auth} = props;
         if(!auth.uid) return <Redirect to='/log_in' />
         return(
-            this.props.products.map(product =>
-              this.props.valuedProducts.find(valuedProduct => valuedProduct.targetProductRating === product.id) ?
+            props.products.map(product =>
+              props.valuedProducts.find(valuedProduct => valuedProduct.targetProductRating === product.id) ?
              
               <div className="container">
                 <div className={`row justify-content-between ${stylesFor.valuedThing} align-items-center`}>
@@ -36,7 +31,7 @@ class UserProducts extends Component{
                   </div>
                 </div>
                 <div className="col-auto">
-                 { this.props.valuedProducts.map(valuedProduct => 
+                 { props.valuedProducts.map(valuedProduct => 
                     valuedProduct.targetProductRating === product.id ?
                   <span> Your rate -<button className={`btn btn-info ${stylesFor.valueButton}`}> {valuedProduct.value}</button></span>
                    : null )
@@ -49,8 +44,10 @@ class UserProducts extends Component{
             )
         );
     }
-}
 
+
+export default UserProducts;
+/*
 const mapStateToProps = (state) => {
     return {
         products: state.firestore.ordered.products || state.productPages.products,
@@ -71,4 +68,4 @@ export default compose(
        { collection: 'products'},
        { collection: 'users'}
    ])
-)(UserProducts)
+)(UserProducts)*/

@@ -29,6 +29,30 @@ export const removeProduct = (targetDeleteProduct) => {
       .catch((err) => {
         dispatch({ type: "REMOVE_PRODUCT_ERROR", err });
       });
+
+      const buyerId = getState().firebase.auth.uid;
+      const firebaseBuyer = getState().firebase;
+      let findIndex = null;
+
+      let ratedProducts = firebaseBuyer.profile.valuedProducts;
+      ratedProducts.forEach((product,index) => {
+        if(product.targetProductRating === targetDeleteProduct){
+                findIndex = index;       
+        }
+      });
+      ratedProducts.splice(findIndex,1);
+  
+      firestore.collection('users').doc(buyerId).update({
+       valuedProducts:   ratedProducts && [...ratedProducts]
+      })
+      .then(() => {
+        dispatch({ type: "REMOVE_PRODUCT" });
+      })
+      .catch((err) => {
+        dispatch({ type: "REMOVE_PRODUCT_ERROR", err });
+      });
+
+
   };
 };
 

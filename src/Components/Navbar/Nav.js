@@ -8,9 +8,9 @@ import { connect} from 'react-redux';
 
 
 function Nav(props) {
-  const {auth, profile} = props;
+ // const {auth, profile} = props;
 
-  const links = auth.uid ? (<NavAdminPanel />) : <NavStartPanel />;
+  //const links = auth.uid ? (<NavClientPanel />) : <NavStartPanel />;
   return ( 
     <nav className={` ${stylesFor.myNav} navbar navbar-expand-lg navbar-light`}>
     <div className="container">
@@ -24,18 +24,23 @@ function Nav(props) {
          <NavLink className="nav-link" to="/">Main page</NavLink>
        </li>
      </ul>
-   {links}
+   {/*links*/}
+  {props.auth.uid 
+  ? props.profile.isAdmin ? <NavAdminPanel /> 
+    : <NavClientPanel />
+  : <NavStartPanel />}
    </div>
     </div>
  </nav>
   );
 }
 
+
 const mapStateToProps = (state) => {
   console.log(state);
   return {
   auth: state.firebase.auth,
-  profile: state.firebase.profile
+  profile: state.firebase.profile,
   }
 }
 

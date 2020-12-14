@@ -39,6 +39,7 @@ export const signUp = (newUser) => {
                 bags: newUser.bags,
                 userPhoto: 'https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png',
                 valuedProducts: newUser.valuedProducts,
+                isAdmin: false,
             })
         }).then(() => {
             dispatch({type: 'SIGNUP_SUCCESS'})
