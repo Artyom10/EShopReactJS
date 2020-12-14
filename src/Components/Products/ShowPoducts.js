@@ -36,8 +36,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       buyProduct: (targetProbuctBuy) => dispatch(buyProduct(targetProbuctBuy)),
-      setRating: (targetProductRating, value) => dispatch(setRating(targetProductRating, value)),
-      deleteRating: (targetProductDeleteRating) => dispatch(deleteRating(targetProductDeleteRating)),
+      setRating: (targetProductRating, value, certainProduct) => dispatch(setRating(targetProductRating, value,certainProduct)),
+      deleteRating: (targetProductDeleteRating,) => dispatch(deleteRating(targetProductDeleteRating)),
     }
 }
 

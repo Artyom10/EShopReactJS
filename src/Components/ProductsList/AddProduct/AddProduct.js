@@ -15,7 +15,7 @@ class AddProduct extends React.Component{
      type: '',
      sizes: '',
      tags: '',
-     
+     rated: [],
   }
 
   handleChange = (e) => {

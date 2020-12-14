@@ -154,6 +154,7 @@ const ProductAdminCard = (props) => {
                   <input type="text" className="form-control" id="tags" placeholder={product.tags} onChange={props.handleChange} />
                 </div>
             </form>
+      
               <li className="list-group-item">
               <div className="row justify-content-center">
                 <div className="col">

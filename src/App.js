@@ -13,6 +13,7 @@ import ProductList from './Components/ProductsList/ProductsList';
 //import Bag from './Components/Bag/Bag';
 import ShowPoducts from './Components/Products/ShowPoducts';
 import Profile from './Components/Profile/Profile';
+import UserProducts from './Components/UserProducts/UserProducts';
 
 
 
@@ -35,6 +36,9 @@ const  App = (props) => {
        render={ () => <LogIn />} />
        <Route path="/sign_up"
        render={ () => <SignUp />} />
+
+       <Route path="/userProducts"
+       render={ () => <UserProducts /> } />
        </Switch>
        <Footer />
      </div>

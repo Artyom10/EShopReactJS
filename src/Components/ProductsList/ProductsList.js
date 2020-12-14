@@ -76,6 +76,7 @@ const mapStateToProps = (state) => {
     return {
         products: state.firestore.ordered.products || state.productPages.products,
         auth: state.firebase.auth,
+        users: state.firestore.ordered.users || [],
     }
 }
 
@@ -83,12 +84,14 @@ const mapDispatchToProps = (dispatch) => {
     return {
       removeProduct: (targetDeleteProduct) => dispatch(removeProduct(targetDeleteProduct)),
       editProduct: (targetEditProduct, newData) => dispatch(editProduct(targetEditProduct, newData)),
+    
     }
   }
 
 export default compose(
     connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
-        { collection: 'products'}
+        { collection: 'products'},
+        {collection: 'users'}
     ])
 )(ProductList)

@@ -9,6 +9,9 @@ function NavClientPanel(props) {
     <li className="nav-item">
       <NavLink className="nav-link" to="/profile">Profile</NavLink>
     </li>
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/userProducts">Valued products</NavLink>
+    </li>
     {/*<li className="nav-item">
       <NavLink className="nav-link" to="/bag">Bag</NavLink>
   </li> */}

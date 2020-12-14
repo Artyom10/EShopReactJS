@@ -91,11 +91,12 @@ export const buyProduct = (targetProductBuy) => {
   };
 };
 
-export const setRating = (targetProductRating, value) => {
+export const setRating = (targetProductRating, value, certainProduct) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
     const buyerId = getState().firebase.auth.uid;
     const firebaseBuyer = getState().firebase;
+  
     if(firebaseBuyer.profile.valuedProducts.some((everyData) => everyData.targetProductRating === targetProductRating)){
     /*  console.log('This product already was rate, we need just update value')
       firestore.collection('users').doc(buyerId).update({
@@ -112,7 +113,7 @@ export const setRating = (targetProductRating, value) => {
     else{
           console.log('This product does not rate yet, we need update product and value')
           firestore.collection('users').doc(buyerId).update({
-            valuedProducts: [...firebaseBuyer.profile.valuedProducts, {targetProductRating, value,}]
+            valuedProducts: [...firebaseBuyer.profile.valuedProducts, {targetProductRating, value,}],
         })
         .then(() => {
           dispatch({ type: "RATE_PRODUCT", targetProductRating });
@@ -121,17 +122,6 @@ export const setRating = (targetProductRating, value) => {
           dispatch({ type: "RATE_PRODUCT_ERROR", err });
         });
     }
-    /*firestore.collection('users').doc(buyerId).update({
-        valuedProducts: firebaseBuyer.profile.valuedProducts
-        ? [...firebaseBuyer.profile.valuedProducts, {targetProductRating, value,}]
-        : [{targetProductRating, value,}]
-    })
-    .then(() => {
-      dispatch({ type: "RATE_PRODUCT", targetProductRating });
-    })
-    .catch((err) => {
-      dispatch({ type: "RATE_PRODUCT_ERROR", err });
-    });*/
   }
 }
 
@@ -151,8 +141,6 @@ export const deleteRating = (targetProductDeleteRating) => {
     ratedProducts.splice(findIndex,1);
 
     firestore.collection('users').doc(buyerId).update({
-     // valuedProducts: firebaseBuyer.profile.valuedProducts.forEach((product) => product.targetProductRating == targetProductDeleteRating)
-     // valuedProducts: firebaseBuyer.profile.valuedProducts.map(product => product)
      valuedProducts:   ratedProducts && [...ratedProducts]
     })
     .then(() => {
