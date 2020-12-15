@@ -5,7 +5,7 @@ function Rating2(props) {
 
   return (
       <>
-      <label>rate it</label>
+      <label>rate</label>
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
   <div class="btn-group-sm mr-2" role="group" aria-label="First group">
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,1, props.product)}}>1</button>
@@ -15,6 +15,9 @@ function Rating2(props) {
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,5, props.product)}}>5</button>
     <button type="button" class={`btn btn-primary ${stylesFor.deleteRateBtn}`} onClick={() => {props.deleteRating(props.product.id, props.product)}}>Delete rate</button>
   </div>
+  {props.profile.valuedProducts.some(valuedProduct => valuedProduct.targetProductRating === props.product.id)
+            ? <p className={stylesFor.rateAttention}>You have already rate this product</p>
+            : null }
 </div>
 </>
   );

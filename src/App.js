@@ -10,7 +10,6 @@ import LogIn from './Components/AuthComponent/LogIn/LogIn';
 import SignUp from './Components/AuthComponent/SignUp/SignUp';
 import Nav from './Components/Navbar/Nav';
 import ProductList from './Components/ProductsList/ProductsList';
-//import Bag from './Components/Bag/Bag';
 import ShowPoducts from './Components/Products/ShowPoducts';
 import Profile from './Components/Profile/Profile';
 import UserProducts from './Components/UserProducts/UserProducts';
@@ -34,27 +33,27 @@ const  App = (props) => {
        <Switch>
        <Route exact path="/" 
        render={ () => <ShowPoducts  />}/>
-       <RoleProfile>
+     {/*  <RoleProfile>
    {props.isAdmin ?
-      <>
+   <> */}
        <Route path="/clients" 
        render={ () => <ClientsContainer  />} />
        <Route path="/products" 
        render={ () => <ProductList />} />
               <Route path="/rating"
        render={ () => <RatedProductsContainer />} />
-       <Route path="/productsd/:id"
-       render={ () => <ProductDetails />} />
-       </>
+      {/* <Route path="/productsd/:id"
+       render={ () => <ProductDetails />} /> */}
+      {/* </>
        :
-        <>
+      <>*/}
        <Route path="/profile" 
        render={ () => <Profile />} />
           <Route path="/userProducts"
        render={ () => <UserProductsContainer /> } />
-        </>
+      {/*  </>
         }
-       </RoleProfile>
+       </RoleProfile> */}
        <Route path="/log_in"
        render={ () => <LogIn />} />
        <Route path="/sign_up"
