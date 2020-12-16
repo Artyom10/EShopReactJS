@@ -1,10 +1,7 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {removeRequestActionCreator} from '../../redux/reducers/clientsPageReducer';
 import stylesFor from './Profile.module.css';
 import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { removeRequest, updateProfile } from '../../redux/actions/profileActions';
 
 /*
 Profile.propTypes = {
@@ -77,7 +74,7 @@ class Profile extends Component{
             <button className={`tn ${stylesFor.updateButton} btn-block`} onClick={this.handleSubmit}>Update</button>
             {profile.request === false ?
             <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButton} btn-block`} onClick={() =>{this.props.removeRequest(profile.uid)}}>Delete request</button>
-            : <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButtonBack} btn-block`}>Request has been sent</button> }
+            : <button className={`btn ${stylesFor.generalButton} ${stylesFor.deleteButtonBack} btn-block`} onClick={() =>{this.props.cancelRequest(profile.uid)}}>Request has been sent</button> }
           </div>
       </div>
     </div>
@@ -85,18 +82,4 @@ class Profile extends Component{
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.firebase.auth,
-    profile: state.firebase.profile
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateProfile: (firstName, secondName) => dispatch(updateProfile(firstName,secondName)),
-    removeRequest: (user) => dispatch(removeRequest(user)),
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+export default Profile;

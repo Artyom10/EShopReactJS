@@ -1,19 +1,25 @@
+const ADD_PRODUCT = 'ADD_PRODUCT';
+const ADD_PRODUCT_ERROR = 'ADD_PRODUCT_ERROR';
+const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+const REMOVE_PRODUCT_ERROR = 'REMOVE_PRODUCT_ERROR';
+const EDIT_PRODUCT = 'EDIT_PRODUCT';
+const UPDATE_BOUGHT_PRODUCT_STATUS = 'UPDATE_BOUGHT_PRODUCT_STATUS';
+const UPDATE_BOUGHT_PRODUCT_STATUS_ERROR = 'UPDATE_BOUGHT_PRODUCT_STATUS_ERROR';
+const ADD_TO_BOUGHT = 'ADD_TO_BOUGHT';
+const ADD_TO_BOUGHT_ERROR = 'ADD_TO_BOUGHT_ERROR';
+const RATE_PRODUCT = 'RATE_PRODUCT';
+const RATE_PRODUCT_ERROR = 'RATE_PRODUCT_ERROR';
+const DELETE_RATE_PRODUCT = 'DELETE_RATE_PRODUCT';
+const DELETE_RATE_PRODUCT_ERROR = 'DELETE_RATE_PRODUCT_ERROR';
 
 
-//const ADD_PRODUCT = 'ADD-PRODUCT';
-const UPDATE_NEW_PRODUCT = 'UPDATE-NEW-PRODUCT';
-//const REMOVE_PRODUCT = 'REMOVE-PRODUCT';
-//const EDIT_PRODUCT = 'EDIT-PRODUCT';
-const CONSTANTLY_UPDATE_PRODUCT = 'CONSTANTLY-UPDATE-PRODUCT';
-const SET_PRODUCTS = 'SET-PRODUCTS';
-const GET_CERTAIN_CLOTHES = 'GET-CERTAIN-CLOTHES';
 
 let initialState = {
   newPhoto: '',
   newPrice: '',
   newProducer: '',
   newType: '',
-  newSizes: '',
+  newSize: '',
   newDescription: '',
   newTags: '',
   newId: '',
@@ -25,7 +31,7 @@ let initialState = {
       price: "50",
       producer: "Mango",
       type: "Jacket",
-      sizes: "XS,S,M,L",
+      size: "XS,S,M,L",
       tags: "#mango, #jacket, #streetware",
     },
     {
@@ -35,7 +41,7 @@ let initialState = {
       price: "100",
       producer: "Carhartt",
       type: "Down jacket",
-      sizes: "S,M,L",
+      size: "S,M,L",
       tags: "#carhartt, #jacket",
     },
     {
@@ -45,7 +51,7 @@ let initialState = {
       price: "35",
       producer: "Diesel",
       type: "Shirt",
-      sizes: "S",
+      size: "S",
       tags: "#diesel, #shirt",
     },
     {
@@ -55,7 +61,7 @@ let initialState = {
       price: "70",
       producer: "Mango",
       type: "Jacket",
-      sizes: "XS,S,M,L",
+      size: "XS,S,M,L",
       tags: "#mango, #jacket",
     },
     {
@@ -65,7 +71,7 @@ let initialState = {
       price: "70",
       producer: "Mango",
       type: "Coat",
-      sizes: "M,L",
+      size: "M,L",
       tags: "#mango, #coat",
     },
     {
@@ -75,7 +81,7 @@ let initialState = {
       price: "47",
       producer: "Mango",
       type: "Pants",
-      sizes: "M,L,XL",
+      size: "M,L,XL",
       tags: "#mango, #pants",
     },
     {
@@ -85,7 +91,7 @@ let initialState = {
       price: "500",
       producer: "Diesel",
       type: "Coat",
-      sizes: "XS,S,M",
+      size: "XS,S,M",
       tags: "#diesel, #coat",
     },
     {
@@ -95,146 +101,14 @@ let initialState = {
       price: "47",
       producer: "Mango",
       type: "Pants",
-      sizes: "M,L,XL",
+      size: "M,L,XL",
       tags: "#mango, #pants",
     },
     ],
-    productsCertainType: [
-
-    ],
-    newProductObject: {
-
-    },
-    newUpdateObject: {
-
-    },
-    newRemovedObject: {
-      
-    },
-    changedProductObject: {
-
-    },
     productError: null
   };
 
-/*const productPagesReducer = (state = initialState, action) => {
-  let stateCopy;
-  switch(action.type){
 
-    case ADD_PRODUCT:{
-      /*const newProduct = {
-        id: state.newId,
-        urlPhoto: state.newPhoto,
-        price: state.newPrice,
-        producer: state.newProducer,
-        type: state.newType,
-        sizes: state.newSizes,
-        description: state.newDescription,
-        tags: state.newTags
-     }*/
-   /* let stateCopy = {
-        ...state,
-        products: [...state.products, newProduct],*/
-        
-      
-     /* firebaseDb.database().ref().child('products').push(
-        newProduct,
-        err => {
-          if(err){
-            console.log('error')
-          }
-        }
-      )*/
-   /*     return stateCopy;
-    }
-    
-    case UPDATE_NEW_PRODUCT:
-       switch(action.from){
-         case 'id':
-         return {
-           ...state,
-          newId: action.newText
-         }
-         case 'urlPhoto':
-           return {
-           ...state,
-          newPhoto: action.newText }
-          case 'price':
-           return {
-           ...state,
-          newPrice: action.newText }
-          case 'producer':
-           return {
-           ...state,
-          newProducer: action.newText }
-          case 'type':
-           return {
-           ...state,
-          newType: action.newText }
-          case 'sizes':
-           return {
-           ...state,
-          newSizes: action.newText }
-          case 'description':
-           return {
-           ...state,
-          newDescription: action.newText }
-          case 'tags':
-           return {
-           ...state,
-          newTags: action.newText }
-        default:
-          return stateCopy;
-       }
-        /*
-    case CONSTANTLY_UPDATE_PRODUCT:
-      debugger;
-      state.changedProductObject = {...action.updatedProduct};
-        return state;
-    case EDIT_PRODUCT:
-        return {...state};
-        */
- /*   case REMOVE_PRODUCT:{
-      let stateCopy = {
-         ...state,
-         products: [...state.products]
-       }
-        let resultRemoveId = action.removedProductId;
-        stateCopy.products.forEach((product, index) => {
-            if(resultRemoveId === product.id){
-                stateCopy.products.splice(index,1);
-            }
-        })
-        return stateCopy;
-      }
-      
-
-      case SET_PRODUCTS:
-        return {...state, products: [ ...state.products,...action.products]};
-
-      case GET_CERTAIN_CLOTHES:
-        let stateCopy = {
-          ...state,
-          product: [...state.products],
-          productsCertainType : [...state.productsCertainType]
-        }
-        stateCopy.products = stateCopy.products.filter((product) => product.type === action.typeProducts);
-    return stateCopy;
-    
-    default:
-        return state;
-  }
-};*/
-
-const ADD_PRODUCT = 'ADD_PRODUCT';
-const ADD_PRODUCT_ERROR = 'ADD_PRODUCT_ERROR';
-const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-const REMOVE_PRODUCT_ERROR = 'REMOVE_PRODUCT_ERROR';
-const EDIT_PRODUCT = 'EDIT_PRODUCT';
-const UPDATE_BOUGHT_PRODUCT_STATUS = 'UPDATE_BOUGHT_PRODUCT_STATUS';
-const UPDATE_BOUGHT_PRODUCT_STATUS_ERROR = 'UPDATE_BOUGHT_PRODUCT_STATUS_ERROR';
-const ADD_TO_BOUGHT = 'ADD_TO_BOUGHT';
-const ADD_TO_BOUGHT_ERROR = 'ADD_TO_BOUGHT_ERROR';
 
 const productPagesReducer = (state = initialState, action) => {
   switch(action.type){
@@ -271,22 +145,22 @@ const productPagesReducer = (state = initialState, action) => {
             ...state,
             productError: action.err.message
           }
-    case 'RATE_PRODUCT':
+    case RATE_PRODUCT:
       console.log('rated this product well')
       return {
         ...state,
       }
-    case 'RATE_PRODUCT_ERROR':
+    case RATE_PRODUCT_ERROR:
       console.log('rated this product with ERROR')
       return {
         ...state,
       }
-    case 'DELETE_RATE_PRODUCT':
+    case DELETE_RATE_PRODUCT:
       console.log('rate was deleted')
       return {
         ...state,
       }
-    case 'DELETE_RATE_PRODUCT_ERROR':
+    case DELETE_RATE_PRODUCT_ERROR:
       console.log('rate was not deleted')
       return {
         ...state,
@@ -296,34 +170,5 @@ const productPagesReducer = (state = initialState, action) => {
   }
 };
 
-
-
-export const editProductAdmin = (data) => {
-  return {
-    type: EDIT_PRODUCT,
-  }
-}
-
-export const changeProduct = (data) => {
-  return {
-    type: CONSTANTLY_UPDATE_PRODUCT,
-    updatedProduct: data
-  }
-}
-
-export const setProducts = (products) => {
-  return {
-    type: SET_PRODUCTS,
-    products: products
-
-  }
-}
-
-export const showCertainProducts = (typeProducts) => {
-  return {
-    type: GET_CERTAIN_CLOTHES,
-    typeProducts: typeProducts,
-  }
-}
 
 export default productPagesReducer;

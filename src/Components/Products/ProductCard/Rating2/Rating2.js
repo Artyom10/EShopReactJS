@@ -15,6 +15,12 @@ function Rating2(props) {
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,5, props.product)}}>5</button>
     <button type="button" class={`btn btn-primary ${stylesFor.deleteRateBtn}`} onClick={() => {props.deleteRating(props.product.id, props.product)}}>Delete rate</button>
   </div>
+  { props.profile.valuedProducts 
+  ? props.profile.valuedProducts.some(valuedProduct => valuedProduct.targetProductRating === props.product.id)
+    ? <p className={stylesFor.rateAttention}>You have already rate this product. Delete rate and try again</p>
+    : null 
+  : null }
+  
 </div>
 </>
   );

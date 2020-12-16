@@ -8,12 +8,11 @@ import AddProductButton from '../AddPoductButton/AddProductButton';
 
 class AddProduct extends React.Component{
   state = {
-   //  id: '',
      photo: '',
      producer: '',
      price: '',
      type: '',
-     sizes: '',
+     size: '',
      tags: '',
      rated: [],
   }
@@ -34,7 +33,7 @@ class AddProduct extends React.Component{
       producer: '',
       price: '',
       type: '',
-      sizes: '',
+      size: '',
       tags: '',
   })
   }
@@ -48,11 +47,6 @@ class AddProduct extends React.Component{
        <div className={`${stylesFor.loginContainer} d-flex  align-items-center justify-content-center`}>
          <form onSubmit={this.handleSubmit} className={`${stylesFor.loginForm} text-center`}>
            <h1 className="mb-5 font-weight-light text-uppercase">Add new product</h1>
-          {/* <div className="form-group">
-             <input type="text" class={`form-control rounded-pill form-control-lg
-              ${stylesFor.control}`}
-              placeholder="id" onChange={this.handleChange} id="id"/>
-    </div>*/}
            <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
             placeholder="photo" onChange={this.handleChange} id="photo" value={this.state.photo} />
@@ -71,7 +65,7 @@ class AddProduct extends React.Component{
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="sizes" onChange={this.handleChange} id="sizes" value={this.state.sizes}/>
+            placeholder="size" onChange={this.handleChange} id="size" value={this.state.size}/>
           </div>
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}

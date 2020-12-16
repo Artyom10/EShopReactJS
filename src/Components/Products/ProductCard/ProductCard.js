@@ -16,7 +16,7 @@ function ProductCard(props) {
         <div className="card-body">
            <h5 className={stylesFor.priceCard}>{product.price}$</h5>
       <p className="card-text">{product.producer}/ <span className={stylesFor.productIdentificator}>{product.type}</span></p>
-        <span className={stylesFor.availableSizes}>Sizes: <span className={stylesFor.hideSizes}><strong>{product.sizes}</strong></span></span>
+        <span className={stylesFor.availableSize}>Size: <span className={stylesFor.hideSize}><strong>{product.size}</strong></span></span>
         <p class="card-text">Tags: <span class={stylesFor.tagsDec}>{product.tags}</span> </p>
           <ul className="list-group list-group-flush">
              {product.isBought === true 
@@ -25,13 +25,12 @@ function ProductCard(props) {
              }
             <li className="list-group-item">
             {/* <ProductRating product={product} />*/}
-             <Rating2 product={product} setRating={props.setRating} deleteRating={props.deleteRating} />
+            <Rating2 product={product} setRating={props.setRating} deleteRating={props.deleteRating} profile={props.profile} />
             {/*props.profile.valuedProducts.map(valuedProduct => valuedProduct.targetProductRating === product.id)
             ? <p>You have already rate this product</p>
             : null */}
             </li>
           </ul>
-          <NavLink to=""> </NavLink>
         </div>
       </div>
   </div>

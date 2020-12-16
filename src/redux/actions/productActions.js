@@ -68,7 +68,7 @@ export const editProduct = (targetEditProduct, newData) => {
         producer: newData.producer,
         type: newData.type,
         price: newData.price,
-        sizes: newData.sizes,
+        size: newData.size,
         tags: newData.tags,
       })
       .then(() => {
@@ -175,15 +175,3 @@ export const deleteRating = (targetProductDeleteRating) => {
     });
   }
 }
-
-  
-       /* valuedProducts: firebaseBuyer.profile.valuedProducts
-        ? {...firebaseBuyer.profile.valuedProducts, targetProductRating: value }
-        : {targetProductRating: value},*/
-          /*{
-       targetProductRating,
-     value, }
-    })*/
-    /*const firestore = getFirestore();
-    firestore.collection('products').doc(targetProductRating).update({
-      rate: value,*/ 

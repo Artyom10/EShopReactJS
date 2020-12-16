@@ -1,2 +1,6 @@
 #standart ingore
 /node_modules
+
+
+#secret key 
+/secretKey.json

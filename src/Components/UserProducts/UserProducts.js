@@ -24,7 +24,7 @@ const UserProducts = (props) => {
                              <span class="product-identificator">{product.type}</span>
                           </h5>
                           <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {product.price}$</p>
-                          <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {product.sizes}</p>
+                          <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {product.size}</p>
                         </div>
                       </div>
                     </div>

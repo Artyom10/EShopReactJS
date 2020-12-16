@@ -1,4 +1,4 @@
-
+/*
 const ADD_PERSON = 'ADD-PERSON';
 const REMOVE_USER = 'REMOVE-USER';
 
@@ -81,3 +81,4 @@ export const removeRequest = (id) => {
 export const setUsers = (clients) => ({type: SET_USERS, clients})
 export const setProfiles = (profiles) => ({type: SET_PROFILES, profiles})
 export default clientsPageReducer;
+*/

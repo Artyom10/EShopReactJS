@@ -11,8 +11,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const mapStateToProps = (state) => {
    return {
-    //clients: state.clientsPage.clients,
-    users: state.firestore.ordered.users || /*state.clientsPage.clients*/ [],
+    users: state.firestore.ordered.users || [],
    }
 }
 

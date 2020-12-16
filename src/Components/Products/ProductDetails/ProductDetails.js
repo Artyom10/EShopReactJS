@@ -20,7 +20,7 @@ function ProductDetails(props) {
         <div className="card-body">
            <h5 className={stylesFor.priceCard}>{props.product.price}$</h5>
       <p className="card-text">{props.product.producer}/ <span className={stylesFor.productIdentificator}>{props.product.type}</span></p>
-        <span className={stylesFor.availableSizes}>Sizes: <span className={stylesFor.hideSizes}><strong>{props.product.sizes}</strong></span></span>
+        <span className={stylesFor.availableSize}>Size: <span className={stylesFor.hideSize}><strong>{props.product.size}</strong></span></span>
         <p class="card-text">Tags: <span class={stylesFor.tagsDec}>{props.product.tags}</span> </p>
           <ul className="list-group list-group-flush">
              {props.product.isBought === true 

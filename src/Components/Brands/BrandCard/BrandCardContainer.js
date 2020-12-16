@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import BrandCard from './BrandCard';
-import {showCertainProducts } from '../../../redux/reducers/productPagesReducer';
 
 
 
@@ -12,7 +11,7 @@ const mapStateToProp = (state) => {
     }
  }
  
- const BrandCardContainer = connect(mapStateToProp,{showCertainProducts,})(BrandCard);
+ const BrandCardContainer = connect(mapStateToProp,{})(BrandCard);
 
 
 export default BrandCardContainer;

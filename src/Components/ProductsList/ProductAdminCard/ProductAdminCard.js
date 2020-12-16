@@ -17,7 +17,7 @@ ProductAdminCard.propTypes = {
   price: PropTypes.string,
   producer: PropTypes.string,
   type: PropTypes.string,
-  sizes: PropTypes.string,
+  size: PropTypes.string,
   description: PropTypes.string,
   tags: PropTypes.string
 }*/
@@ -28,7 +28,7 @@ class ProductAdminCard extends Component{
     producer: '',
     price: '',
     type: '',
-    sizes: '',
+    size: '',
     tags: '',
   }
 
@@ -79,8 +79,8 @@ handleEditSubmit = (productId) => {
                       <input type="text" className="form-control" id="producer" placeholder={product.producer} onChange={this.handleChange}  />
                       <label for="type">Type</label>
                       <input type="text" className="form-control" id="type" placeholder={product.type}  onChange={this.handleChange} />
-                      <label for="sizes">Sizes</label>
-                      <input className="form-control" type="text" id="sizes" placeholder={product.sizes}  onChange={this.handleChange}  />
+                      <label for="size">Size</label>
+                      <input className="form-control" type="text" id="size" placeholder={product.size}  onChange={this.handleChange}  />
                       <label for="tags">Tags</label>
                       <input type="text" className="form-control" id="tags" placeholder={product.tags} onChange={this.handleChange} />
                     </div>
@@ -148,8 +148,8 @@ const ProductAdminCard = (props) => {
                   <input type="text" className="form-control" id="producer" placeholder={product.producer} onChange={props.handleChange}  />
                   <label for="type">Type</label>
                   <input type="text" className="form-control" id="type" placeholder={product.type}  onChange={props.handleChange} />
-                  <label for="sizes">Sizes</label>
-                  <input className="form-control" type="text" id="sizes" placeholder={product.sizes}  onChange={props.handleChange}  />
+                  <label for="size">Size</label>
+                  <input className="form-control" type="text" id="size" placeholder={product.size}  onChange={props.handleChange}  />
                   <label for="tags">Tags</label>
                   <input type="text" className="form-control" id="tags" placeholder={product.tags} onChange={props.handleChange} />
                 </div>

@@ -26,7 +26,7 @@ function Nav(props) {
      </ul>
    {/*links*/}
   {props.auth.uid 
-  ? props.profile.isAdmin ? <NavAdminPanel /> 
+  ? props.profile.isAdmin ? <NavClientPanel /> 
     : <NavClientPanel />
   : <NavStartPanel />}
    </div>

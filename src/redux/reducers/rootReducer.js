@@ -1,5 +1,5 @@
 import authRecuder from './authReducer';
-import clientsPageReducer from './clientsPageReducer';
+//import clientsPageReducer from './clientsPageReducer';
 import mainPageReducer from './mainPageReducer';
 import productPagesReducer from './productPagesReducer';
 import {combineReducers} from 'redux';
@@ -10,11 +10,11 @@ import profileReducer from './profileReducer';
 const rootReducer = combineReducers({
   auth: authRecuder,
   mainPage: mainPageReducer,
-  clientsPage: clientsPageReducer,
   productPages: productPagesReducer,
   profileSet: profileReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer,
 });
 
+ {/*clientsPage: clientsPageReducer, */}
 export default rootReducer;

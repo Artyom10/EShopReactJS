@@ -30,18 +30,18 @@
     font-family: "Trispace", sans-serif;
   }
   
-  .availableSizes {
+  .availableSize {
     width: 100%;
   }
   
-  .hideSizes { 
+  .hideSize { 
     font-size: 12px;
     position: relative;
     opacity: 0;
     transition: all 0.25s;
   }
 
-  .productCard:hover .hideSizes { 
+  .productCard:hover .hideSize { 
     opacity: 1;
   }
 

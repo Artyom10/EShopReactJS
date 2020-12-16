@@ -12,11 +12,12 @@ import { editProduct } from '../../redux/actions/productActions';
 
 class ProductList extends Component{
     state = {
-        photo: '',
+       // photo: '',
+       photo: null,
         producer: '',
         price: '',
         type: '',
-        sizes: '',
+        size: '',
         tags: '',
       }
     
@@ -25,16 +26,7 @@ class ProductList extends Component{
           [e.target.id]: e.target.value
         })
       }
-    
-      /*handleEdit = (e) => {
-        e.preventDefault();
-          this.setState({
-          [e.target.id]: e.target.value
-          })
-        this.props.editProduct(this.state);
-      }*/
-      
-    
+          
       handleSubmit = (e) => {
         e.preventDefault();
         this.props.addNewProduct(this.state);
@@ -47,10 +39,11 @@ class ProductList extends Component{
      this.props.editProduct(productId,this.state);
      this.setState({
         photo: '',
+      // photo: null,
         producer: '',
         price: '',
         type: '',
-        sizes: '',
+        size: '',
         tags: '',
     })
     } 

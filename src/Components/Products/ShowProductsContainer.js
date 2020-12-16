@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import ShowProducts from './ShowPoducts';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import {addToBag} from '../../redux/actions/bagActions';
 
 
 class ShowProductsContainer extends Component{
@@ -23,7 +22,7 @@ const mapStateToProps = (state) => {
 
  const mapDispatchToProps = (dispatch) => {
      return {
-     addToBag: (targetAddToBag) => dispatch(addToBag(targetAddToBag)),
+    
      }
  }
 
