@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 function ProductCard(props) {
   const {auth} = props;
   const {profile} = props;
+  debugger;
   return (
     props.products.map(product => 
       <div className={`col d-md-flex ${stylesFor.colProduct}`} key={product.id}>
@@ -24,11 +25,8 @@ function ProductCard(props) {
              :<li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProduct} btn-block`} type="button" onClick={() => (props.buyProduct(product.id))}>Buy</button></li>
              }
             <li className="list-group-item">
-            {/* <ProductRating product={product} />*/}
+
             <Rating2 product={product} setRating={props.setRating} deleteRating={props.deleteRating} profile={props.profile} />
-            {/*props.profile.valuedProducts.map(valuedProduct => valuedProduct.targetProductRating === product.id)
-            ? <p>You have already rate this product</p>
-            : null */}
             </li>
           </ul>
         </div>

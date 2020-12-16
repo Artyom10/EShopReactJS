@@ -25,6 +25,7 @@ class LogIn extends React.Component {
   render(){
     const {authError, auth} = this.props;
     if(auth.uid) return <Redirect to='/'/>
+    debugger;
     return(
 <div className="container">
       <div className="row  justify-content-center">

@@ -1,10 +1,10 @@
 const express = require('express');
-const admin = require('firebase-admin');
+//const admin = require('firebase-admin');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 
-
+let adminRouter = require("./routes/adminRouter");
 
 const serviceAccount = require('./secretKey.json');
 
