@@ -14,7 +14,7 @@ const DELETE_RATE_PRODUCT_ERROR = 'DELETE_RATE_PRODUCT_ERROR';
 
 
 
-let initialState = {
+const initialState = {
   newPhoto: '',
   newPrice: '',
   newProducer: '',

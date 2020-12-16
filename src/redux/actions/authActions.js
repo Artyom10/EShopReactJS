@@ -1,4 +1,5 @@
 export const signIn = (credentials) => {
+    debugger;
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
 

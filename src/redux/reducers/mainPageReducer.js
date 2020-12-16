@@ -1,5 +1,5 @@
 
-let initialState = {
+const initialState = {
     brands: [
       {
         title: /*"Tommy Hilfiger"*/ 'Pants',

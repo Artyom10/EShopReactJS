@@ -47,25 +47,3 @@ const UserProducts = (props) => {
 
 
 export default UserProducts;
-/*
-const mapStateToProps = (state) => {
-    return {
-        products: state.firestore.ordered.products || state.productPages.products,
-        auth: state.firebase.auth,
-        valuedProducts: state.firebase.profile.valuedProducts || [],
-
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default compose(
-   connect(mapStateToProps,mapDispatchToProps),
-   firestoreConnect([
-       { collection: 'products'},
-       { collection: 'users'}
-   ])
-)(UserProducts)*/

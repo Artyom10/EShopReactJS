@@ -4,7 +4,7 @@ const UPDATE_PROFILE_REQUEST = 'UPDATE_PROFILE_REQUEST';
 const UPDATE_PROFILE_REQUEST_ERROR = 'UPDATE_PROFILE_REQUEST_ERROR';
 
 
-let initialState = {
+const initialState = {
   authError: null
 };
 

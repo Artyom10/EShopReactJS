@@ -5,8 +5,8 @@ import Footer from './Components/Footer/Footer';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import ClientsContainer from './Components/Clients/ClientsContainer';
-import LogIn from './Components/AuthComponent/LogIn/LogIn';
-import SignUp from './Components/AuthComponent/SignUp/SignUp';
+import LogIn from './Components/AuthComponent/LogIn/LogIn(Class not active)';
+import SignUp from './Components/AuthComponent/SignUp/SignUp(Class not active)';
 import Nav from './Components/Navbar/Nav';
 import ProductList from './Components/ProductsList/ProductsList';
 import ShowPoducts from './Components/Products/ShowPoducts';
@@ -15,6 +15,8 @@ import UserProductsContainer from './Components/UserProducts/UserProductsContain
 import { connect, useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
 import ProfileContainer from './Components/Profile/ProfileContainer';
+import LoginContainer from './Components/AuthComponent/LogIn/LoginContainer';
+import SignUpContainer from './Components/AuthComponent/SignUp/SignUpContainer';
 
 function RoleProfile({children}){
   const role = useSelector(state => state.firebase.profile.isAdmin)
@@ -51,9 +53,9 @@ const  App = (props) => {
      }
     </RoleProfile> */}
     <Route path="/log_in"
-    render={ () => <LogIn />} />
+    render={ () => <LoginContainer />} />
     <Route path="/sign_up"
-    render={ () => <SignUp />} />
+    render={ () => <SignUpContainer />} />
     </Switch>
     <Footer />
   </div>

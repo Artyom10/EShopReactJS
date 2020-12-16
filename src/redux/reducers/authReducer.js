@@ -5,7 +5,7 @@ const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 const SIGNUP_ERROR = 'SIGNUP_ERROR';
 
 
-let initialState = {
+const initialState = {
   authError: null
 };
 
