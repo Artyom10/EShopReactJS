@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     return {
         products: state.firestore.ordered.products || state.productPages.products,
         auth: state.firebase.auth,
-       users: state.firestore.ordered.users || [],
+        users: state.firestore.ordered.users || [],
 
     }
 }
@@ -20,7 +20,7 @@ export default compose(
    connect(mapStateToProps,{}),
    firestoreConnect([
        { collection: 'products'},
-       { collection: 'users'}
+       {collection: 'users', where: ['isWho', '==', 'user']}
    ])
 )(RatedProducts)
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 import { Provider, useSelector } from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './redux/reducers/rootReducer';
@@ -18,7 +18,6 @@ const store = createStore(rootReducer,
   compose(
   applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore, storage})),
   reduxFirestore(fbConfig),
- //reactReduxFirebase(fbConfig),
   )
 );
 
@@ -30,7 +29,6 @@ const config = {
 
 const rrfProps = {
   firebase,
-  //config: fbConfig,
   config,
   dispatch: store.dispatch,
   createFirestoreInstance

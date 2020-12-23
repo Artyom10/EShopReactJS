@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import NavAdminPanel from './NavAdminPanel/NavAdminPanel';
 import NavClientPanel from './NavClientPanel/NavClientPanel';
 import NavStartPanel from './NavStartPanel/NavStartPanel';
 import  stylesFor from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import { connect} from 'react-redux';
 
 
-function Nav(props) {
- // const {auth, profile} = props;
 
-  //const links = auth.uid ? (<NavClientPanel />) : <NavStartPanel />;
+const Nav =(props) => {
   return ( 
     <nav className={` ${stylesFor.myNav} navbar navbar-expand-lg navbar-light`}>
     <div className="container">
@@ -24,9 +21,8 @@ function Nav(props) {
          <NavLink className="nav-link" to="/">Main page</NavLink>
        </li>
      </ul>
-   {/*links*/}
   {props.auth.uid 
-  ? props.profile.isAdmin ? <NavClientPanel /> 
+  ? props.isWho === 'admin' ? <><NavAdminPanel/> </>
     : <NavClientPanel />
   : <NavStartPanel />}
    </div>
@@ -35,13 +31,4 @@ function Nav(props) {
   );
 }
 
-
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-  auth: state.firebase.auth,
-  profile: state.firebase.profile,
-  }
-}
-
-export default connect(mapStateToProps)(Nav);
+export default Nav;

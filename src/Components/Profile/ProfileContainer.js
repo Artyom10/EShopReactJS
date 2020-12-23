@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { cancelRequest, removeRequest, updateProfile } from '../../redux/actions/profileActions';
-
-import ProfileWithHooks from './ProfileWithHooks';
-
+import Profile from './Profile';
 
 const mapStateToProps = (state) => {
     return {
@@ -20,7 +18,7 @@ const mapStateToProps = (state) => {
     }
   }
   
-  export default connect(mapStateToProps,mapDispatchToProps)(ProfileWithHooks);
+  export default connect(mapStateToProps,mapDispatchToProps)(Profile);
 
 
 

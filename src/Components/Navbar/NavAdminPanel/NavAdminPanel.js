@@ -1,10 +1,9 @@
-import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { signOut} from '../../../redux/actions/authActions';
 
-function NavAdminPanel(props) { 
+const NavAdminPanel = (props) => { 
   return ( 
         
            <ul className="navbar-nav ml-auto">

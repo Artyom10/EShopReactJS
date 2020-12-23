@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut} from '../../../redux/actions/authActions';
 
-function NavClientPanel(props) { 
+const NavClientPanel = (props) => { 
   return ( 
     <ul className="navbar-nav ml-auto">
     <li className="nav-item">

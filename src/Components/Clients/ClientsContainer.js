@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import Clients from './Clients';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-
-class ClientsContainer extends Component {
-   render(){;
-       return(
-        <Clients/>
-       );
-   }
-}
-
+import { deleteUser } from '../../redux/actions/clientsActions';
 
 const mapStateToProps = (state) => {
    return {
     auth: state.firebase.auth,
-    users: state.firestore.ordered.users || []
+    users: state.firestore.ordered.users || [],
+    profile: state.firebase.profile,
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      deleteUser: (id) => dispatch(deleteUser(id)),
    }
 }
 
 export default compose(
-   connect(mapStateToProps,{}),
+   connect(mapStateToProps,mapDispatchToProps),
    firestoreConnect([
-      {collection: 'users'}
+      {collection: 'users', where: ['isWho', '==', 'user']}
    ])
 )(Clients)

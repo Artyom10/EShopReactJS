@@ -1,21 +1,8 @@
 import React, { Component, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import stylesFor from './Profile.module.css';
 import { Redirect } from 'react-router-dom';
 
-/*
-Profile.propTypes = {
-  client: PropTypes.object.isRequired,
-  id: PropTypes.number,
-  firstName: PropTypes.string,
-  secondName: PropTypes.string,
-  username: PropTypes.string,
-  mail: PropTypes.string,
-  urlPhoto: PropTypes.string,
-  password: PropTypes.string
-}*/
-
-const ProfileWithHooks = (props) => {
+const Profile = (props) => {
   let [firstName, setFirstName] = useState(props.profile.firstName);
   let [secondName, setSecondName] = useState(props.profile.secondName);
 
@@ -77,4 +64,4 @@ useEffect( () => {
     );
 }
 
-export default ProfileWithHooks;
+export default Profile;

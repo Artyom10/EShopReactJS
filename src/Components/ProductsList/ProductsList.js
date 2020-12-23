@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import ProductAdminCard from './ProductAdminCard/ProductAdminCard';
-import AddProduct from './AddProduct/AddProduct';
 import { Redirect } from 'react-router-dom';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { removeProduct } from '../../redux/actions/productActions';
-import { editProduct } from '../../redux/actions/productActions';
+import AddProductContainer from './AddProduct/AddProductContainer';
+
 
 
 
 class ProductList extends Component{
     state = {
-       // photo: '',
-       photo: null,
+        photo: '',
         producer: '',
         price: '',
         type: '',
@@ -33,13 +28,11 @@ class ProductList extends Component{
       }
     
     handleEditSubmit = (productId) => {
-      //e.preventDefault();
       console.log(this.state);
       console.log(productId);
      this.props.editProduct(productId,this.state);
      this.setState({
         photo: '',
-      // photo: null,
         producer: '',
         price: '',
         type: '',
@@ -54,10 +47,11 @@ class ProductList extends Component{
         if(!auth.uid) return <Redirect to='/log_in' />
         return(
             <div className="container">
-             <AddProduct />
+             <AddProductContainer />
             <div className="row"> 
              {  <ProductAdminCard products={this.props.products} removeProduct={this.props.removeProduct} 
-              handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit}  handleChange={this.handleChange}/>} 
+              handleSubmit={this.handleSubmit} handleEditSubmit={this.handleEditSubmit}  handleChange={this.handleChange}
+              addNewProduct={this.props.addNewProduct} editProduct={this.props.editProduct}/>} 
             </div>
             
          </div>
@@ -65,26 +59,7 @@ class ProductList extends Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.firestore.ordered.products || state.productPages.products,
-        auth: state.firebase.auth,
-        users: state.firestore.ordered.users || [],
-    }
-}
+export default ProductList;
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      removeProduct: (targetDeleteProduct) => dispatch(removeProduct(targetDeleteProduct)),
-      editProduct: (targetEditProduct, newData) => dispatch(editProduct(targetEditProduct, newData)),
-    
-    }
-  }
 
-export default compose(
-    connect(mapStateToProps,mapDispatchToProps),
-    firestoreConnect([
-        { collection: 'products'},
-        {collection: 'users'}
-    ])
-)(ProductList)
+

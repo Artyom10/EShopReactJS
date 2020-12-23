@@ -1,12 +1,9 @@
-const express = require("express");
+/*const express = require('express');
 const router = express.Router();
 
-const adminControllers = require("../controllers/adminControllers");
+const adminController = require('../controllers/adminControllers');
 
 
-router.get("/clients", adminControllers.deleteUser);
+router.post('/clients', adminController.deleteAdminUser);
 
-
-
-
-module.exports = router;
+module.exports = router;*/

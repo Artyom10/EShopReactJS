@@ -1,11 +1,11 @@
 import authRecuder from './authReducer';
-//import clientsPageReducer from './clientsPageReducer';
 import mainPageReducer from './mainPageReducer';
 import productPagesReducer from './productPagesReducer';
 import {combineReducers} from 'redux';
 import {firestoreReducer} from 'redux-firestore';
 import {firebaseReducer} from 'react-redux-firebase';
 import profileReducer from './profileReducer';
+import clientsPageReducer from './clientsPageReducer';
 
 const rootReducer = combineReducers({
   auth: authRecuder,
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   profileSet: profileReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer,
+  clients: clientsPageReducer,
 });
 
- {/*clientsPage: clientsPageReducer, */}
 export default rootReducer;

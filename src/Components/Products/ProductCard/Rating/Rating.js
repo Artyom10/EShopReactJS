@@ -1,7 +1,7 @@
 import React from 'react';
 import stylesFor from './Rating.module.css';
 
-function Rating2(props) {
+const Rating = (props) => {
 
   return (
       <>
@@ -13,13 +13,24 @@ function Rating2(props) {
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,3, props.product)}}>3</button>
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,4, props.product)}}>4</button>
     <button type="button" class={`btn btn-primary ${stylesFor.rateBtn}`} onClick={() => {props.setRating(props.product.id,5, props.product)}}>5</button>
-    <button type="button" class={`btn btn-primary ${stylesFor.deleteRateBtn}`} onClick={() => {props.deleteRating(props.product.id, props.product)}}>Delete rate</button>
+    { props.profile.valuedProducts ?
+      props.profile.valuedProducts.map(valuedProduct => 
+        props.product.id === valuedProduct.targetProductRating
+        ?
+        <>
+        <button type="button" class={`btn btn-primary ${stylesFor.deleteRateBtn}`} onClick={() => {props.deleteRating(props.product.id, props.product)}}>Delete rate</button> 
+        <p className={stylesFor.rateAttention}>You have already rate this product. Your rate {valuedProduct.value}</p>
+        </>
+        : null     
+      )
+      : null
+    }
   </div>
-  { props.profile.valuedProducts 
+  {/* props.profile.valuedProducts 
   ? props.profile.valuedProducts.some(valuedProduct => valuedProduct.targetProductRating === props.product.id)
-    ? <p className={stylesFor.rateAttention}>You have already rate this product. Delete rate and try again</p>
+    ? <p className={stylesFor.rateAttention}>You have already rate this product.</p>
     : null 
-  : null }
+  : null*/ }
   
 </div>
 </>
@@ -28,4 +39,4 @@ function Rating2(props) {
 
 
 
-export default Rating2;
+export default Rating;

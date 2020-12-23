@@ -1,12 +1,4 @@
-/*
-const ADD_PERSON = 'ADD-PERSON';
-const REMOVE_USER = 'REMOVE-USER';
-
-const REMOVE_REQUEST = 'REMOVE-REQUEST';
-const SET_USERS = 'SET-USERS';
-const SET_PROFILES = 'SET-PROFILES';
-
-let initialState = {
+const initialState = {
    clients: [
       {
         id: 1,
@@ -47,38 +39,8 @@ let initialState = {
 
 const clientsPageReducer = (state = initialState, action) => {
     
-  let stateCopy;
-  switch(action.type){
-    case ADD_PERSON:
-      return state;
-    default:
-        return state;
-      
-  }
+   return state;
 };
 
-export const addPerson = (data) => {
-    return {
-      type: ADD_PERSON,
-      newPerson: data
-    }
-  };
 
-export const removeUser = (data) => {
-    return {
-      type: REMOVE_USER,
-      removeUserId: data
-    }
-  }
-
-export const removeRequest = (id) => {
-  return {
-      type: REMOVE_REQUEST,
-      personRequestId: id
-  }
-}
-
-export const setUsers = (clients) => ({type: SET_USERS, clients})
-export const setProfiles = (profiles) => ({type: SET_PROFILES, profiles})
 export default clientsPageReducer;
-*/

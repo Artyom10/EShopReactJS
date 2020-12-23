@@ -2,7 +2,7 @@ import React from 'react';
 import stylesFor from './AddProductButton.module.css'
 import generalStyles from '../GeneralStyles.module.css';
 
-function AddProductButton() {
+const AddProductButton = () => {
   return (
     <div class="container">
     <div class="row justify-content-center">

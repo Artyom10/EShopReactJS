@@ -56,7 +56,7 @@ export const removeProduct = (targetDeleteProduct) => {
   };
 };
 
-export const editProduct = (targetEditProduct, newData) => {
+export const editProduct = (targetEditProduct, changes) => {
   debugger;
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
@@ -64,12 +64,13 @@ export const editProduct = (targetEditProduct, newData) => {
       .collection("products")
       .doc(targetEditProduct)
       .update({
-        photo:  newData.photo,//(newData.photo == undefined || newData.photo == '') ? targetEditProduct.photo : newData.photo,
-        producer: newData.producer,
-        type: newData.type,
-        price: newData.price,
-        size: newData.size,
-        tags: newData.tags,
+        photo:  changes.photo,
+        producer: changes.producer,
+        type: changes.type,
+        price: changes.price,
+        size: changes.size,
+        tags: changes.tags,
+        description: changes.description,
       })
       .then(() => {
         dispatch({ type: "EDIT_PRODUCT", targetEditProduct });
@@ -122,16 +123,6 @@ export const setRating = (targetProductRating, value, certainProduct) => {
     const firebaseBuyer = getState().firebase;
   
     if(firebaseBuyer.profile.valuedProducts.some((everyData) => everyData.targetProductRating === targetProductRating)){
-    /*  console.log('This product already was rate, we need just update value')
-      firestore.collection('users').doc(buyerId).update({
-       valuedProducts: [{targetProductRating, value,}]
-    })
-    .then(() => {
-      dispatch({ type: "RATE_PRODUCT", targetProductRating });
-    })
-    .catch((err) => {
-      dispatch({ type: "RATE_PRODUCT_ERROR", err });
-    });*/
     console.log('You have already rated this product, please delete your rate and try again');
     }
     else{

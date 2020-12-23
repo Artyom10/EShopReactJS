@@ -1,36 +1,27 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import stylesFor from './RatedProducts.module.css'
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import RatedProductCard from "./RatedCard/RatedProductCard";
+import stylesFor from "./RatedProducts.module.css";
 
-const RatedProducts = (props) =>  {
-        const {auth} = props;
-        if(!auth.uid) return <Redirect to='/log_in' />
-        return(
-            props.users.map(user =>
-                <div className="container">
-            <div className={`col d-md-flex ${stylesFor.colProduct} justify-content-center border`} key={user.id}>
-              <img src={user.userPhoto} className={`${stylesFor.userPhoto}`} />
-            <p className="card-text">{user.firstName}  {user.secondName}</p>
-                <ul className="list-group list-group-flush">
-                {props.products.map(product =>
-                         user.valuedProducts.map(valuedProduct => 
-                            valuedProduct.targetProductRating === product.id ?
-                         <li class={stylesFor.listItems}>
-                            <p>Rate  <button className={`btn btn-info`}>{valuedProduct.value} </button>
-                             <img className={stylesFor.imgIn} src={product.photo} /> </p>
-                        </li>
-                         : null ))
-                    }
-                  <li className="list-group-item">
-                  </li>
-                </ul>
-                
-            
-            
-        </div>
-        </div>
-            )
-        );  
-}
+const RatedProducts = (props) => {
+
+  let [searchRate, setSearchRate] = useState('');
+
+  const handleSearch = (e) => {
+      e.preventDefault();
+       setSearchRate(e.target.value)
+  }
+  const { auth } = props;
+  if (!auth.uid) return <Redirect to="/log_in" />;
+
+  
+  return(
+    <div className='container'>
+    <input className="form-control" id="searchRate" placeholder="search rating"
+    onChange={handleSearch} value={searchRate} />
+    <RatedProductCard  products={props.products} auth={props.auth} users={props.users} searchRate={searchRate} />
+    </div>
+  );
+};
 
 export default RatedProducts;

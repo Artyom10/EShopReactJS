@@ -2,14 +2,9 @@ import logo from './logo.svg';
 import React from 'react';
 import Footer from './Components/Footer/Footer';
 
-import './App.css';
+import stylesFor from  './App.module.css';
 import { Route, Switch } from 'react-router-dom';
 import ClientsContainer from './Components/Clients/ClientsContainer';
-import LogIn from './Components/AuthComponent/LogIn/LogIn(Class not active)';
-import SignUp from './Components/AuthComponent/SignUp/SignUp(Class not active)';
-import Nav from './Components/Navbar/Nav';
-import ProductList from './Components/ProductsList/ProductsList';
-import ShowPoducts from './Components/Products/ShowPoducts';
 import RatedProductsContainer from './Components/RatedProducts/RatedProductsContainer';
 import UserProductsContainer from './Components/UserProducts/UserProductsContainer';
 import { connect, useSelector } from 'react-redux';
@@ -17,47 +12,53 @@ import { isLoaded } from 'react-redux-firebase';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import LoginContainer from './Components/AuthComponent/LogIn/LoginContainer';
 import SignUpContainer from './Components/AuthComponent/SignUp/SignUpContainer';
+import ShowProductsContainer from './Components/Products/ShowProductsContainer';
+import ProductListContainer from './Components/ProductsList/ProductListContainer';
+import NavContainer from './Components/Navbar/NavContainer';
 
 function RoleProfile({children}){
-  const role = useSelector(state => state.firebase.profile.isAdmin)
-  if(!isLoaded(role)) return null;
+  const isWho = useSelector(state => state.firebase.profile.isWho)
+  if(!isLoaded(isWho)) return null;
   return children
 }
 
 const  App = (props) => {
   return (
     <div>
-    <Nav />
-    <Switch>
+          <NavContainer />
+      <div className={stylesFor.forFooter}>
+   
     <Route exact path="/" 
-    render={ () => <ShowPoducts  />}/>
-  {/*  <RoleProfile>
-{props.isAdmin ?
-<> */}
+    render={ () => <ShowProductsContainer  />}/>
+
+    <RoleProfile>
+    {props.isWho === 'admin'
+    ?
+    <>
     <Route path="/clients" 
     render={ () => <ClientsContainer  />} />
     <Route path="/products" 
-    render={ () => <ProductList />} />
-           <Route path="/rating"
+    render={ () => <ProductListContainer />} />
+   <Route path="/rating"
     render={ () => <RatedProductsContainer />} />
-   {/* <Route path="/productsd/:id"
-    render={ () => <ProductDetails />} /> */}
-   {/* </>
+     </>
     :
-   <>*/}
+    <>
     <Route path="/profile" 
     render={ () => <ProfileContainer />} />
-       <Route path="/userProducts"
+    <Route path="/userProducts"
     render={ () => <UserProductsContainer /> } />
-   {/*  </>
-     }
-    </RoleProfile> */}
+    </>
+    }
+   </RoleProfile>
+
     <Route path="/log_in"
     render={ () => <LoginContainer />} />
     <Route path="/sign_up"
     render={ () => <SignUpContainer />} />
-    </Switch>
-    <Footer />
+    
+   </div> 
+    <Footer className='footerMain' />
   </div>
     
   );
@@ -65,10 +66,8 @@ const  App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAdmin: state.firebase.profile.isAdmin,
+    isWho: state.firebase.profile.isWho,
     auth: state.firebase.auth
   }
 }
 export default connect(mapStateToProps, {})(App);
-
-//export default App;

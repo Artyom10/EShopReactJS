@@ -2,24 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import stylesFor from './Person.module.css';
 
-function Person(props) {
-  
+const Person = (props) => {
   return (
     props.users.map(user =>
-   <tr key={user.id}>
+      ~user.firstName.indexOf(props.searchUsers)
+      ?
+<tr key={user.id}>
      <td>{user.firstName}</td>
      <td>{user.secondName}</td>
-     <td>{user.request +''}</td>
-      {/*user.valuedProducts.map((productRating) => {
-        <td>{productRating.targetProductRating} - {productRating.value}</td>
-      })*/}
-    <td><button className={`btn ${stylesFor.deleteClientButton}`} onClick={() => (props.removeUser(user.id))}>Delete</button></td>
+     <td>{`${user.request}`}</td>
+     <td>{user.email}</td>
+     {
+       user.request
+       ? <td><button className={`btn ${stylesFor.deleteClientButton}`} onClick={() => (props.deleteUser(user.id))}>Delete</button></td>
+       : <td><button className={`btn ${stylesFor.keepUserButton}`}>No request</button></td>
+     }
   </tr>
+      : null
+
+
   ));
 }
 /*
 Person.propTypes = {
-  client: PropTypes.object.isRequired,
+  client: PropTypes.object,
   firstName: PropTypes.string,
   secondName: PropTypes.string,
   username: PropTypes.string,
@@ -27,4 +33,6 @@ Person.propTypes = {
   request: PropTypes.string,
 }
 */
+
+
 export default Person;

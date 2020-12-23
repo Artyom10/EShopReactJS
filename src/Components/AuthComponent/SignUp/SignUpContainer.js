@@ -1,7 +1,7 @@
-import React, {Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import {signUp} from '../../../redux/actions/authActions';
-import SignUpWithHooks from './SignUpWithHooks';
+import SignUp from './SignUp';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpWithHooks);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
