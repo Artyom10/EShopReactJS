@@ -23,7 +23,7 @@ const LogIn = (props) => {
   return (
     <div className="container">
       <div className="row  justify-content-center">
-        <div class="col-md-5">
+        <div className="col-md-5">
           <div className="align-items-center">
             <div
               className={`${stylesFor.loginContainer} d-flex  align-items-center justify-content-center`}
@@ -36,7 +36,7 @@ const LogIn = (props) => {
                 <div className="form-group">
                   <input
                     type="email"
-                    class={`form-control rounded-pill form-control-lg
+                    className={`form-control rounded-pill form-control-lg
               ${stylesFor.control}`}
                     placeholder="Email"
                     onChange={handleChange}

@@ -43,7 +43,7 @@ const SignUp = (props) => {
     <div className="container">
       <div className="container">
         <div className="row  justify-content-center">
-          <div class="col-md-5">
+          <div className="col-md-5">
             <div className="align-items-center justify-content-center">
               <div
                 className={` ${stylesFor.containerSignup} d-flex  align-items-center justify-content-center`}

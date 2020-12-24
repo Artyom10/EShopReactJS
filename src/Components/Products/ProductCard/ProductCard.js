@@ -18,7 +18,7 @@ console.log(props.searchProducts);
            <h5 className={stylesFor.priceCard}>{product.price}$</h5>
       <p className="card-text">{product.producer}/ <span className={stylesFor.productIdentificator}>{product.type}</span></p>
         <span className={stylesFor.availableSize}>Size: <span className={stylesFor.hideSize}><strong>{product.size}</strong></span></span>
-        <p class="card-text">Tags: <span class={stylesFor.tagsDec}>{product.tags}</span> </p>
+        <p className="card-text">Tags: <span className={stylesFor.tagsDec}>{product.tags}</span> </p>
         <p className={stylesFor.description}>Description:{product.description}</p>
           <ul className="list-group list-group-flush">
              {product.isBought === true 

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import RatedProductCard from "./RatedCard/RatedProductCard";
-import stylesFor from "./RatedProducts.module.css";
 
 const RatedProducts = (props) => {
 
@@ -17,7 +16,7 @@ const RatedProducts = (props) => {
   
   return(
     <div className='container'>
-    <input className="form-control" id="searchRate" placeholder="search rating"
+    <input className="form-control" id="searchRate" placeholder="Enter user first name or user last name"
     onChange={handleSearch} value={searchRate} />
     <RatedProductCard  products={props.products} auth={props.auth} users={props.users} searchRate={searchRate} />
     </div>

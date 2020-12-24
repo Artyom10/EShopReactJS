@@ -21,10 +21,10 @@ const UserProducts = (props) => {
                         <div className="card-body">
                           <h5 className="card-title">
                             {product.producer} /
-                             <span class="product-identificator">{product.type}</span>
+                             <span className="product-identificator">{product.type}</span>
                           </h5>
-                          <p class={`card-text ${stylesFor.cardTextInside}`}>Price: {product.price}$</p>
-                          <p class={`card-text ${stylesFor.cardTextInside}`}>Size: {product.size}</p>
+                          <p className={`card-text ${stylesFor.cardTextInside}`}>Price: {product.price}$</p>
+                          <p className={`card-text ${stylesFor.cardTextInside}`}>Size: {product.size}</p>
                         </div>
                       </div>
                     </div>

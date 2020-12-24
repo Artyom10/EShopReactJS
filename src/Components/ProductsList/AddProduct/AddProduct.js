@@ -43,7 +43,7 @@ const AddProduct = (props) => {
     return (
       <div className="container">
       <div className="row  justify-content-center">
-        <div class="col-md-5">
+        <div className="col-md-5">
       <div className="align-items-center">
        <div className={`${stylesFor.loginContainer} d-flex  align-items-center justify-content-center`}>
          <form onSubmit={handleSubmit} className={`${stylesFor.loginForm} text-center`}>

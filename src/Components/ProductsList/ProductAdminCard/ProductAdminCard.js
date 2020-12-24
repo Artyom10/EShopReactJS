@@ -7,7 +7,6 @@ const ProductAdminCard = (props) => {
     photo: "",
     price: "",
     producer: "",
-    price: "",
     type: "",
     size: "",
     tags: "",
@@ -86,7 +85,7 @@ const ProductAdminCard = (props) => {
             <div className="card-body">
               {product.isBought 
               ?
-              <div class="alert alert-info" role="alert">
+              <div className="alert alert-info" role="alert">
                 Clothes already sold
               </div>
               : null}
@@ -222,62 +221,4 @@ const ProductAdminCard = (props) => {
 };
 
 export default ProductAdminCard;
-
-{/*(
-                      <>
-                        <label for="price">Photo</label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="photo"
-                          onChange={handleChange}
-                          value={product.photo}
-                          disabled
-                        />
-                        <label for="price">Price</label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="price"
-                          onChange={handleChange}
-                          value={product.price}
-                          disabled
-                        />
-                        <label for="producer">Producer</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="producer"
-                          onChange={handleChange}
-                          value={product.producer}
-                          disabled
-                        />
-                        <label for="type">Type</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="type"
-                          onChange={handleChange}
-                          value={product.type}
-                          disabled
-                        />
-                        <label for="size">Size</label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="size"
-                          onChange={handleChange}
-                          value={product.size}
-                          disabled
-                        />
-                        <label for="tags">Tags</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="tags"
-                          onChange={handleChange}
-                          value={product.tags}
-                          disabled
-                        />
-                      </>
-                    )*/}
+                 

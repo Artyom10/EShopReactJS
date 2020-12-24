@@ -6,13 +6,6 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { deleteUser } from '../../../redux/actions/clientsActions';
 
-const PersonContainer = (props) => {
-   return(
-        <Person searchUsers={props.searchUsers} />
-   );
-}
-
-
 const mapStateToProps = (state) => {
    return {
     users: state.firestore.ordered.users || [],
@@ -26,9 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default compose(
-   connect(mapStateToProps,mapDispatchToProps),
-   firestoreConnect([
-      {collection: 'users'}
-   ])
-)(Person)
+export default connect(mapStateToProps,mapDispatchToProps)(Person);

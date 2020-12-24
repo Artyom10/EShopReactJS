@@ -7,11 +7,11 @@ const RatedProductCard = (props) => {
    props.searchRate !== ''
    ?
    props.users.map((user) => (
-    ~user.firstName.indexOf(props.searchRate)
+    ~user.firstName.indexOf(props.searchRate) || ~user.secondName.indexOf(props.searchRate)
     ?
     <div className="container">
       <div
-        className={`col d-md-flex ${stylesFor.colProduct} justify-content-center border`}
+        className={`col d-md-flex ${stylesFor.colProduct} `}
         key={user.id}
       >
         <img src={user.userPhoto} className={`${stylesFor.userPhoto}`} />
@@ -22,13 +22,13 @@ const RatedProductCard = (props) => {
           {props.products.map((product) =>
             user.valuedProducts.map((valuedProduct) =>
               valuedProduct.targetProductRating === product.id ? (
-                <li class={stylesFor.listItems}>
+                <li className={stylesFor.listItems}>
                   <p>
                     Rate
                     <button className={`btn btn-info`}>
                       {valuedProduct.value}
                     </button>
-                    <img className={stylesFor.imgIn} src={product.photo} />{" "}
+                    <img className={stylesFor.imgIn} src={product.photo}  alt={product.id}/>
                   </p>
                 </li>
               ) : null
@@ -41,12 +41,15 @@ const RatedProductCard = (props) => {
     : null
   ))
   :
+  <div className='container'>
+    <div className='row justify-content-center'>
 <ul className='list-group list-group-flush'>
    {props.users.map(user =>{
-  return  <li key={user.id}  className='list-group item'>{user.firstName} {user.secondName}</li>
+  return  <li key={user.id}  className={`list-group item ${stylesFor.userInfo}`}>{user.firstName} {user.secondName}</li>
 })}
-  
 </ul>
+</div>
+</div>
 
 );
 };
