@@ -1,5 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-   baseURL: process.env.SERVER_BASE_URL,
+  // baseURL: process.env.SERVER_BASE_URL,
+  baseURL: "https://simple-eshop-project.herokuapp.com/",
 });
