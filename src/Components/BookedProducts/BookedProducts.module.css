@@ -1,0 +1,30 @@
+.valuedThing {
+    margin-bottom: 10px;
+  }
+  
+  .cardTextInside {
+    margin-bottom: 0%;
+  }
+  
+  .cardProduct {
+    max-width: 540px;
+  }
+  
+  .valueButton {
+    font-size: 18px;
+  }
+  
+  .photoIn {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .btnProductBook {
+    background-color: lawngreen;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
+    letter-spacing: 0.2px;
+    color: #fff;
+    padding: 15px;
+  }
+  

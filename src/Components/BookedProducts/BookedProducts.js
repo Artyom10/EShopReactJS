@@ -1,17 +1,16 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import stylesFor from './UserProducts.module.css';
+import stylesFor from './BookedProducts.module.css';
 
-const UserProducts = (props) => {
+const BookedProducts = (props) => {
         const {auth} = props;
         if(!auth.uid) return <Redirect to='/log_in' />
         return(
             props.products.map(product =>
-              props.valuedProducts.find(valuedProduct => valuedProduct.targetProductRating === product.id) ?
-             
+              props.bags.find(bag => bag === product.id) ?
               <div className="container">
-                <div className={`row justify-content-between ${stylesFor.valuedThing} align-items-center`}>
-                <div className="col-4 mr-auto">
+                <div className={`row justify-content-center ${stylesFor.valuedThing}`}>
+                <div className="col-6">
                   <div className={`card mb-3 border-0 ${stylesFor.cardProduct}`}>
                     <div className="row no-gutters">
                       <div className="col-md-4">
@@ -29,19 +28,11 @@ const UserProducts = (props) => {
                       </div>
                     </div>
                   </div>
+                  <button className={`btn add-bag-button ${stylesFor.btnProductBook} btn-block`} type="button"
+               onClick={() => (props.deleteBooked(product.id))}>Delete booked</button>
                 </div>
-                <div className="col-auto">
-                 { props.valuedProducts.map(valuedProduct => 
-                    valuedProduct.targetProductRating === product.id ?
-                  <span> Your rate -<button className={`btn btn-info ${stylesFor.valueButton}`}> {valuedProduct.value}</button></span>
-                   : null )
-                 }
-                </div>
-                <button className={` btn ${stylesFor.btnDelete}`} onClick={() => {props.deleteRating(product.id)}}>
-                  Delete rate
-                </button>
               </div> 
-              </div> 
+              </div>  
               : null
               
             )
@@ -49,4 +40,4 @@ const UserProducts = (props) => {
     }
 
 
-export default UserProducts;
+export default BookedProducts;

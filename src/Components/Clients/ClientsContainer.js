@@ -25,3 +25,4 @@ export default compose(
       {collection: 'users', where: ['isWho', '==', 'user']}
    ])
 )(Clients)
+//export default connect(mapStateToProps, mapDispatchToProps)(Clients);

@@ -166,3 +166,41 @@ export const deleteRating = (targetProductDeleteRating) => {
     });
   }
 }
+
+
+export const deleteBooked = (productId) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    const buyerId = getState().firebase.auth.uid;
+    const firebaseBuyer = getState().firebase;
+    let findIndex = null;
+
+    let bagsProducts = firebaseBuyer.profile.bags;
+    bagsProducts.forEach((product,index) => {
+      if(product === productId){
+              findIndex = index;       
+      }
+    });
+    bagsProducts.splice(findIndex,1);
+
+    firestore.collection('products').doc(productId).update({
+      isBought: false,
+    })
+    .then(() => {
+      dispatch({ type: "DELETE_BAG_PRODUCT" });
+    })
+    .catch((err) => {
+      dispatch({ type: "DELETE_BAG_PRODUCT_ERROR", err });
+    });
+    
+    firestore.collection('users').doc(buyerId).update({
+      bags:   bagsProducts && [...bagsProducts]
+     })
+     .then(() => {
+       dispatch({ type: "DELETE_BAG_PRODUCT" });
+     })
+     .catch((err) => {
+       dispatch({ type: "DELETE_BAG_PRODUCT_ERROR", err });
+     });
+   }
+}

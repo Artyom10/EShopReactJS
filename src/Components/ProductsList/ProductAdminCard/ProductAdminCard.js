@@ -187,7 +187,7 @@ const ProductAdminCard = (props) => {
                       </button>
                     </div>
                     <div className="col">
-                      {
+                      { productId === product.id ?
                         allowEdit
                         ?  <button
                         className={`btn ${generalStyles.generalButton} ${stylesFor.deleteButton}`}
@@ -198,6 +198,7 @@ const ProductAdminCard = (props) => {
                         Cancel edit
                       </button>
                         : 
+                      
                         <button
                         className={`btn ${generalStyles.generalButton} ${stylesFor.allowButton}`}
                         onClick={() => {
@@ -206,7 +207,17 @@ const ProductAdminCard = (props) => {
                       >
                         Allow edit
                       </button>
-                      }
+                      : 
+                      <>
+                      <button
+                        className={`btn ${generalStyles.generalButton} ${stylesFor.allowButton}`}
+                        onClick={() => {
+                          changeAllowEdit(product);
+                        }}
+                      >
+                        Allow edit
+                      </button>
+                      </>}
                      
                     </div>
                   </div>

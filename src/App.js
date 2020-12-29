@@ -15,6 +15,8 @@ import SignUpContainer from './Components/AuthComponent/SignUp/SignUpContainer';
 import ShowProductsContainer from './Components/Products/ShowProductsContainer';
 import ProductListContainer from './Components/ProductsList/ProductListContainer';
 import NavContainer from './Components/Navbar/NavContainer';
+import BookedProductsContainer from './Components/BookedProducts/BookedProductsContainer';
+import ShowBookedProductsContainer from './Components/ShowBookedProducts/ShowBookedProductsContainer';
 
 function RoleProfile({children}){
   const isWho = useSelector(state => state.firebase.profile.isWho)
@@ -41,6 +43,8 @@ const  App = (props) => {
     render={ () => <ProductListContainer />} />
    <Route path="/rating"
     render={ () => <RatedProductsContainer />} />
+    <Route path="/booked"
+    render={ () => <ShowBookedProductsContainer />} />
      </>
     :
     <>
@@ -48,7 +52,10 @@ const  App = (props) => {
     render={ () => <ProfileContainer />} />
     <Route path="/userProducts"
     render={ () => <UserProductsContainer /> } />
+     <Route path="/userProductsBooked"
+    render={ () => <BookedProductsContainer /> } />
     </>
+
     }
    </RoleProfile>
 

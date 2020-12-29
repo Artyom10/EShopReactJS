@@ -18,7 +18,6 @@ const PORT = +process.env.PORT || 5000;
 
 const app = express();
 
-//app.use('/clients', adminRouter);
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -34,7 +33,6 @@ app.use(
 
 
 app.post('/clients', (req, res) => {
-  //console.log(...Object.keys(req.body))
   admin.auth().deleteUser(...Object.keys(req.body))
     .then(() => {
       admin.firestore().collection('users').doc(...Object.keys(req.body)).delete()

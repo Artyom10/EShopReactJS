@@ -1,3 +1,6 @@
+const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+const  GET_USERS_ERROR = 'GET_USERS_ERROR';
+
 const initialState = {
    clients: [
       {
@@ -38,8 +41,20 @@ const initialState = {
 
 
 const clientsPageReducer = (state = initialState, action) => {
-    
-   return state;
+    switch(action.type){
+      case GET_USERS_SUCCESS:
+        console.log('get users success');
+        return {
+          ...state,
+        }
+      case GET_USERS_ERROR: 
+      console.log('get users error');
+      return {
+        ...state,
+      }
+      default:
+        return state;
+    }
 };
 
 

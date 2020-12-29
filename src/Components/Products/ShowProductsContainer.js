@@ -1,5 +1,5 @@
 import React from 'react';
-import { buyProduct, deleteRating, setRating } from '../../redux/actions/productActions';
+import { buyProduct, deleteBooked, deleteRating, setRating } from '../../redux/actions/productActions';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
       buyProduct: (targetProbuctBuy) => dispatch(buyProduct(targetProbuctBuy)),
       setRating: (targetProductRating, value, certainProduct) => dispatch(setRating(targetProductRating, value,certainProduct)),
       deleteRating: (targetProductDeleteRating,) => dispatch(deleteRating(targetProductDeleteRating)),
+      deleteBooked: (productId) => dispatch(deleteBooked(productId)),
     }
 }
 

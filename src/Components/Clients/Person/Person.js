@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import stylesFor from './Person.module.css';
+import firebase from '../../../config/fbConfig';
 
 const Person = (props) => {
+  
+
   return (
     props.users.map(user =>
       ~user.firstName.indexOf(props.searchUsers)

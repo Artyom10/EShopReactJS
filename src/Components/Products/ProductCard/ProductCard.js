@@ -21,8 +21,13 @@ console.log(props.searchProducts);
         <p className="card-text">Tags: <span className={stylesFor.tagsDec}>{product.tags}</span> </p>
         <p className={stylesFor.description}>Description:{product.description}</p>
           <ul className="list-group list-group-flush">
-             {product.isBought === true 
-             ? <li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProductBought} btn-block`} type="button">Sold out</button></li>
+             { 
+             product.isBought === true
+             ?
+             props.bags.some((bagProduct) => bagProduct === product.id ) 
+               ? <li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProductBook} btn-block`} type="button"
+               onClick={() => (props.deleteBooked(product.id))}>Delete booked</button></li>
+               :  <li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProductBought} btn-block`} type="button">Sold out</button></li>    
              :<li className="list-group-item"><button className={`btn add-bag-button ${stylesFor.btnProduct} btn-block`} type="button"
               onClick={() => (props.buyProduct(product.id))}>Buy</button></li>
              }

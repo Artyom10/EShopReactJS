@@ -21,7 +21,7 @@ const ShowProducts = (props) =>{
                  <div className="row">
                      <ProductCard products={props.products} buyProduct={props.buyProduct} bags={props.bags}
                     setRating={props.setRating} deleteRating={props.deleteRating}
-                    profile={props.profile} searchProducts={searchProducts} />
+                    profile={props.profile} searchProducts={searchProducts} auth={props.auth} deleteBooked={props.deleteBooked} />
                  </div>
              </div>
          </div>
