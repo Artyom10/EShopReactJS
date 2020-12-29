@@ -15,11 +15,11 @@ admin.initializeApp({
 });
 
 const PORT = +process.env.PORT || 5000;
-//const publicPath = path.join(__dirname,"..","public");
+const publicPath = path.join(__dirname,"..","public");
 
 const app = express();
 
-//app.use(express.static(publicPath));
+app.use(express.static(publicPath));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -31,9 +31,9 @@ app.use(
       optionsSuccessStatus: 200,
     })
   );
-  /*app.get('*', function(request, response) {
+  app.get('*', function(request, response) {
     response.sendFile(path.join(publicPath,"index.html"));
-  });*/
+  });
 
 app.post('/clients', (req, res) => {
   admin.auth().deleteUser(...Object.keys(req.body))
