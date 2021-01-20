@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import PersonContainer from './Person/PersonContainer';
 import stylesFor from './Clients.module.css';
 import { Redirect } from 'react-router-dom';
@@ -35,9 +34,5 @@ if(!props.auth.uid ) return <Redirect to='/log_in'/>
      </div>
     );
 }
-/*
-Clients.propTypes = {
-  client: PropTypes.arrayOf(PropTypes.object).isRequired
-}*/
 
 export default Clients;

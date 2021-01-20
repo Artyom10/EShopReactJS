@@ -7,8 +7,8 @@ import Nav from './Nav';
 const mapStateToProps = (state) => {
     console.log(state);
   return {
-  auth: state.firebase.auth,
-  isWho: state.firebase.profile.isWho,
+      auth: state.firebase.auth,
+      isWho: state.firebase.profile.isWho,
   }
 }
 

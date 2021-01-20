@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import stylesFor from "./SignUp.module.css";
+import  signUpSchema  from '../../../validation/signUpSchema';
+import { useDispatch, useSelector } from "react-redux";
+import { useFormik } from "formik";
+import { signUp } from "../../../redux/actions/authActions";
 
 const SignUp = (props) => {
   let [email, setEmail] = useState("");
@@ -36,6 +40,24 @@ const SignUp = (props) => {
     };
     props.signUp(ourState);
   };
+
+  /*const auth = useSelector((state) => state.firebase.auth);
+  const authError = useSelector((state) => state.auth.authError);
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      secondName: "",
+      email: "",
+      password: "",
+
+    },
+    validationSchema: signUpSchema,
+    onSubmit: (values) => {
+      dispatch(signUp(values));
+    },
+  });*/
 
   const { auth, authError } = props;
   if (auth.uid) return <Redirect to="/" />;

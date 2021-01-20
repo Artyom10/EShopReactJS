@@ -1,9 +1,6 @@
 import React from 'react';
 import Person from './Person';
 import { connect } from 'react-redux';
-
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
 import { deleteUser } from '../../../redux/actions/clientsActions';
 
 const mapStateToProps = (state) => {

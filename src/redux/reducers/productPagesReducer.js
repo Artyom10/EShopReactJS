@@ -1,29 +1,30 @@
-const ADD_PRODUCT = 'ADD_PRODUCT';
-const ADD_PRODUCT_ERROR = 'ADD_PRODUCT_ERROR';
-const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
-const REMOVE_PRODUCT_ERROR = 'REMOVE_PRODUCT_ERROR';
-const EDIT_PRODUCT = 'EDIT_PRODUCT';
-const UPDATE_BOUGHT_PRODUCT_STATUS = 'UPDATE_BOUGHT_PRODUCT_STATUS';
-const UPDATE_BOUGHT_PRODUCT_STATUS_ERROR = 'UPDATE_BOUGHT_PRODUCT_STATUS_ERROR';
-const ADD_TO_BOUGHT = 'ADD_TO_BOUGHT';
-const ADD_TO_BOUGHT_ERROR = 'ADD_TO_BOUGHT_ERROR';
-const RATE_PRODUCT = 'RATE_PRODUCT';
-const RATE_PRODUCT_ERROR = 'RATE_PRODUCT_ERROR';
-const DELETE_RATE_PRODUCT = 'DELETE_RATE_PRODUCT';
-const DELETE_RATE_PRODUCT_ERROR = 'DELETE_RATE_PRODUCT_ERROR';
-
-
+import produce from "immer";
+const ADD_PRODUCT = "ADD_PRODUCT";
+const ADD_PRODUCT_ERROR = "ADD_PRODUCT_ERROR";
+const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+const REMOVE_PRODUCT_ERROR = "REMOVE_PRODUCT_ERROR";
+const EDIT_PRODUCT = "EDIT_PRODUCT";
+const UPDATE_BOUGHT_PRODUCT_STATUS = "UPDATE_BOUGHT_PRODUCT_STATUS";
+const UPDATE_BOUGHT_PRODUCT_STATUS_ERROR = "UPDATE_BOUGHT_PRODUCT_STATUS_ERROR";
+const ADD_TO_BOUGHT = "ADD_TO_BOUGHT";
+const ADD_TO_BOUGHT_ERROR = "ADD_TO_BOUGHT_ERROR";
+const RATE_PRODUCT = "RATE_PRODUCT";
+const RATE_PRODUCT_ERROR = "RATE_PRODUCT_ERROR";
+const DELETE_RATE_PRODUCT = "DELETE_RATE_PRODUCT";
+const DELETE_RATE_PRODUCT_ERROR = "DELETE_RATE_PRODUCT_ERROR";
+const DELETE_BAG_PRODUCT = "DELETE_BAG_PRODUCT";
+const DELETE_BAG_PRODUCT_ERROR = "DELETE_BAG_PRODUCT_ERROR";
 
 const initialState = {
-  newPhoto: '',
-  newPrice: '',
-  newProducer: '',
-  newType: '',
-  newSize: '',
-  newDescription: '',
-  newTags: '',
-  newId: '',
-    products: [
+  newPhoto: "",
+  newPrice: "",
+  newProducer: "",
+  newType: "",
+  newSize: "",
+  newDescription: "",
+  newTags: "",
+  newId: "",
+  products: [
     {
       id: 1,
       urlPhoto:
@@ -104,71 +105,64 @@ const initialState = {
       size: "M,L,XL",
       tags: "#mango, #pants",
     },
-    ],
-    productError: null
-  };
-
-
-
-const productPagesReducer = (state = initialState, action) => {
-  switch(action.type){
-    case ADD_PRODUCT:
-         console.log('add product', action.newProduct)
-        return  state;
-    case ADD_PRODUCT_ERROR:
-         console.log('add product error', action.err);
-         return state;
-    case REMOVE_PRODUCT:
-        console.log('remove product', action.targetDeleteProduct)
-        return state;
-    case REMOVE_PRODUCT_ERROR:
-        console.log('remove product error', action.err.message);
-        return state;
-    case EDIT_PRODUCT:
-        console.log('edit product', action.targetEditProduct)
-        return state;
-    case UPDATE_BOUGHT_PRODUCT_STATUS:
-        console.log('product update its status to BOUGHT');
-        return state;
-    case UPDATE_BOUGHT_PRODUCT_STATUS_ERROR:
-        console.log('product update its status to BOUGHT WITH ERROR');
-        return state;
-    case ADD_TO_BOUGHT:
-           console.log('product sold out', action.targetProductBuy)
-           return {
-             ...state,
-             productError: null
-           }
-    case ADD_TO_BOUGHT_ERROR:
-          console.log('product sold out WITH ERROR')
-          return {
-            ...state,
-            productError: action.err.message
-          }
-    case RATE_PRODUCT:
-      console.log('rated this product well')
-      return {
-        ...state,
-      }
-    case RATE_PRODUCT_ERROR:
-      console.log('rated this product with ERROR')
-      return {
-        ...state,
-      }
-    case DELETE_RATE_PRODUCT:
-      console.log('rate was deleted')
-      return {
-        ...state,
-      }
-    case DELETE_RATE_PRODUCT_ERROR:
-      console.log('rate was not deleted')
-      return {
-        ...state,
-      }
-    default:
-        return state;
-  }
+  ],
+  productError: null,
 };
 
+const productPagesReducer = (state = initialState, action) => {
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case ADD_PRODUCT:
+        console.log("add product", action.newProduct);
+        return draft;
+      case ADD_PRODUCT_ERROR:
+        console.log("add product error", action.err);
+        return draft;
+      case REMOVE_PRODUCT:
+        console.log("remove product", action.targetDeleteProduct);
+        return draft;
+      case REMOVE_PRODUCT_ERROR:
+        console.log("remove product error", action.err.message);
+        return draft;
+      case EDIT_PRODUCT:
+        console.log("edit product", action.targetEditProduct);
+        return draft;
+      case UPDATE_BOUGHT_PRODUCT_STATUS:
+        console.log("product update its status to BOUGHT");
+        return draft;
+      case UPDATE_BOUGHT_PRODUCT_STATUS_ERROR:
+        console.log("product update its status to BOUGHT WITH ERROR");
+        return draft;
+      case ADD_TO_BOUGHT:
+        console.log("product sold out", action.targetProductBuy);
+        draft.productError = null;
+        return draft;
+      case ADD_TO_BOUGHT_ERROR:
+        console.log("product sold out WITH ERROR");
+        draft.productError = action.err.message;
+        return draft;
+      case RATE_PRODUCT:
+        console.log("rated this product well");
+        return draft;
+      case RATE_PRODUCT_ERROR:
+        console.log("rated this product with ERROR");
+        return draft;
+      case DELETE_RATE_PRODUCT:
+        console.log("rate was deleted");
+        return draft;
+      case DELETE_RATE_PRODUCT_ERROR:
+        console.log("rate was not deleted");
+        return draft;
+      case DELETE_BAG_PRODUCT:
+        console.log("this product was successfully deleted from bags");
+        return draft;
+      case DELETE_BAG_PRODUCT_ERROR:
+        console.log("error delete product from bag");
+        return draft;
+      default:
+        return state;
+    }
+  });
+};
 
 export default productPagesReducer;

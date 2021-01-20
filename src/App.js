@@ -6,7 +6,6 @@ import stylesFor from  './App.module.css';
 import { Route, Switch } from 'react-router-dom';
 import ClientsContainer from './Components/Clients/ClientsContainer';
 import RatedProductsContainer from './Components/RatedProducts/RatedProductsContainer';
-import UserProductsContainer from './Components/UserProducts/UserProductsContainer';
 import { connect, useSelector } from 'react-redux';
 import { isLoaded } from 'react-redux-firebase';
 import ProfileContainer from './Components/Profile/ProfileContainer';
@@ -15,8 +14,10 @@ import SignUpContainer from './Components/AuthComponent/SignUp/SignUpContainer';
 import ShowProductsContainer from './Components/Products/ShowProductsContainer';
 import ProductListContainer from './Components/ProductsList/ProductListContainer';
 import NavContainer from './Components/Navbar/NavContainer';
-import BookedProductsContainer from './Components/BookedProducts/BookedProductsContainer';
 import ShowBookedProductsContainer from './Components/ShowBookedProducts/ShowBookedProductsContainer';
+import LogIn from './Components/AuthComponent/LogIn/LogIn';
+import BookedUserContainer from './Components/CertainUserInfo/BookedUserProducts/BookedUserContainer';
+import RatedUserContainer from './Components/CertainUserInfo/RatedUserProducts/RatedUserContainer';
 
 function RoleProfile({children}){
   const isWho = useSelector(state => state.firebase.profile.isWho)
@@ -27,11 +28,15 @@ function RoleProfile({children}){
 const  App = (props) => {
   return (
     <div>
-          <NavContainer />
+       <NavContainer />
       <div className={stylesFor.forFooter}>
    
     <Route exact path="/" 
     render={ () => <ShowProductsContainer  />}/>
+     <Route path="/log_in"
+    render={ () => <LoginContainer />} />
+    <Route path="/sign_up"
+    render={ () => <SignUpContainer />} />
 
     <RoleProfile>
     {props.isWho === 'admin'
@@ -51,18 +56,15 @@ const  App = (props) => {
     <Route path="/profile" 
     render={ () => <ProfileContainer />} />
     <Route path="/userProducts"
-    render={ () => <UserProductsContainer /> } />
+    render={ () => <RatedUserContainer /> } />
      <Route path="/userProductsBooked"
-    render={ () => <BookedProductsContainer /> } />
+    render={ () => <BookedUserContainer /> } />
     </>
 
     }
    </RoleProfile>
 
-    <Route path="/log_in"
-    render={ () => <LoginContainer />} />
-    <Route path="/sign_up"
-    render={ () => <SignUpContainer />} />
+
     
    </div> 
     <Footer className='footerMain' />

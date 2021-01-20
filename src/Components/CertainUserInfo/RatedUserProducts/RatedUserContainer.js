@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import UserProducts from './UserProducts';
-import { deleteRating } from '../../redux/actions/productActions';
+import { deleteRating } from '../../../redux/actions/productActions';
+import RatedUserProducts from './RatedUserProducts';
 
 
 const mapStateToProps = (state) => {
@@ -27,7 +27,7 @@ export default compose(
        { collection: 'products'},
        { collection: 'users'}
    ])
-)(UserProducts)
+)(RatedUserProducts)
 
 
 

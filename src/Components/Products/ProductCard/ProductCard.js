@@ -3,8 +3,6 @@ import stylesFor from './ProductCard.module.css'
 import Rating from './Rating/Rating';
 
 const ProductCard = (props) => {
-
-
 console.log(props.searchProducts);
 
   return (
@@ -20,6 +18,9 @@ console.log(props.searchProducts);
         <span className={stylesFor.availableSize}>Size: <span className={stylesFor.hideSize}><strong>{product.size}</strong></span></span>
         <p className="card-text">Tags: <span className={stylesFor.tagsDec}>{product.tags}</span> </p>
         <p className={stylesFor.description}>Description:{product.description}</p>
+         {
+                     props.profile.isWho !== 'admin'
+                     ?  
           <ul className="list-group list-group-flush">
              { 
              product.isBought === true
@@ -35,6 +36,7 @@ console.log(props.searchProducts);
             <Rating product={product} setRating={props.setRating} deleteRating={props.deleteRating} profile={props.profile} />
             </li>
           </ul>
+             : null}
         </div>
       </div>
   </div>

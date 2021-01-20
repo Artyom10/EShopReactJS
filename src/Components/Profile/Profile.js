@@ -42,10 +42,10 @@ useEffect( () => {
           <div className="col-md-6">
             <form>
                 <div className="form-group">
-                  <label for="firstName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                   <input type="text" className="form-control" id="firstName" value={firstName}
                   onChange={handleChange} />
-                  <label for="secondName">Second Name</label>
+                  <label htmlFor="secondName">Second Name</label>
                   <input type="text" className="form-control" id="secondName" value={secondName}
                   onChange={handleChange} />
                 </div>

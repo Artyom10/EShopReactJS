@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import BookedProducts from './BookedProducts';
-import { deleteBooked } from '../../redux/actions/productActions';
+import { deleteBooked } from '../../../redux/actions/productActions';
+import BookedUserProducts from './BookedUserProducts';
 
 
 const mapStateToProps = (state) => {
@@ -27,7 +27,7 @@ export default compose(
        { collection: 'products'},
        { collection: 'users'}
    ])
-)(BookedProducts)
+)(BookedUserProducts)
 
 
 

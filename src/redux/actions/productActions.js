@@ -1,11 +1,40 @@
 export const addNewProduct = (newProduct) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
+    const storage = getFirebase().storage();
+
+    const infoPhoto = newProduct.photo;
+    newProduct.photo = null;
+
     firestore
       .collection("products")
       .add({
         ...newProduct,
         isBought: false,
+      })
+      .then((response) => {
+        infoPhoto &&
+        storage
+          .ref(`photos/${response.id}`)
+          .put(infoPhoto)
+          .on(
+            'state_changed',
+            snapshot => { },
+            error => { console.log(error) },
+            () => {
+              storage
+                .ref('photos')
+                .child(response.id)
+                .getDownloadURL()
+                .then(url => {
+                  newProduct.photo = url
+                  return firestore
+                    .collection('products')
+                    .doc(response.id)
+                    .update({photo: newProduct.photo})
+                })
+            }
+          )
       })
       .then(() => {
         dispatch({ type: "ADD_PRODUCT", newProduct });
@@ -18,11 +47,25 @@ export const addNewProduct = (newProduct) => {
 
 export const removeProduct = (targetDeleteProduct) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
+    console.log(getState());
     const firestore = getFirestore();
+    const storage = getFirebase().storage();
     firestore
       .collection("products")
       .doc(targetDeleteProduct)
-      .delete()
+      .get()
+      .then((doc) => {
+        firestore
+          .collection('products')
+          .doc(targetDeleteProduct)
+          .delete()
+          .then(() => {
+            doc.data().photo && 
+            storage
+              .ref(`photos/${targetDeleteProduct}`)
+              .delete()
+          })
+      })
       .then(() => {
         dispatch({ type: "REMOVE_PRODUCT", targetDeleteProduct });
       })
@@ -41,9 +84,20 @@ export const removeProduct = (targetDeleteProduct) => {
         }
       });
       ratedProducts.splice(findIndex,1);
+
+      let findBagsIndex = null;
+
+      let bagsProducts = firebaseBuyer.profile.bags;
+      bagsProducts.forEach((product,index) => {
+        if(product === targetDeleteProduct){
+          findBagsIndex = index
+        }
+      });
+      bagsProducts.splice(findBagsIndex,1);
   
       firestore.collection('users').doc(buyerId).update({
-       valuedProducts:   ratedProducts && [...ratedProducts]
+       valuedProducts:   ratedProducts && [...ratedProducts],
+       bags: bagsProducts && [...bagsProducts],
       })
       .then(() => {
         dispatch({ type: "REMOVE_PRODUCT" });
@@ -60,24 +114,52 @@ export const editProduct = (targetEditProduct, changes) => {
   debugger;
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
-    firestore
-      .collection("products")
-      .doc(targetEditProduct)
-      .update({
-        photo:  changes.photo,
-        producer: changes.producer,
-        type: changes.type,
-        price: changes.price,
-        size: changes.size,
-        tags: changes.tags,
-        description: changes.description,
-      })
-      .then(() => {
-        dispatch({ type: "EDIT_PRODUCT", targetEditProduct });
-      })
-      .catch((err) => {
-        dispatch({ type: "EDIT_PRODUCT_ERROR", err });
-      });
+    const storage = getFirebase().storage();
+    changes.photo
+    ?
+    storage
+      .ref('photos')
+      .child(targetEditProduct)
+      .put(changes.photo)
+      .on(
+        'state_changed',
+        snapshot => { },
+        error => { console.log(error) },
+        () => {
+          storage
+           .ref('photos')
+           .child(targetEditProduct)
+           .getDownloadURL()
+           .then(url => {
+             changes.photo = url
+             return firestore
+               .collection('products')
+               .doc(targetEditProduct)
+               .update({
+                 ...changes
+               })
+           })
+           .then(() => {
+            dispatch({ type: "EDIT_PRODUCT", targetEditProduct });
+          })
+          .catch((err) => {
+            dispatch({ type: "EDIT_PRODUCT_ERROR", err });
+          });
+        }
+      )
+      :
+      firestore
+        .collection('products')
+        .doc(targetEditProduct)
+        .update({
+          ...changes
+        })
+        .then(() => {
+          dispatch({ type: "EDIT_PRODUCT", targetEditProduct });
+        })
+        .catch((err) => {
+          dispatch({ type: "EDIT_PRODUCT_ERROR", err });
+        });
   };
 };
 
@@ -141,6 +223,7 @@ export const setRating = (targetProductRating, value, certainProduct) => {
 }
 
 export const deleteRating = (targetProductDeleteRating) => {
+  debugger;
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
     const buyerId = getState().firebase.auth.uid;
@@ -170,6 +253,7 @@ export const deleteRating = (targetProductDeleteRating) => {
 
 export const deleteBooked = (productId) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
+    debugger;
     const firestore = getFirestore();
     const buyerId = getState().firebase.auth.uid;
     const firebaseBuyer = getState().firebase;
@@ -186,12 +270,9 @@ export const deleteBooked = (productId) => {
     firestore.collection('products').doc(productId).update({
       isBought: false,
     })
-    .then(() => {
-      dispatch({ type: "DELETE_BAG_PRODUCT" });
-    })
     .catch((err) => {
-      dispatch({ type: "DELETE_BAG_PRODUCT_ERROR", err });
-    });
+      dispatch({type: "DELETE_BAG_PRODUCT_ERROR", err});
+    })
     
     firestore.collection('users').doc(buyerId).update({
       bags:   bagsProducts && [...bagsProducts]

@@ -4,7 +4,8 @@ import generalStyles from "../GeneralStyles.module.css";
 
 const ProductAdminCard = (props) => {
   let [changedProduct, setChangedProduct] = useState({
-    photo: "",
+   // photo: "",
+   photo: null,
     price: "",
     producer: "",
     type: "",
@@ -44,18 +45,34 @@ const ProductAdminCard = (props) => {
   }
 
   const handleChange = (e) => {
-    console.log(e.target);
-    setChangedProduct({
+    e.preventDefault();
+   if(e.target.id === 'photo'){
+     setChangedProduct({
+       ...changedProduct,
+       [e.target.id]: e.target.files[0],
+     })
+   }
+   else{
+     setChangedProduct({
+       ...changedProduct,
+       [e.target.id]: e.target.value
+     })
+   }
+
+
+
+    /*setChangedProduct({
       ...changedProduct,
       [e.target.id]: e.target.value,
-    });
+    });*/
   };
 
   const handleEdit = () => {
     debugger;
     props.editProduct(productId, changedProduct);
     setChangedProduct({
-      photo: "",
+     // photo: "",
+     photo: null,
       producer: "",
       price: "",
       type: "",
@@ -98,15 +115,14 @@ const ProductAdminCard = (props) => {
                     ?
                     allowEdit ? (
                       <>
-                        <label for="price">Photo</label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          id="photo"
-                          onChange={handleChange}
-                          value={changedProduct.photo}
-                        />
-                        <label for="price">Price</label>
+                    <div className=' row justify-content-center'>
+                    <label className='btn'>
+                      Photo
+                      <input type='file' className={generalStyles.setPhoto}
+                      id='photo' onChange={handleChange} />
+                    </label>
+                    </div>
+                        <label htmlFor="price">Price</label>
                         <input
                           className="form-control"
                           type="text"
@@ -114,7 +130,7 @@ const ProductAdminCard = (props) => {
                           onChange={handleChange}
                           value={changedProduct.price}
                         />
-                        <label for="producer">Producer</label>
+                        <label htmlFor="producer">Producer</label>
                         <input
                           type="text"
                           className="form-control"
@@ -123,7 +139,7 @@ const ProductAdminCard = (props) => {
                           value={changedProduct.producer}
                         
                         />
-                        <label for="type">Type</label>
+                        <label htmlFor="type">Type</label>
                         <input
                           type="text"
                           className="form-control"
@@ -132,7 +148,7 @@ const ProductAdminCard = (props) => {
                           value={changedProduct.type}
                          
                         />
-                        <label for="size">Size</label>
+                        <label htmlFor="size">Size</label>
                         <input
                           className="form-control"
                           type="text"
@@ -141,7 +157,7 @@ const ProductAdminCard = (props) => {
                           value={changedProduct.size}
                           
                         />
-                        <label for="tags">Tags</label>
+                        <label htmlFor="tags">Tags</label>
                         <input
                           type="text"
                           className="form-control"
@@ -149,7 +165,7 @@ const ProductAdminCard = (props) => {
                           onChange={handleChange}
                           value={changedProduct.tags}
                         />
-                        <label for="description">Description</label>
+                        <label htmlFor="description">Description</label>
                         <input
                           type="text"
                           className="form-control"

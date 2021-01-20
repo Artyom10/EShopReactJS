@@ -2,6 +2,7 @@ import API from '../../services/axios';
 
 export const deleteUser = (uid) => {
     return(dispatch,getState,{getFirebase, getFirestore}) => {
+        debugger;
         API.post('clients', uid);
     }
 

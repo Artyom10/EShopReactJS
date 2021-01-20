@@ -2,7 +2,6 @@ import React from "react";
 import stylesFor from "../RatedProducts.module.css";
 
 const RatedProductCard = (props) => {
-  console.log(props.searchRate);
   return(
    props.searchRate !== ''
    ?

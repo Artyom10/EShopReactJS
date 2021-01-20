@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import generalStylesFor from '../GeneralStyles.module.css';
 import stylesFor from './AddProduct.module.css';
 import AddProductButton from '../AddPoductButton/AddProductButton';
 
@@ -6,7 +7,7 @@ import AddProductButton from '../AddPoductButton/AddProductButton';
 const AddProduct = (props) => {
 
   const [newProduct, setNewProduct] = useState({
-    photo: '',
+    photo: null,
     price: '',
     producer: '',
     type: '',
@@ -18,10 +19,19 @@ const AddProduct = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
+   if(e.target.id === 'photo'){
+      setNewProduct({
+        ...newProduct,
+        [e.target.id]: e.target.files[0],
+      });
+   }
+   else{
     setNewProduct({
       ...newProduct,
       [e.target.id]: e.target.value
     });
+   }
+
   };
 
   
@@ -30,7 +40,7 @@ const AddProduct = (props) => {
     e.preventDefault();
     props.addNewProduct(newProduct);
     setNewProduct({
-      photo: '',
+     photo: null,
       producer: '',
       price: '',
       type: '',
@@ -49,9 +59,13 @@ const AddProduct = (props) => {
          <form onSubmit={handleSubmit} className={`${stylesFor.loginForm} text-center`}>
            <h1 className="mb-5 font-weight-light text-uppercase">Add new product</h1>
            <div className="form-group">
-            <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-            placeholder="photo" onChange={handleChange} id="photo" value={newProduct.photo} />
+          <label className='btn'>
+         Photo
+         <input type='file' className={generalStylesFor.setPhoto}
+         id='photo' onChange={handleChange} />
+          </label>
           </div>
+
           <div className="form-group">
             <input type="text" className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
             placeholder="producer" onChange={handleChange} id="producer" value={newProduct.producer} />

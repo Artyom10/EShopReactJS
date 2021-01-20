@@ -1,0 +1,8 @@
+.btnDelete {
+    background-color: deepskyblue;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(39, 150, 255, 0.6);
+    letter-spacing: 0.2px;
+    color: #fff;
+    padding: 15px;
+  }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import stylesFor from './UserProducts.module.css';
+import generalStylesFor from '../GeneralStyles.module.css';
+import stylesFor from './RatedUser.module.css';
 
-const UserProducts = (props) => {
+const RatedUserProducts = (props) => {
         const {auth} = props;
         if(!auth.uid) return <Redirect to='/log_in' />
         return(
@@ -10,9 +11,9 @@ const UserProducts = (props) => {
               props.valuedProducts.find(valuedProduct => valuedProduct.targetProductRating === product.id) ?
              
               <div className="container">
-                <div className={`row justify-content-between ${stylesFor.valuedThing} align-items-center`}>
-                <div className="col-4 mr-auto">
-                  <div className={`card mb-3 border-0 ${stylesFor.cardProduct}`}>
+                <div className={`row justify-content-center ${generalStylesFor.valuedThing}`}>
+                <div className="col-6">
+                  <div className={`card mb-3 border-0 ${generalStylesFor.cardProduct}`}>
                     <div className="row no-gutters">
                       <div className="col-md-4">
                         <img src={product.photo} className="card-img" alt={product.type} />
@@ -23,30 +24,30 @@ const UserProducts = (props) => {
                             {product.producer} /
                              <span className="product-identificator">{product.type}</span>
                           </h5>
-                          <p className={`card-text ${stylesFor.cardTextInside}`}>Price: {product.price}$</p>
-                          <p className={`card-text ${stylesFor.cardTextInside}`}>Size: {product.size}</p>
+                          <p className={`card-text ${generalStylesFor.cardTextInside}`}>Price: {product.price}$</p>
+                          <p className={`card-text ${generalStylesFor.cardTextInside}`}>Size: {product.size}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-auto">
-                 { props.valuedProducts.map(valuedProduct => 
+                  <div className='row justify-content-center'>
+                  { props.valuedProducts.map(valuedProduct => 
                     valuedProduct.targetProductRating === product.id ?
-                  <span> Your rate -<button className={`btn btn-info ${stylesFor.valueButton}`}> {valuedProduct.value}</button></span>
+                  <span> Your rate -<button className={`btn btn-info ${generalStylesFor.valueButton}`}> {valuedProduct.value}</button></span>
                    : null )
                  }
-                </div>
-                <button className={` btn ${stylesFor.btnDelete}`} onClick={() => {props.deleteRating(product.id)}}>
+                 </div>
+                <button className={` btn ${stylesFor.btnDelete} btn-block`} onClick={() => {props.deleteRating(product.id)}}>
                   Delete rate
                 </button>
+                </div>
               </div> 
-              </div> 
+              <hr></hr> 
+              </div>
               : null
-              
             )
         );
     }
 
 
-export default UserProducts;
+export default RatedUserProducts;

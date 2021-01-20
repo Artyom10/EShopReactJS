@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import AddProduct from './AddProduct';
 
 const mapStateToProps = (state) => {
-
+ return {
+   
+ }
 }
 
 const mapDispatchToProps = (dispatch) => {
