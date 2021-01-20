@@ -2,19 +2,26 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import Profile from './Profile';
 
-const profile = {
-    firstName: 'Name',
-    secondName: 'SecondName',
-    request: false,
-};
 
-const updateProfile = () => {};
-const removeRequest = () => {};
-const cancelRequest = () => {};
+const props = {
+    profile: {
+        firstName: 'Name',
+        secondName: 'SecondName',
+        request: false,
+    },
+    updateProfile(){},
+    removeRequest(){},
+    cancelRequest(){},
+    auth: {
+        uid: 111,
+    }
+}
+
+const setUp = (props) => shallow(<Profile {...props} />);
 
 describe('Profile component', () => {
     it('should render Profile component', () => {
-        const component = shallow(<Profile profile={profile} updateProfile={updateProfile} removeRequest={removeRequest} cancelRequest={cancelRequest} auth={{uid: 122, }}  />);
-        expect(component).toMatchSnapshot();
+       const component = setUp(props);
+        expect(component.debug()).toMatchSnapshot();
     });
 });
