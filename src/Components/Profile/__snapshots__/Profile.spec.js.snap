@@ -5,7 +5,7 @@ exports[`Profile component should render Profile component 1`] = `
   <div className=\\"row justify-content-center\\">
     <div className=\\"col-md-6 text-center\\">
       <figure className=\\"figure\\">
-        <img src={[undefined]} className=\\"figure-img img-fluid rounded profileImg\\" />
+        <img src=\\"https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png\\" className=\\"figure-img img-fluid rounded profileImg\\" />
       </figure>
     </div>
   </div>

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddProduct component should render AddProduct component 1`] = `
+"<div className=\\"container\\">
+  <div className=\\"row  justify-content-center\\">
+    <div className=\\"col-md-5\\">
+      <div className=\\"align-items-center\\">
+        <div className=\\"loginContainer d-flex  align-items-center justify-content-center\\">
+          <form onSubmit={[Function: handleSubmit]} className=\\"loginForm text-center\\">
+            <h1 className=\\"mb-5 font-weight-light text-uppercase\\">
+              Add new product
+            </h1>
+            <div className=\\"form-group\\">
+              <label className=\\"btn\\">
+                Photo
+                <input type=\\"file\\" className=\\"setPhoto\\" id=\\"photo\\" onChange={[Function: handleChange]} />
+              </label>
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"producer\\" onChange={[Function: handleChange]} id=\\"producer\\" value=\\"\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"type\\" onChange={[Function: handleChange]} id=\\"type\\" value=\\"\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"price\\" onChange={[Function: handleChange]} id=\\"price\\" value=\\"\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"size\\" onChange={[Function: handleChange]} id=\\"size\\" value=\\"\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"tags\\" onChange={[Function: handleChange]} id=\\"tags\\" value=\\"\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"text\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"description\\" onChange={[Function: handleChange]} id=\\"description\\" value=\\"\\" />
+            </div>
+            <AddProductButton />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

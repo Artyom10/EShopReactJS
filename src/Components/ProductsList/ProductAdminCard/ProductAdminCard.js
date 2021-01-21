@@ -58,13 +58,6 @@ const ProductAdminCard = (props) => {
        [e.target.id]: e.target.value
      })
    }
-
-
-
-    /*setChangedProduct({
-      ...changedProduct,
-      [e.target.id]: e.target.value,
-    });*/
   };
 
   const handleEdit = () => {
@@ -108,7 +101,7 @@ const ProductAdminCard = (props) => {
               : null}
               <h5 className="card-title">Main information</h5>
               <ul className="list-group">
-                <form onSubmit={props.handleSubmit}>
+                <form>
                   <div className="form-group">
                     {
                     productId === product.id

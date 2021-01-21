@@ -115,7 +115,7 @@ export const editProduct = (targetEditProduct, changes) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const storage = getFirebase().storage();
-    changes.photo
+    typeof changes.photo !== 'string' &&  changes.photo
     ?
     storage
       .ref('photos')

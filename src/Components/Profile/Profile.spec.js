@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import Profile from './Profile';
+import { cancelRequest, removeRequest, updateProfile } from '../../redux/actions/profileActions';
 
 
 const props = {
@@ -8,10 +9,11 @@ const props = {
         firstName: 'Name',
         secondName: 'SecondName',
         request: false,
+        userPhoto: 'https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png',
     },
-    updateProfile(){},
-    removeRequest(){},
-    cancelRequest(){},
+    updateProfile,
+    removeRequest,
+    cancelRequest,
     auth: {
         uid: 111,
     }

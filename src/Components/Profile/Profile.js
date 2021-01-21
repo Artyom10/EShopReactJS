@@ -3,6 +3,7 @@ import stylesFor from './Profile.module.css';
 import { Redirect } from 'react-router-dom';
 
 const Profile = (props) => {
+
   let [firstName, setFirstName] = useState(props.profile.firstName);
   let [secondName, setSecondName] = useState(props.profile.secondName);
 
