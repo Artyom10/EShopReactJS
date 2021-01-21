@@ -5,6 +5,7 @@ import NavStartPanel from "./NavStartPanel/NavStartPanel";
 import stylesFor from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 
+
 const Nav = (props) => {
   return (
     <nav className={` ${stylesFor.myNav} navbar navbar-expand-lg navbar-light`}>

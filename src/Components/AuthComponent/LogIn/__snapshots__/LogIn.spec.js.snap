@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogIn component should render LogIn component 1`] = `
+"<div className=\\"container\\">
+  <div className=\\"row  justify-content-center\\">
+    <div className=\\"col-md-5\\">
+      <div className=\\"align-items-center\\">
+        <div className=\\"loginContainer d-flex  align-items-center justify-content-center\\">
+          <form onSubmit={[Function: handleSubmit]} className=\\"loginForm text-center\\">
+            <h1 className=\\"mb-5 font-weight-light text-uppercase\\">
+              Login
+            </h1>
+            <div className=\\"form-group\\">
+              <input type=\\"email\\" className=\\"form-control rounded-pill form-control-lg\\\\n              control\\" placeholder=\\"Email\\" onChange={[Function: handleChange]} id=\\"email\\" />
+            </div>
+            <div className=\\"form-group\\">
+              <input type=\\"password\\" className=\\"form-control rounded-pill form-control-lg control\\" placeholder=\\"Password\\" onChange={[Function: handleChange]} id=\\"password\\" />
+            </div>
+            <button type=\\"submit\\" className=\\"btn mt-4 btn-dark btn-block text-uppercase rounded-pill btn-lg\\">
+              Login
+            </button>
+            <div className=\\"text-align-center\\" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

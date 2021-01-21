@@ -17,7 +17,8 @@ if(!props.auth.uid ) return <Redirect to='/log_in'/>
      <div className="container">
         <input className="form-control" id="searchUsers" placeholder="search users"
                  onChange={handleSearch} value={searchUsers} />
-         <table className={`table ${stylesFor.clientTable}`}>
+                 <div className='table-responsive'>
+         <table className={`table ${stylesFor.clientTable} table-hover`}>
          <thead>
           <tr className={stylesFor.trStyle}>
             <th scope="col">First Name</th>
@@ -31,6 +32,7 @@ if(!props.auth.uid ) return <Redirect to='/log_in'/>
              <PersonContainer searchUsers={searchUsers} />
          </tbody>
     </table>
+    </div>
      </div>
     );
 }
