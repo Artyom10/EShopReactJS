@@ -24,7 +24,7 @@ const newProduct = {
 describe('Testing productReducer', () => {
     it('new product should be added', () => {
         const action = addNewProduct(newProduct);
-        const newstate = productPagesReducer(state, action);
-        expect(newstate.products.length).toBe(3);
+        const newState = productPagesReducer(state, action);
+        expect(newState.products.length).toBe(3);
     });
 });

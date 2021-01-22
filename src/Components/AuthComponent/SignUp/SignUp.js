@@ -2,62 +2,22 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import stylesFor from "./SignUp.module.css";
 import  signUpSchema  from '../../../validation/signUpSchema';
-import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
-import { signUp } from "../../../redux/actions/authActions";
+
 
 const SignUp = (props) => {
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState("");
-  let [firstName, setFirstName] = useState("");
-  let [secondName, setSecondName] = useState("");
-  let [request, setRequest] = useState(false);
-  let [bags, setBags] = useState(null);
-  let [valuedProducts, setValuedProducts] = useState([]);
-
-  const handleChange = (e) => {
-    if (e.target.id === "email") {
-      setEmail(e.target.value);
-    } else if (e.target.id === "password") {
-      setPassword(e.target.value);
-    } else if (e.target.id === "firstName") {
-      setFirstName(e.target.value);
-    } else if (e.target.id === "secondName") {
-      setSecondName(e.target.value);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let ourState = {
-      email,
-      password,
-      firstName,
-      secondName,
-      request,
-      bags,
-      valuedProducts,
-    };
-    props.signUp(ourState);
-  };
-
-  /*const auth = useSelector((state) => state.firebase.auth);
-  const authError = useSelector((state) => state.auth.authError);
-  const dispatch = useDispatch();
-
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      secondName: "",
-      email: "",
-      password: "",
-
+      firstName: '',
+      secondName: '',
+      email: '',
+      password: '',
     },
     validationSchema: signUpSchema,
     onSubmit: (values) => {
-      dispatch(signUp(values));
+      props.signUp(values);
     },
-  });*/
+  });
 
   const { auth, authError } = props;
   if (auth.uid) return <Redirect to="/" />;
@@ -71,7 +31,7 @@ const SignUp = (props) => {
                 className={` ${stylesFor.containerSignup} d-flex  align-items-center justify-content-center`}
               >
                 <form
-                  onSubmit={handleSubmit}
+                  onSubmit={formik.handleSubmit}
                   className="login-form text-center"
                 >
                   <h1 className="mb-5 font-weight-light text-uppercase">
@@ -81,37 +41,49 @@ const SignUp = (props) => {
                     <input
                       type="text"
                       className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-                      placeholder="First Name"
+                      value={formik.values.firstName}
+                      name="firstName"
                       id="firstName"
-                      onChange={handleChange}
+                      onChange={formik.handleChange}
+                      placeholder="First Name"
                     />
+                    {formik.errors.firstName && <p className={stylesFor.emergency}>{formik.errors.firstName}</p>}
                   </div>
                   <div className="form-group">
                     <input
                       type="text"
                       className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-                      placeholder="Second Name"
+                      value={formik.values.secondName}
+                      name="secondName"
                       id="secondName"
-                      onChange={handleChange}
+                      onChange={formik.handleChange}
+                      placeholder="Second Name"
                     />
+                    {formik.errors.secondName && <p className={stylesFor.emergency}>{formik.errors.secondName}</p>}
                   </div>
                   <div className="form-group">
                     <input
                       type="email"
                       className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-                      placeholder="Email"
+                      value={formik.values.email}
+                      name="email"
                       id="email"
-                      onChange={handleChange}
+                      onChange={formik.handleChange}
+                      placeholder="Email"
                     />
+                    {formik.errors.email && <p className={stylesFor.emergency}>{formik.errors.email}</p>}
                   </div>
                   <div className="form-group">
                     <input
                       type="text"
                       className={`form-control rounded-pill form-control-lg ${stylesFor.control}`}
-                      placeholder="Password"
-                      onChange={handleChange}
+                      value={formik.values.password}
+                      name="password"
+                      onChange={formik.handleChange}
                       id="password"
+                      placeholder="Password"
                     />
+                    {formik.errors.password && <p className={stylesFor.emergency}>{formik.errors.password}</p>}
                   </div>
                   <button
                     type="submit"
